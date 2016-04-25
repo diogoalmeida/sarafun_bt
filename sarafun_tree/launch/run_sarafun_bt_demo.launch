@@ -1,0 +1,8 @@
+<launch>
+  <node name="GrabObjectAction" pkg="sarafun_tree" type="GrabObjectAction" />
+  <node name="ApproachObjectsAction" pkg="sarafun_tree" type="ApproachObjectsAction" />
+  <node name="FoldingAssemblyAction" pkg="sarafun_tree" type="FoldingAssemblyAction" />
+  <node name="InsertionWithDeformationAction" pkg="sarafun_tree" type="InsertionWithDeformationAction" />
+  <node name="PlaceAction" pkg="sarafun_tree" type="PlaceAction" />
+  <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo" />
+</launch>

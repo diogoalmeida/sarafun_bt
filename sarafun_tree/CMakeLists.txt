@@ -3,6 +3,7 @@ project(sarafun_tree)
 
 find_package(catkin REQUIRED COMPONENTS
   behavior_tree_leaves
+  behavior_tree_core
   roscpp
   std_msgs
   actionlib_msgs
@@ -12,7 +13,8 @@ find_package(catkin REQUIRED COMPONENTS
 link_directories(${catkin_LIBRARY_DIRS})
 
 catkin_package(
-  CATKIN_DEPENDS actionlib_msgs behavior_tree_leaves
+  CATKIN_DEPENDS actionlib_msgs behavior_tree_leaves behavior_tree_core
+  INCLUDE_DIRS include
 )
 
 include_directories(
@@ -34,3 +36,6 @@ target_link_libraries(InsertionWithDeformationAction ${catkin_LIBRARIES})
 
 add_executable(PlaceAction src/PlaceAction.cpp)
 target_link_libraries(PlaceAction ${catkin_LIBRARIES})
+
+add_executable(sarafun_bt_demo src/sarafun_bt_demo.cpp)
+target_link_libraries(sarafun_bt_demo ${catkin_LIBRARIES})
