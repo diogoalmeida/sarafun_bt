@@ -1,2 +1,5 @@
 # Catkin workspace cmake file
 CMakeLists.txt
+
+# ctags for text editor
+.tags*
