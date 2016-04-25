@@ -22,3 +22,15 @@ include_directories(
 
 add_executable(GrabObjectAction src/GrabObjectAction.cpp)
 target_link_libraries(GrabObjectAction ${catkin_LIBRARIES})
+
+add_executable(ApproachObjectsAction src/ApproachObjectsAction.cpp)
+target_link_libraries(ApproachObjectsAction ${catkin_LIBRARIES})
+
+add_executable(FoldingAssemblyAction src/FoldingAssemblyAction.cpp)
+target_link_libraries(FoldingAssemblyAction ${catkin_LIBRARIES})
+
+add_executable(InsertionWithDeformationAction src/InsertionWithDeformationAction.cpp)
+target_link_libraries(InsertionWithDeformationAction ${catkin_LIBRARIES})
+
+add_executable(PlaceAction src/PlaceAction.cpp)
+target_link_libraries(PlaceAction ${catkin_LIBRARIES})
