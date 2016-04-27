@@ -14,9 +14,9 @@ int GrabObjectAction::executionRoutine() {
 }
 
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "GraspObject");
+  ros::init(argc, argv, "GrabObject");
   sarafun::GrabObjectAction grab_action(ros::this_node::getName(),
-                                        "grasp_object_action");
+                                        "grab_object_action");
   ros::spin();
   return 1;
 }
