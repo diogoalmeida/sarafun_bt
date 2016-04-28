@@ -13,10 +13,10 @@ using namespace BT;
 int main(int argc, char **argv) {
   ros::init(argc, argv, "sarafun_bt_demo");
   try {
-    int TickPeriod_milliseconds = 50;
+    int TickPeriod_milliseconds = 1000;
 
     ROSAction *grab_action = new ROSAction("grab_object_action");
-    // ROSAction *grab_action2 = new ROSAction("grab_object_action");
+    ROSAction *grab_action2 = new ROSAction("grab_object_action");
     ROSAction *approach_objects_action =
         new ROSAction("approach_objects_action");
     ROSAction *folding_assembly_action =
@@ -30,18 +30,18 @@ int main(int argc, char **argv) {
     // SelectorStarNode *selector1 = new SelectorStarNode("sel1");
     // SequenceStarNode *sequence1 = new SequenceStarNode("seq1");
 
-    SelectorNode *selector1 = new SelectorNode("sel1");
-    SequenceNode *sequence1 = new SequenceNode("seq1");
+    SelectorStarNode *selector1 = new SelectorStarNode("sel1");
+    SequenceStarNode *sequence1 = new SequenceStarNode("seq1");
 
     // sequence1->GetType();
-    // sequence1->AddChild(grab_action2);
     sequence1->AddChild(grab_action);
+    sequence1->AddChild(grab_action2);
     sequence1->AddChild(approach_objects_action);
-    // selector1->AddChild(folding_assembly_action);
-    // selector1->AddChild(insertion_with_deformation_action);
-    sequence1->AddChild(folding_assembly_action);
-    sequence1->AddChild(insertion_with_deformation_action);
-    // sequence1->AddChild(selector1);
+    selector1->AddChild(folding_assembly_action);
+    selector1->AddChild(insertion_with_deformation_action);
+    // sequence1->AddChild(folding_assembly_action);
+    // sequence1->AddChild(insertion_with_deformation_action);
+    sequence1->AddChild(selector1);
     sequence1->AddChild(place_action);
 
     Execute(sequence1, TickPeriod_milliseconds);
