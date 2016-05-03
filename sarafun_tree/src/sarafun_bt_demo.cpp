@@ -58,7 +58,9 @@ int main(int argc, char **argv) {
 
     ControlNode *root = dynamic_cast<ControlNode *>(parser.parseTree());
 
-    Execute(root, TickPeriod_milliseconds);
+    if (root != nullptr) {
+      Execute(root, TickPeriod_milliseconds);
+    }
   } catch (BehaviorTreeException &Exception) {
     ROS_ERROR("%s", Exception.what());
   }

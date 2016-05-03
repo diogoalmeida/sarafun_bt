@@ -2,22 +2,43 @@
 
 namespace bt_parser {
 
-Parser::Parser(std::string filepath) {
-  file_.open(filepath);
-  file_ >> tree_j_;
+Parser::Parser(std::string filepath) { file_.open(filepath); }
+Parser::~Parser() { file_.close(); }
+
+void Parser::verifyNode(json node) {
+  if (!node.count("id") || !node.count("type") || !node.count("name")) {
+    std::string error_message("The BT JSON file nodes must all have the 'id', "
+                              "'type' and 'name' members!");
+    throw std::logic_error(error_message);
+  }
 }
 
 BT::TreeNode *Parser::parseTree() {
-  std::string root_id = tree_j_["root"];
+  try {
+    file_ >> tree_j_;
 
-  json root_node = tree_j_["nodes"][root_id];
+    if (!tree_j_.count("root") || !tree_j_.count("nodes")) {
+      throw std::logic_error(
+          std::string("The tree file must declare 'root' and 'nodes' members "
+                      "at the base level!"));
+    }
+    std::string root_id = tree_j_["root"];
 
-  return parseTree(root_node);
+    json root_node = tree_j_["nodes"][root_id];
+
+    return parseTree(root_node);
+  } catch (const std::exception &e) {
+    ROS_ERROR("Error parsing BT json file: %s.", e.what());
+  }
+  return nullptr;
 }
 
 BT::TreeNode *Parser::parseTree(json node) {
+  verifyNode(node);
+
   std::string type = node["type"];
   std::string id = node["id"];
+
   bool is_leaf = false;
   BT::TreeNode *bt_node;
 

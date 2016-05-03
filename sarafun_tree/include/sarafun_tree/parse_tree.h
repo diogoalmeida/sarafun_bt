@@ -12,6 +12,8 @@ namespace bt_parser {
 class Parser {
 public:
   Parser(std::string filepath);
+  ~Parser();
+
   BT::TreeNode *parseTree();
 
 private:
@@ -19,6 +21,7 @@ private:
   json tree_j_;
 
   BT::TreeNode *parseTree(json node);
+  void verifyNode(json node);
 };
 }
 

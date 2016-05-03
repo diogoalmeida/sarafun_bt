@@ -29,7 +29,7 @@
         "selector1",
         "place_action"
       ]
-    },
+  },
     "selector1": {
       "id": "selector1",
       "type": "SelectorStar",
