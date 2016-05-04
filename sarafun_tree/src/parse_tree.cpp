@@ -6,15 +6,29 @@ Parser::Parser(std::string filepath) { file_.open(filepath); }
 Parser::~Parser() { file_.close(); }
 
 void Parser::verifyNode(json node) {
-  if (!node.count("id") || !node.count("type") || !node.count("name")) {
+  if (!node.count("name")) {
+    std::string id = node["id"];
+    std::string error_message("The BT JSON file nodes must all have the 'name' "
+                              "member! Offending node has id: ");
+
+    error_message = error_message + id;
+
+    throw std::logic_error(error_message);
+  }
+  if (!node.count("id") || !node.count("type")) {
+    std::string name = node["name"];
     std::string error_message("The BT JSON file nodes must all have the 'id', "
-                              "'type' and 'name' members!");
+                              "'type' members! Offending node has name: ");
+
+    error_message = error_message + name;
+
     throw std::logic_error(error_message);
   }
 }
 
 BT::TreeNode *Parser::parseTree() {
   try {
+    current_id_ = "root";
     file_ >> tree_j_;
 
     if (!tree_j_.count("root") || !tree_j_.count("nodes")) {
@@ -27,8 +41,14 @@ BT::TreeNode *Parser::parseTree() {
     json root_node = tree_j_["nodes"][root_id];
 
     return parseTree(root_node);
+
+  } catch (const std::invalid_argument &e) {
+    ROS_ERROR("Error parsing BT json file: %s. Current id: %s", e.what(),
+              current_id_.c_str());
+  } catch (const std::logic_error &e) {
+    ROS_ERROR("Error with BT Node: %s.", e.what());
   } catch (const std::exception &e) {
-    ROS_ERROR("Error parsing BT json file: %s.", e.what());
+    ROS_ERROR("Unknown exception: %s.", e.what());
   }
   return nullptr;
 }
@@ -38,6 +58,7 @@ BT::TreeNode *Parser::parseTree(json node) {
 
   std::string type = node["type"];
   std::string id = node["id"];
+  current_id_ = id;
 
   bool is_leaf = false;
   BT::TreeNode *bt_node;

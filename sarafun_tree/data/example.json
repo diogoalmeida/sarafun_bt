@@ -6,11 +6,11 @@
   "description": "",
   "code": "",
   "header": "",
-  "root": "seq1",
+  "root": "sequence1",
   "properties": {},
   "nodes": {
-    "seq1": {
-      "id": "seq1",
+    "sequence1": {
+      "id": "sequence1",
       "type": "SequenceStar",
       "name": "SequenceStar",
       "description": "",
@@ -29,7 +29,7 @@
         "selector1",
         "place_action"
       ]
-  },
+    },
     "selector1": {
       "id": "selector1",
       "type": "SelectorStar",
@@ -46,6 +46,24 @@
       "children": [
         "folding_assembly_action",
         "insertion_with_deformation_action"
+      ]
+    },
+    "sequence2": {
+      "id": "sequence2",
+      "type": "SequenceStar",
+      "name": "SequenceStar",
+      "description": "",
+      "code": "",
+      "header": "",
+      "language": "",
+      "properties": {},
+      "display": {
+        "x": -48,
+        "y": 24
+      },
+      "children": [
+        "approach_objects_action",
+        "grab_action"
       ]
     },
     "grab_action": {

@@ -19,6 +19,7 @@ public:
 private:
   std::ifstream file_;
   json tree_j_;
+  std::string current_id_;
 
   BT::TreeNode *parseTree(json node);
   void verifyNode(json node);
