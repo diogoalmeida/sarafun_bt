@@ -1,5 +1,6 @@
 #ifndef __EXECUTE_ACTION__
 #define __EXECUTE_ACTION__
+
 #include <ros/ros.h>
 #include <behavior_tree_leaves/ActionTemplate.h>
 #include <actionlib/client/simple_action_client.h>
@@ -24,6 +25,7 @@ public:
   virtual ~ExecuteAction();
 
   int executionRoutine();
+  void preemptionRoutine();
 
 protected:
   /*
@@ -44,6 +46,11 @@ protected:
   void fillParameter(std::string param_name, std::string def,
                      std::string &param_val);
   void fillParameter(std::string param_name, double def, double &param_val);
+
+  /*
+      Checks if BT action execution is allowed
+  */
+  bool isSystemActive();
 
 private:
   actionlib::SimpleActionClient<ActionClass> *action_client_;
@@ -81,6 +88,11 @@ bool ExecuteAction<ActionClass, ActionGoal>::isSystemActive() {
               "for a BT action to run!");
   }
   return false;
+}
+
+template <class ActionClass, class ActionGoal>
+void ExecuteAction<ActionClass, ActionGoal>::preemptionRoutine() {
+  ROS_WARN("The node %s was preempted", action_name_.c_str());
 }
 
 template <class ActionClass, class ActionGoal>

@@ -25,5 +25,4 @@ private:
   void verifyNode(json node);
 };
 }
-
 #endif

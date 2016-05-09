@@ -4,6 +4,8 @@ project(sarafun_tree)
 find_package(catkin REQUIRED COMPONENTS
   behavior_tree_leaves
   behavior_tree_core
+  sarafun_manipulation
+  sarafun_assembly
   roscpp
   std_msgs
   actionlib_msgs
