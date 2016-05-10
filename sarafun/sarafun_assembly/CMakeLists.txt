@@ -3,6 +3,7 @@ project(sarafun_assembly)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  sarafun_generic_al_server
   actionlib_msgs
   actionlib
 )
@@ -28,8 +29,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(Folding src/Folding.cpp)
-target_link_libraries(Folding ${catkin_LIBRARIES})
+add_executable(FoldingDummy src/FoldingDummy.cpp)
+target_link_libraries(FoldingDummy ${catkin_LIBRARIES})
 
-add_executable(Insertion src/Insertion.cpp)
-target_link_libraries(Insertion ${catkin_LIBRARIES})
+add_executable(InsertionDummy src/InsertionDummy.cpp)
+target_link_libraries(InsertionDummy ${catkin_LIBRARIES})

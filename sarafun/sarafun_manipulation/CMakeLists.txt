@@ -3,6 +3,7 @@ project(sarafun_manipulation)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  sarafun_generic_al_server
   actionlib_msgs
   actionlib
 )
@@ -28,8 +29,11 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(Approach src/Approach.cpp)
-target_link_libraries(Approach ${catkin_LIBRARIES})
+add_executable(ApproachDummy src/ApproachDummy.cpp)
+target_link_libraries(ApproachDummy ${catkin_LIBRARIES})
 
-add_executable(Grab src/Grab.cpp)
-target_link_libraries(Grab ${catkin_LIBRARIES})
+add_executable(GrabDummy src/GrabDummy.cpp)
+target_link_libraries(GrabDummy ${catkin_LIBRARIES})
+
+add_executable(PlaceDummy src/PlaceDummy.cpp)
+target_link_libraries(PlaceDummy ${catkin_LIBRARIES})
