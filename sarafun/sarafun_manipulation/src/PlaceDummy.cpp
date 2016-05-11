@@ -10,5 +10,6 @@ int main(int argc, char **argv) {
   ros::init(argc, argv, "place_action_test");
   sarafun::TestPlace action(ros::this_node::getName(),
                             "/sarafun/manipulation/place");
+  ros::spin();
   return -1;
 }

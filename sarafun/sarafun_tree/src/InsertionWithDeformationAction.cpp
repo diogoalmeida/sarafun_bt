@@ -17,7 +17,7 @@ bool InsertionWithDeformationAction::fillGoal(
 int main(int argc, char **argv) {
   ros::init(argc, argv, "InsertionWithDeformation");
   sarafun::InsertionWithDeformationAction insertion_action(
-      ros::this_node::getName(), "insertion_with_deformation_al",
+      ros::this_node::getName(), "/sarafun/assembly/insertion",
       "insertion_with_deformation_action");
   ros::spin();
   return 1;

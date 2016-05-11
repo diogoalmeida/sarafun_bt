@@ -15,8 +15,8 @@ bool PlaceAction::fillGoal(sarafun_manipulation::PlaceGoal &goal) {
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "Place");
-  sarafun::PlaceAction place_action(ros::this_node::getName(), "place_al",
-                                    "place_action");
+  sarafun::PlaceAction place_action(
+      ros::this_node::getName(), "/sarafun/manipulation/place", "place_action");
   ros::spin();
   return 1;
 }

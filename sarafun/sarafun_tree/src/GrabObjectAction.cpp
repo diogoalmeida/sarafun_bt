@@ -15,7 +15,8 @@ bool GrabObjectAction::fillGoal(sarafun_manipulation::GrabGoal &goal) {
 int main(int argc, char **argv) {
   ros::init(argc, argv, "GrabObject");
   sarafun::GrabObjectAction grab_action(ros::this_node::getName(),
-                                        "grab_object_al", "grab_object_action");
+                                        "/sarafun/manipulation/grab",
+                                        "grab_object_action");
   ros::spin();
   return 1;
 }

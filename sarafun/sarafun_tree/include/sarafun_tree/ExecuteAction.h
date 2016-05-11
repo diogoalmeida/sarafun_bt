@@ -84,8 +84,8 @@ bool ExecuteAction<ActionClass, ActionGoal>::isSystemActive() {
       return true;
     }
   } else {
-    ROS_ERROR("The parameter /sarafun/bt/running must be set"
-              "for a BT action to run!");
+    ROS_WARN("The parameter /sarafun/bt/running must be set"
+             "for a BT action to run!");
   }
   return false;
 }

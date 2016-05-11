@@ -15,9 +15,9 @@ double ApproachObjectsAction::getTimeoutValue() {
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "ApproachObjects");
-  sarafun::ApproachObjectsAction approach_action(ros::this_node::getName(),
-                                                 "approach_objects_al",
-                                                 "approach_objects_action");
+  sarafun::ApproachObjectsAction approach_action(
+      ros::this_node::getName(), "/sarafun/manipulation/approach",
+      "approach_objects_action");
   ros::spin();
   return 1;
 }

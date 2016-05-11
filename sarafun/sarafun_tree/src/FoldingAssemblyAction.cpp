@@ -16,7 +16,7 @@ bool FoldingAssemblyAction::fillGoal(sarafun_assembly::FoldingGoal &goal) {
 int main(int argc, char **argv) {
   ros::init(argc, argv, "FoldingAssembly");
   sarafun::FoldingAssemblyAction fold_action(ros::this_node::getName(),
-                                             "folding_assembly_al",
+                                             "/sarafun/assembly/folding",
                                              "folding_assembly_action");
   ros::spin();
   return 1;

@@ -42,6 +42,8 @@ TestServer<ActionClass, ActionGoalConstPtr, ActionFeedback,
                      boost::bind(&TestServer::executeCB, this, _1), false),
       action_name_(actionlib_name) {
   action_server_.start();
+
+  ROS_INFO("Started test server %s!", actionlib_name.c_str());
 }
 
 template <class ActionClass, class ActionGoalConstPtr, class ActionFeedback,

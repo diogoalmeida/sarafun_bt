@@ -11,5 +11,6 @@ int main(int argc, char **argv) {
   ros::init(argc, argv, "approach_action_test");
   sarafun::TestApproach action(ros::this_node::getName(),
                                "/sarafun/manipulation/approach");
+  ros::spin();
   return -1;
 }

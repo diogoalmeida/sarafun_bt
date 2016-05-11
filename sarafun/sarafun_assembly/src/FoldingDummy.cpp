@@ -10,5 +10,6 @@ int main(int argc, char **argv) {
   ros::init(argc, argv, "folding_action_test");
   sarafun::TestFolding action(ros::this_node::getName(),
                               "/sarafun/assembly/folding");
+  ros::spin();
   return -1;
 }
