@@ -1,0 +1,6 @@
+- git:
+    local-name: ROS-Behavior-Tree
+    uri: https://github.com/diogoalmeida/ROS-Behavior-Tree.git
+- git:
+    local-name: sarafun_bt
+    uri: https://gits-15.sys.kth.se/KTH-APC/apc_install.git
