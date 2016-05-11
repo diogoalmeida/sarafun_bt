@@ -31,6 +31,8 @@ include_directories(
 
 add_executable(FoldingDummy src/FoldingDummy.cpp)
 target_link_libraries(FoldingDummy ${catkin_LIBRARIES})
+add_dependencies(FoldingDummy ${sarafun_assembly_EXPORTED_TARGETS})
 
 add_executable(InsertionDummy src/InsertionDummy.cpp)
 target_link_libraries(InsertionDummy ${catkin_LIBRARIES})
+add_dependencies(InsertionDummy ${sarafun_assembly_EXPORTED_TARGETS})

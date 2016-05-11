@@ -31,9 +31,12 @@ include_directories(
 
 add_executable(ApproachDummy src/ApproachDummy.cpp)
 target_link_libraries(ApproachDummy ${catkin_LIBRARIES})
+add_dependencies(ApproachDummy ${sarafun_manipulation_EXPORTED_TARGETS})
 
 add_executable(GrabDummy src/GrabDummy.cpp)
 target_link_libraries(GrabDummy ${catkin_LIBRARIES})
+add_dependencies(GrabDummy ${sarafun_manipulation_EXPORTED_TARGETS})
 
 add_executable(PlaceDummy src/PlaceDummy.cpp)
 target_link_libraries(PlaceDummy ${catkin_LIBRARIES})
+add_dependencies(PlaceDummy ${sarafun_manipulation_EXPORTED_TARGETS})
