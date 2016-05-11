@@ -1,5 +1,5 @@
 <launch>
-  <arg name="demo" default="true"/>
+  <arg name="demo" default="false"/>
 
   <!-- Timeout parameters -->
   <param name="/sarafun/bt/approach_objects/timeout" type="double" value="10.0"/>
@@ -7,6 +7,8 @@
   <param name="/sarafun/bt/folding_assembly/timeout" type="double" value="10.0"/>
   <param name="/sarafun/bt/insertion_deformation/timeout" type="double" value="10.0"/>
   <param name="/sarafun/bt/place/timeout" type="double" value="10.0"/>
+
+
 
   <!-- Launch the Behavior tree action nodes -->
   <node name="GrabObjectAction" pkg="sarafun_tree" type="GrabObjectAction" output="screen"/>
@@ -18,8 +20,11 @@
   <!-- Launch the tree client -->
   <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo"/>
 
-  <!-- Dummy actionlib servers for demo purposes -->
   <group if="$(arg demo)">
+      <!-- In case of a demo, immediatelly start the behavior tree -->
+      <param name="/sarafun/bt/running" type="bool" value="true"/>
+
+      <!-- Dummy actionlib servers for demo purposes -->
       <node name="ApproachDummy" pkg="sarafun_manipulation" type="ApproachDummy" output="screen"/>
       <node name="GrabDummy" pkg="sarafun_manipulation" type="GrabDummy" output="screen"/>
       <node name="PlaceDummy" pkg="sarafun_manipulation" type="PlaceDummy" output="screen"/>
