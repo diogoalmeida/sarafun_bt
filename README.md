@@ -24,21 +24,9 @@ $ sudo apt-get install gcc-4.9
 ```
 then do
 ```
-$ sudo update-alternatives --config gcc
+$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 20
 ```
-and you should get an output similar to the following
-```
-There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
-
-  Selection    Path              Priority   Status
-------------------------------------------------------------
-* 0            /usr/bin/gcc-4.8   100       auto mode
-  1            /usr/bin/gcc-4.8   100       manual mode
-  2            /usr/bin/gcc-4.9   10        manual mode
-
-Press enter to keep the current choice[*], or type selection number:
-```
-type the selection number corresponding to gcc 4.9 and your system should now be correctly configured.
+and your system should now be correctly configured.
 
 ### ROS packages
 If you do not have a created catkin workspace, create one by doing
