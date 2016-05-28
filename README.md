@@ -16,15 +16,11 @@ Instalation
 -----
 
 ### Compiler
-There is an [issue](https://github.com/nlohmann/json/pull/212) with gcc 4.8 that prevents compiling the json parser used in this project. So first, make sure you are using a more recent version of gcc. In ubuntu this can be achieved by doing
+There is an [issue](https://github.com/nlohmann/json/pull/212) with gcc 4.8 that prevents compiling the json parser used in this project. So first, make sure you have a more recent version of gcc. In ubuntu this can be achieved by doing
 ```
 $ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 $ sudo apt-get update
 $ sudo apt-get install gcc-4.9 g++-4.9
-```
-then do
-```
-$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
 ```
 and your system should now be correctly configured.
 
@@ -42,7 +38,7 @@ $ wstool init
 $ wstool merge https://raw.githubusercontent.com/diogoalmeida/sarafun_bt/master/.rosinstall
 $ wstool update
 ```
-This will download the ```ROS-Behavior-Tree``` package, as well as the SARAFun packages required for running the demo. Compile the packages by doing ```$ catkin_make install``` at the root of your workspace. After compiling, do not forget to source the workspace:
+This will download the ```ROS-Behavior-Tree``` package, as well as the SARAFun packages required for running the demo. Compile the packages by doing ```$ catkin_make -DCMAKE_CXX_COMPILER=/usr/bin/g++-4.9 install``` at the root of your workspace. After compiling, do not forget to source the workspace:
 ```
 $ source devel/setup.bash
 ```
