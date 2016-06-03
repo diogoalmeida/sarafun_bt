@@ -40,5 +40,8 @@ target_link_libraries(InsertionWithDeformationAction ${catkin_LIBRARIES})
 add_executable(PlaceAction src/PlaceAction.cpp)
 target_link_libraries(PlaceAction ${catkin_LIBRARIES})
 
+add_executable(OnlineMotionAction src/OnlineMotionAction.cpp)
+target_link_libraries(OnlineMotionAction ${catkin_LIBRARIES})
+
 add_executable(sarafun_bt_demo src/sarafun_bt_demo.cpp src/parse_tree.cpp)
 target_link_libraries(sarafun_bt_demo ${catkin_LIBRARIES})

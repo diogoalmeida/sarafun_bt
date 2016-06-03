@@ -138,7 +138,7 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
     }
   } else {
     ROS_ERROR("Action %s timeout! Cancelling goals...", action_name_.c_str());
-
+    action_client_->cancelAllGoals();
     return -1;
   }
 }

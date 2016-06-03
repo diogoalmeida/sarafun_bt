@@ -1,0 +1,44 @@
+{
+  "version": "0.1",
+  "scope": "tree",
+  "id": "tree_id",
+  "title": "A behavior tree",
+  "description": "",
+  "code": "",
+  "header": "",
+  "root": "sequence1",
+  "properties": {},
+  "nodes": {
+    "sequence1": {
+      "id": "sequence1",
+      "type": "SequenceStar",
+      "name": "SequenceStar",
+      "description": "",
+      "code": "",
+      "header": "",
+      "language": "",
+      "properties": {},
+      "display": {
+        "x": -48,
+        "y": 24
+      },
+      "children": [
+        "move_action"
+      ]
+    },
+    "move_action": {
+        "id": "move_action",
+        "type": "Action",
+        "name": "move_action",
+        "description": "",
+        "code": "",
+        "header": "",
+        "language": "c++",
+        "properties": {},
+        "display": {
+          "x": -180,
+          "y": 252
+        }
+    }
+  }
+}

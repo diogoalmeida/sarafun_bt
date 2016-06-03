@@ -1,5 +1,6 @@
 <launch>
-  <arg name="demo" default="false"/>
+  <arg name="demo1" default="false"/>
+  <arg name="demo2" default="false"/>
 
   <!-- Timeout parameters -->
   <param name="/sarafun/bt/approach_objects/timeout" type="double" value="10.0"/>
@@ -8,21 +9,20 @@
   <param name="/sarafun/bt/insertion_deformation/timeout" type="double" value="10.0"/>
   <param name="/sarafun/bt/place/timeout" type="double" value="10.0"/>
 
-
-
-  <!-- Launch the Behavior tree action nodes -->
-  <node name="GrabObjectAction" pkg="sarafun_tree" type="GrabObjectAction" output="screen"/>
-  <node name="ApproachObjectsAction" pkg="sarafun_tree" type="ApproachObjectsAction" output="screen"/>
-  <node name="FoldingAssemblyAction" pkg="sarafun_tree" type="FoldingAssemblyAction" output="screen"/>
-  <node name="InsertionWithDeformationAction" pkg="sarafun_tree" type="InsertionWithDeformationAction" output="screen"/>
-  <node name="PlaceAction" pkg="sarafun_tree" type="PlaceAction" output="screen"/>
-
   <!-- Launch the tree client -->
   <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo"/>
 
-  <group if="$(arg demo)">
+  <group if="$(arg demo1)">
+      <param name="/sarafun/bt/file" type="string" value="example_demo1.json"/>
       <!-- In case of a demo, immediatelly start the behavior tree -->
       <param name="/sarafun/bt/running" type="bool" value="true"/>
+
+      <!-- Launch the Behavior tree action nodes -->
+      <node name="GrabObjectAction" pkg="sarafun_tree" type="GrabObjectAction" output="screen"/>
+      <node name="ApproachObjectsAction" pkg="sarafun_tree" type="ApproachObjectsAction" output="screen"/>
+      <node name="FoldingAssemblyAction" pkg="sarafun_tree" type="FoldingAssemblyAction" output="screen"/>
+      <node name="InsertionWithDeformationAction" pkg="sarafun_tree" type="InsertionWithDeformationAction" output="screen"/>
+      <node name="PlaceAction" pkg="sarafun_tree" type="PlaceAction" output="screen"/>
 
       <!-- Dummy actionlib servers for demo purposes -->
       <node name="ApproachDummy" pkg="sarafun_manipulation" type="ApproachDummy" output="screen"/>
@@ -30,5 +30,19 @@
       <node name="PlaceDummy" pkg="sarafun_manipulation" type="PlaceDummy" output="screen"/>
       <node name="FoldingDummy" pkg="sarafun_assembly" type="FoldingDummy" output="screen"/>
       <node name="InsertionDummy" pkg="sarafun_assembly" type="InsertionDummy" output="screen"/>
+  </group>
+
+  <group if="$(arg demo2)">
+      <param name="/sarafun/bt/file" type="string" value="example_demo2.json"/>
+      <!-- In case of a demo, immediatelly start the behavior tree -->
+      <param name="/sarafun/bt/running" type="bool" value="true"/>
+      <param name="/sarafun/bt/online_motion/timeout" type="double" value="10"/>
+      <!-- Launch the Behavior tree action nodes -->
+      <node name="OnlineMotionAction" pkg="sarafun_tree" type="OnlineMotionAction" output="screen"/>
+
+      <!-- <node name="OnlineMotion" pkg="sarafun_hqp_omg" type="sarafun_hqp_omg" output="screen"/> -->
+      <include file="$(find sarafun_hqp_omg)/launch/hqp.launch">
+          <arg name="simmode"  value="true" />
+      </include>
   </group>
 </launch>
