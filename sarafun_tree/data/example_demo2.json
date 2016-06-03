@@ -23,13 +23,13 @@
         "y": 24
       },
       "children": [
-        "move_action"
+        "online_motion_action"
       ]
     },
-    "move_action": {
-        "id": "move_action",
+    "online_motion_action": {
+        "id": "online_motion_action",
         "type": "Action",
-        "name": "move_action",
+        "name": "online_motion_action",
         "description": "",
         "code": "",
         "header": "",

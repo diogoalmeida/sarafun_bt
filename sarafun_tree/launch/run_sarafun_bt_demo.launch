@@ -2,19 +2,20 @@
   <arg name="demo1" default="false"/>
   <arg name="demo2" default="false"/>
 
-  <!-- Timeout parameters -->
-  <param name="/sarafun/bt/approach_objects/timeout" type="double" value="10.0"/>
-  <param name="/sarafun/bt/grab_object/timeout" type="double" value="10.0"/>
-  <param name="/sarafun/bt/folding_assembly/timeout" type="double" value="10.0"/>
-  <param name="/sarafun/bt/insertion_deformation/timeout" type="double" value="10.0"/>
-  <param name="/sarafun/bt/place/timeout" type="double" value="10.0"/>
-
   <!-- Launch the tree client -->
   <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo"/>
 
   <group if="$(arg demo1)">
       <param name="/sarafun/bt/file" type="string" value="example_demo1.json"/>
-      <!-- In case of a demo, immediatelly start the behavior tree -->
+
+      <!-- Timeout parameters -->
+      <param name="/sarafun/bt/approach_objects/timeout" type="double" value="10.0"/>
+      <param name="/sarafun/bt/grab_object/timeout" type="double" value="10.0"/>
+      <param name="/sarafun/bt/folding_assembly/timeout" type="double" value="10.0"/>
+      <param name="/sarafun/bt/insertion_deformation/timeout" type="double" value="10.0"/>
+      <param name="/sarafun/bt/place/timeout" type="double" value="10.0"/>
+
+      <!-- In case of demo1, immediatelly start the behavior tree -->
       <param name="/sarafun/bt/running" type="bool" value="true"/>
 
       <!-- Launch the Behavior tree action nodes -->
@@ -34,9 +35,10 @@
 
   <group if="$(arg demo2)">
       <param name="/sarafun/bt/file" type="string" value="example_demo2.json"/>
-      <!-- In case of a demo, immediatelly start the behavior tree -->
-      <param name="/sarafun/bt/running" type="bool" value="true"/>
-      <param name="/sarafun/bt/online_motion/timeout" type="double" value="10"/>
+      <param name="/sarafun/bt/online_motion/timeout" type="double" value="20.0"/>
+
+      <param name="/sarafun/bt/running" type="bool" value="false"/>
+
       <!-- Launch the Behavior tree action nodes -->
       <node name="OnlineMotionAction" pkg="sarafun_tree" type="OnlineMotionAction" output="screen"/>
 

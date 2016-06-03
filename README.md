@@ -45,18 +45,24 @@ $ source devel/setup.bash
 
 Running the demo
 ----
-To run the demo, type
+This package provides two demos:
+*  The first demo is used to illustrate the BT functionality. It runs the tree defined in ```sarafun_tree/data/example_demo1.json```, and each action will prompt the user to enter the key "p" for preempting the action, "a" to abort it and anything else to succeed. Preempting or aborting an action results in a ```FAILURE``` state in the behavior tree. Edit the ```sarafun_tree/data/example_demo1.json``` file in order to test different tree configurations!
+To run this demo, type
 ```
-$ roslaunch sarafun_tree run_sarafun_bt_demo.launch demo:=true
+$ roslaunch sarafun_tree run_sarafun_bt_demo.launch demo1:=true
 ```
-Notice that, everytime an action is called, it will prompt the user to enter the key "p" for preempting the action, "a" to abort it and anything else to succeed. Preempting or aborting an action results in a ```FAILURE``` state in the behavior tree.
+*  The second demo showcases an example of an action that is preempted. We modified the [online motion generator provided CERTH](https://github.com/auth-arl/sarafun_online_motion_generation) so that it implements an actionlib server. The modified code can be found [here](https://github.com/diogoalmeida/sarafun_online_motion_generation) and illustrates how an action should take into account that it can be preempted.
+To run this demo, type
+```
+$ roslaunch sarafun_tree run_sarafun_bt_demo.launch demo2:=true
+```
 
 Creating a different tree
 ----
 The behavior tree package takes a json file as input in order to generate the tree. The file is located in ```sarafun_tree/data``` and its name is given by the ROS parameter ```/sarafun/bt/file```. If the parameter is not set, it will use the default name ```example.json```.
 
 The file defines the tree by specifying its root and a list of nodes. A node can be a flow control node or a leaf node. It is defined by its ```id```, ```type``` and ```name``` tags and, for the flow control nodes only, by a list of children (```children```) which contains the ```id```s of the children nodes.
-The ```id``` tag should be unique, and it is used to refer to a particular instance of the behavior tree node. ```type``` determines the what is the node functionality (see [below](#Currently-supported-node-types)). Finally, the ```name``` tag is currently only used by the leaf nodes. It specifies the actionlib server name that the concrete action implementation uses and it is used by the behavior tree in order to call the server. 
+The ```id``` tag should be unique, and it is used to refer to a particular instance of the behavior tree node. ```type``` determines the what is the node functionality (see [below](#Currently-supported-node-types)). Finally, the ```name``` tag is currently only used by the leaf nodes. It specifies the actionlib server name that the concrete action implementation uses and it is used by the behavior tree in order to call the server.
 
 A simple example is as follows
 ```json

@@ -14,9 +14,10 @@ bool OnlineMotionAction::fillGoal(sarafun_hqp_omg::OnlineMotionGoal &goal) {
 }
 
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "move_action");
-  sarafun::OnlineMotionAction move_action(
-      ros::this_node::getName(), "/sarafun/motion/online", "move_action");
+  ros::init(argc, argv, "online_motion_action");
+
+  sarafun::OnlineMotionAction online_motion_action(
+      ros::this_node::getName(), "/sarafun/motion/online", "online_motion_action");
   ros::spin();
   return 1;
 }
