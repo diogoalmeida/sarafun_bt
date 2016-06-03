@@ -16,29 +16,13 @@ Instalation
 -----
 
 ### Compiler
-There is an [issue](https://github.com/nlohmann/json/pull/212) with gcc 4.8 that prevents compiling the json parser used in this project. So first, make sure you are using a more recent version of gcc. In ubuntu this can be achieved by doing
+There is an [issue](https://github.com/nlohmann/json/pull/212) with gcc 4.8 that prevents compiling the json parser used in this project. So first, make sure you have a more recent version of gcc. In ubuntu this can be achieved by doing
 ```
 $ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 $ sudo apt-get update
-$ sudo apt-get install gcc-4.9
+$ sudo apt-get install gcc-4.9 g++-4.9
 ```
-then do
-```
-$ sudo update-alternatives --config gcc
-```
-and you should get an output similar to the following
-```
-There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
-
-  Selection    Path              Priority   Status
-------------------------------------------------------------
-* 0            /usr/bin/gcc-4.8   100       auto mode
-  1            /usr/bin/gcc-4.8   100       manual mode
-  2            /usr/bin/gcc-4.9   10        manual mode
-
-Press enter to keep the current choice[*], or type selection number:
-```
-type the selection number corresponding to gcc 4.9 and your system should now be correctly configured.
+and your system should now be correctly configured.
 
 ### ROS packages
 If you do not have a created catkin workspace, create one by doing
@@ -54,7 +38,7 @@ $ wstool init
 $ wstool merge https://raw.githubusercontent.com/diogoalmeida/sarafun_bt/master/.rosinstall
 $ wstool update
 ```
-This will download the ```ROS-Behavior-Tree``` package, as well as the SARAFun packages required for running the demo. Compile the packages by doing ```$ catkin_make install``` at the root of your workspace. After compiling, do not forget to source the workspace:
+This will download the ```ROS-Behavior-Tree``` package, as well as the SARAFun packages required for running the demo. Compile the packages by doing ```$ catkin_make -DCMAKE_CXX_COMPILER=/usr/bin/g++-4.9 install``` at the root of your workspace. After compiling, do not forget to source the workspace:
 ```
 $ source devel/setup.bash
 ```
@@ -72,7 +56,7 @@ Creating a different tree
 The behavior tree package takes a json file as input in order to generate the tree. The file is located in ```sarafun_tree/data``` and its name is given by the ROS parameter ```/sarafun/bt/file```. If the parameter is not set, it will use the default name ```example.json```.
 
 The file defines the tree by specifying its root and a list of nodes. A node can be a flow control node or a leaf node. It is defined by its ```id```, ```type``` and ```name``` tags and, for the flow control nodes only, by a list of children (```children```) which contains the ```id```s of the children nodes.
-The ```id``` tag should be unique, and it is used to refer to a particular instance of the behavior tree node. ```type``` determines the what is the node functionality (see [below](#Currently supported node types)). Finally, the ```name``` tag is currently only used by the leaf nodes. It specifies the actionlib server name that the concrete action implementation uses and it is used by the behavior tree in order to call the server. 
+The ```id``` tag should be unique, and it is used to refer to a particular instance of the behavior tree node. ```type``` determines the what is the node functionality (see [below](#Currently-supported-node-types)). Finally, the ```name``` tag is currently only used by the leaf nodes. It specifies the actionlib server name that the concrete action implementation uses and it is used by the behavior tree in order to call the server. 
 
 A simple example is as follows
 ```json
