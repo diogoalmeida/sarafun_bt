@@ -57,6 +57,8 @@ To run this demo, type
 $ roslaunch sarafun_tree run_sarafun_bt_demo.launch demo2:=true
 ```
 
+This will run a simple tree with 5 actions. Each action will command the robot to move to a different position. The last two actions are subordinated to a selector node. The fourth motion action commands the robot to an unatainable position, and will be preempted after the alocated timeout value. The server is the called again for the final position. 
+
 Creating a different tree
 ----
 The behavior tree package takes a json file as input in order to generate the tree. The file is located in ```sarafun_tree/data``` and its name is given by the ROS parameter ```/sarafun/bt/file```. If the parameter is not set, it will use the default name ```example.json```.
