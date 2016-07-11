@@ -3,7 +3,7 @@
   <arg name="demo2" default="false"/>
 
   <!-- Launch the tree client -->
-  <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo"/>
+  <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo" output="screen"/>
 
   <group if="$(arg demo1)" >
 	  <group unless="$(arg demo2)">
@@ -40,6 +40,7 @@
       <param name="/sarafun/bt/online_motion/timeout" type="double" value="20.0"/>
 
       <param name="/sarafun/bt/running" type="bool" value="false"/>
+	  <param name="/IsSimple/count_limit" type="int" value="24"/>
 
 	  <!-- Load the parameters for the motion commands -->
 	  <rosparam command="load" file="$(find sarafun_tree)/data/motion_params.yaml"/>
@@ -50,7 +51,8 @@
 	  <node name="motion_3" pkg="sarafun_tree" type="OnlineMotionAction" output="screen"/>
 	  <node name="motion_4" pkg="sarafun_tree" type="OnlineMotionAction" output="screen"/>
 	  <node name="motion_5" pkg="sarafun_tree" type="OnlineMotionAction" output="screen"/>
-	  
+	  <node name="IsSimple" pkg="sarafun_tree" type="IsSimple" output="screen"/>
+
       <!-- <node name="OnlineMotion" pkg="sarafun_hqp_omg" type="sarafun_hqp_omg" output="screen"/> -->
       <include file="$(find sarafun_hqp_omg)/launch/hqp.launch">
           <arg name="simmode"  value="true" />

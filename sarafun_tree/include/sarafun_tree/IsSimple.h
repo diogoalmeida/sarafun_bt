@@ -10,8 +10,9 @@ public:
 	IsSimple(std::string node_name, std::string bt_name) : ConditionTemplate(bt_name){
 		node_handle_ = ros::NodeHandle(node_name);
 
-		counter = 0;
-		ros::param::get(node_name + "/count_limit", condition_limit);
+		counter_ = 0;
+		ros::param::get(node_name + "/count_limit", condition_limit_);
+		bt_name_ = bt_name;
   }
   ~IsSimple() {}
 
@@ -22,7 +23,8 @@ private:
   std::string node_name_;
   std::string bt_name_;
 
-  int counter, condition_limit;
+  int counter_, condition_limit_;
+  bool isSystemActive();
 };
 }
 #endif

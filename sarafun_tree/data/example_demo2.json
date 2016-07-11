@@ -6,31 +6,38 @@
   "description": "",
   "code": "",
   "header": "",
-  "root": "sequence1",
+  "root": "selector1",
   "properties": {},
   "nodes": {
-    "sequence1": {
-      "id": "sequence1",
-      "type": "SequenceStar",
-      "name": "SequenceStar",
-      "description": "",
-      "code": "",
-      "header": "",
-      "language": "",
-      "properties": {},
-      "display": {
-        "x": -48,
-        "y": 24
-      },
-      "children": [
-        "motion_1",
-	  	"motion_2",
-		"motion_3",
-		"selector1"
-      ]
-    },
 	"selector1": {
 		"id": "selector1",
+		"type": "SelectorStar",
+		"name": "SelectorStar",
+		"children": [
+			"sequence1",
+			"sequence2"
+		]
+	},
+    "sequence1": {
+      "id": "sequence1",
+      "type": "Sequence",
+      "name": "Sequence",
+      "children": [
+		"IsSimple",
+		"sequence3"
+      ]
+    },
+    "sequence3": {
+      "id": "sequence3",
+      "type": "SequenceStar",
+      "name": "SequenceStar",
+      "children": [
+		"motion_1",
+		"motion_2"
+      ]
+    },
+	"selector2": {
+		"id": "selector2",
 		"type": "SelectorStar",
 		"name": "SelectorStar",
 		"children": [
@@ -38,6 +45,16 @@
 			"motion_5"
 		]
 	},
+	"sequence2": {
+		"id": "sequence2",
+		"type": "SequenceStar",
+		"name": "SequenceStar",
+		"children": [
+			"motion_3",
+			"selector2"
+		]
+	},
+
     "motion_1": {
         "id": "motion_1",
         "type": "Action",
@@ -98,6 +115,20 @@
         "id": "motion_5",
         "type": "Action",
         "name": "motion_5",
+        "description": "",
+        "code": "",
+        "header": "",
+        "language": "c++",
+        "properties": {},
+        "display": {
+          "x": -180,
+          "y": 252
+        }
+    },
+    "IsSimple": {
+        "id": "IsSimple",
+        "type": "Condition",
+        "name": "IsSimple",
         "description": "",
         "code": "",
         "header": "",
