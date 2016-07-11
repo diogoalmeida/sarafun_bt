@@ -51,13 +51,13 @@ To run this demo, type
 ```
 $ roslaunch sarafun_tree run_sarafun_bt_demo.launch demo1:=true
 ```
-*  The second demo showcases an example of an action that is preempted. We modified the [online motion generator provided CERTH](https://github.com/auth-arl/sarafun_online_motion_generation) so that it implements an actionlib server. The modified code can be found [here](https://github.com/diogoalmeida/sarafun_online_motion_generation) and illustrates how an action should take into account that it can be preempted.
+*  The second demo showcases preemption and conditions. We modified the [online motion generator provided CERTH](https://github.com/auth-arl/sarafun_online_motion_generation) so that it implements an actionlib server. The modified code can be found [here](https://github.com/diogoalmeida/sarafun_online_motion_generation) and illustrates how an action should take into account that it can be preempted.
 To run this demo, type
 ```
 $ roslaunch sarafun_tree run_sarafun_bt_demo.launch demo2:=true
 ```
 
-This will run a simple tree with 5 actions. Each action will command the robot to move to a different position. The last two actions are subordinated to a selector node. The fourth motion action commands the robot to an unatainable position, and will be preempted after the alocated timeout value. The server is the called again for the final position. 
+This will run a simple tree with 5 actions. Each action will command the robot to move to a different position. The two main subtrees execution depends on the output of the simple condition in the first one. This will be true for the first x ticks on the tree (defined in the launch file under ```/IsSimple/count_limit```. When the condition becomes false, the running action will be preempted, and the second subtree is executed, where the first action under the selector asks the robot to achieve an unreachable goal, and is thus preempted after the timeout period has expired. 
 
 Creating a different tree
 ----
