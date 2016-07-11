@@ -1,36 +1,38 @@
 <launch>
-  <arg name="demo1" default="false"/>
+  <arg name="demo1" default="true"/>
   <arg name="demo2" default="false"/>
 
   <!-- Launch the tree client -->
   <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo"/>
 
-  <group if="$(arg demo1)">
-      <param name="/sarafun/bt/file" type="string" value="example_demo1.json"/>
+  <group if="$(arg demo1)" >
+	  <group unless="$(arg demo2)">
+		  <param name="/sarafun/bt/file" type="string" value="example_demo1.json"/>
 
-      <!-- Timeout parameters -->
-      <param name="/sarafun/bt/approach_objects/timeout" type="double" value="10.0"/>
-      <param name="/sarafun/bt/grab_object/timeout" type="double" value="10.0"/>
-      <param name="/sarafun/bt/folding_assembly/timeout" type="double" value="10.0"/>
-      <param name="/sarafun/bt/insertion_deformation/timeout" type="double" value="10.0"/>
-      <param name="/sarafun/bt/place/timeout" type="double" value="10.0"/>
+		  <!-- Timeout parameters -->
+		  <param name="/sarafun/bt/approach_objects/timeout" type="double" value="10.0"/>
+		  <param name="/sarafun/bt/grab_object/timeout" type="double" value="10.0"/>
+		  <param name="/sarafun/bt/folding_assembly/timeout" type="double" value="10.0"/>
+		  <param name="/sarafun/bt/insertion_deformation/timeout" type="double" value="10.0"/>
+		  <param name="/sarafun/bt/place/timeout" type="double" value="10.0"/>
 
-      <!-- In case of demo1, immediatelly start the behavior tree -->
-      <param name="/sarafun/bt/running" type="bool" value="true"/>
+		  <!-- In case of demo1, immediatelly start the behavior tree -->
+		  <param name="/sarafun/bt/running" type="bool" value="true"/>
 
-      <!-- Launch the Behavior tree action nodes -->
-      <node name="GrabObjectAction" pkg="sarafun_tree" type="GrabObjectAction" output="screen"/>
-      <node name="ApproachObjectsAction" pkg="sarafun_tree" type="ApproachObjectsAction" output="screen"/>
-      <node name="FoldingAssemblyAction" pkg="sarafun_tree" type="FoldingAssemblyAction" output="screen"/>
-      <node name="InsertionWithDeformationAction" pkg="sarafun_tree" type="InsertionWithDeformationAction" output="screen"/>
-      <node name="PlaceAction" pkg="sarafun_tree" type="PlaceAction" output="screen"/>
+		  <!-- Launch the Behavior tree action nodes -->
+		  <node name="GrabObjectAction" pkg="sarafun_tree" type="GrabObjectAction" output="screen"/>
+		  <node name="ApproachObjectsAction" pkg="sarafun_tree" type="ApproachObjectsAction" output="screen"/>
+		  <node name="FoldingAssemblyAction" pkg="sarafun_tree" type="FoldingAssemblyAction" output="screen"/>
+		  <node name="InsertionWithDeformationAction" pkg="sarafun_tree" type="InsertionWithDeformationAction" output="screen"/>
+		  <node name="PlaceAction" pkg="sarafun_tree" type="PlaceAction" output="screen"/>
 
-      <!-- Dummy actionlib servers for demo purposes -->
-      <node name="ApproachDummy" pkg="sarafun_manipulation" type="ApproachDummy" output="screen"/>
-      <node name="GrabDummy" pkg="sarafun_manipulation" type="GrabDummy" output="screen"/>
-      <node name="PlaceDummy" pkg="sarafun_manipulation" type="PlaceDummy" output="screen"/>
-      <node name="FoldingDummy" pkg="sarafun_assembly" type="FoldingDummy" output="screen"/>
-      <node name="InsertionDummy" pkg="sarafun_assembly" type="InsertionDummy" output="screen"/>
+		  <!-- Dummy actionlib servers for demo purposes -->
+		  <node name="ApproachDummy" pkg="sarafun_manipulation" type="ApproachDummy" output="screen"/>
+		  <node name="GrabDummy" pkg="sarafun_manipulation" type="GrabDummy" output="screen"/>
+		  <node name="PlaceDummy" pkg="sarafun_manipulation" type="PlaceDummy" output="screen"/>
+		  <node name="FoldingDummy" pkg="sarafun_assembly" type="FoldingDummy" output="screen"/>
+		  <node name="InsertionDummy" pkg="sarafun_assembly" type="InsertionDummy" output="screen"/>
+	  </group>
   </group>
 
   <group if="$(arg demo2)">
