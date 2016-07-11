@@ -23,13 +23,81 @@
         "y": 24
       },
       "children": [
-        "online_motion_action"
+        "motion_1",
+	  	"motion_2",
+		"motion_3",
+		"selector1"
       ]
     },
-    "online_motion_action": {
-        "id": "online_motion_action",
+	"selector1": {
+		"id": "selector1",
+		"type": "SelectorStar",
+		"name": "SelectorStar",
+		"children": [
+			"motion_4",
+			"motion_5"
+		]
+	},
+    "motion_1": {
+        "id": "motion_1",
         "type": "Action",
-        "name": "online_motion_action",
+        "name": "motion_1",
+        "description": "",
+        "code": "",
+        "header": "",
+        "language": "c++",
+        "properties": {},
+        "display": {
+          "x": -180,
+          "y": 252
+        }
+    },
+    "motion_2": {
+        "id": "motion_2",
+        "type": "Action",
+        "name": "motion_2",
+        "description": "",
+        "code": "",
+        "header": "",
+        "language": "c++",
+        "properties": {},
+        "display": {
+          "x": -180,
+          "y": 252
+        }
+    },
+    "motion_3": {
+        "id": "motion_3",
+        "type": "Action",
+        "name": "motion_3",
+        "description": "",
+        "code": "",
+        "header": "",
+        "language": "c++",
+        "properties": {},
+        "display": {
+          "x": -180,
+          "y": 252
+        }
+    },
+    "motion_4": {
+        "id": "motion_4",
+        "type": "Action",
+        "name": "motion_4",
+        "description": "",
+        "code": "",
+        "header": "",
+        "language": "c++",
+        "properties": {},
+        "display": {
+          "x": -180,
+          "y": 252
+        }
+    },
+    "motion_5": {
+        "id": "motion_5",
+        "type": "Action",
+        "name": "motion_5",
         "description": "",
         "code": "",
         "header": "",

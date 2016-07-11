@@ -1,0 +1,26 @@
+motion_1:
+    position:
+        x: 0.3
+        y: 0.6
+        z: 0.5
+motion_2:
+    position:
+        x: 0.3
+        y: 0.3
+        z: 0.5
+motion_3:
+    position:
+        x: 0.3
+        y: 0.3
+        z: 0.2
+motion_4:
+    position:
+        x: 0.7
+        y: 0.2
+        z: 0.3
+motion_5:
+    position:
+        x: 0.5
+        y: 0.3
+        z: 0.2
+
