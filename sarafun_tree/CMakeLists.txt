@@ -45,3 +45,6 @@ target_link_libraries(OnlineMotionAction ${catkin_LIBRARIES})
 
 add_executable(sarafun_bt_demo src/sarafun_bt_demo.cpp src/parse_tree.cpp)
 target_link_libraries(sarafun_bt_demo ${catkin_LIBRARIES})
+
+add_executable(IsSimple src/IsSimple.cpp src/parse_tree.cpp)
+target_link_libraries(IsSimple ${catkin_LIBRARIES})
