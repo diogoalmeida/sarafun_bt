@@ -1,27 +1,10 @@
 {
-  "version": "0.1",
-  "scope": "tree",
-  "id": "tree_id",
-  "title": "A behavior tree",
-  "description": "",
-  "code": "",
-  "header": "",
   "root": "sequence1",
-  "properties": {},
   "nodes": {
     "sequence1": {
       "id": "sequence1",
       "type": "SequenceStar",
       "name": "SequenceStar",
-      "description": "",
-      "code": "",
-      "header": "",
-      "language": "",
-      "properties": {},
-      "display": {
-        "x": -48,
-        "y": 24
-      },
       "children": [
         "grab_action",
         "grab_action2",
@@ -34,15 +17,6 @@
       "id": "selector1",
       "type": "SelectorStar",
       "name": "SelectorStar",
-      "description": "",
-      "code": "",
-      "header": "",
-      "language": "",
-      "properties": {},
-      "display": {
-        "x": -144,
-        "y": 132
-      },
       "children": [
         "folding_assembly_action",
         "insertion_with_deformation_action"
@@ -52,15 +26,6 @@
       "id": "sequence2",
       "type": "SequenceStar",
       "name": "SequenceStar",
-      "description": "",
-      "code": "",
-      "header": "",
-      "language": "",
-      "properties": {},
-      "display": {
-        "x": -48,
-        "y": 24
-      },
       "children": [
         "approach_objects_action",
         "grab_action"
@@ -69,86 +34,32 @@
     "grab_action": {
       "id": "grab_action",
       "type": "Action",
-      "name": "grab_object_action",
-      "description": "",
-      "code": "",
-      "header": "",
-      "language": "c++",
-      "properties": {},
-      "display": {
-        "x": -180,
-        "y": 252
-      }
+      "name": "grab_object_action"
     },
     "grab_action2": {
         "id": "grab_action2",
         "type": "Action",
-        "name": "grab_object_action",
-        "description": "",
-        "code": "",
-        "header": "",
-        "language": "c++",
-        "properties": {},
-        "display": {
-            "x": -180,
-            "y": 252
-        }
+        "name": "grab_object_action"
     },
     "approach_objects_action": {
         "id": "approach_objects_action",
         "type": "Action",
-        "name": "approach_objects_action",
-        "description": "",
-        "code": "",
-        "header": "",
-        "language": "c++",
-        "properties": {},
-        "display": {
-            "x": -180,
-            "y": 252
-        }
+        "name": "approach_objects_action"
     },
     "place_action": {
         "id": "place_action",
         "type": "Action",
-        "name": "place_action",
-        "description": "",
-        "code": "",
-        "header": "",
-        "language": "c++",
-        "properties": {},
-        "display": {
-            "x": -180,
-            "y": 252
-        }
+        "name": "place_action"
     },
     "folding_assembly_action": {
         "id": "folding_assembly_action",
         "type": "Action",
-        "name": "folding_assembly_action",
-        "description": "",
-        "code": "",
-        "header": "",
-        "language": "c++",
-        "properties": {},
-        "display": {
-            "x": -180,
-            "y": 252
-        }
+        "name": "folding_assembly_action"
     },
     "insertion_with_deformation_action": {
         "id": "insertion_with_deformation_action",
         "type": "Action",
-        "name": "insertion_with_deformation_action",
-        "description": "",
-        "code": "",
-        "header": "",
-        "language": "c++",
-        "properties": {},
-        "display": {
-            "x": -180,
-            "y": 252
-        }
+        "name": "insertion_with_deformation_action"
     }
   }
 }
