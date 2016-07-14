@@ -1,4 +1,4 @@
-#include <sarafun_tree/PlaceAction.h>
+#include <sarafun_tree/demo_bt_nodes/PlaceAction.h>
 
 namespace sarafun {
 double PlaceAction::getTimeoutValue() {

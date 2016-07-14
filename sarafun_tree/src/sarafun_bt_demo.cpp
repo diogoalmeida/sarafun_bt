@@ -1,11 +1,11 @@
 #include <ros/ros.h>
 #include <behavior_tree_core/BehaviorTree.h>
 #include <behavior_tree_core/ControlNode.h>
-#include <sarafun_tree/ApproachObjectsAction.h>
-#include <sarafun_tree/GrabObjectAction.h>
-#include <sarafun_tree/FoldingAssemblyAction.h>
-#include <sarafun_tree/InsertionWithDeformationAction.h>
-#include <sarafun_tree/PlaceAction.h>
+#include <sarafun_tree/demo_bt_nodes/ApproachObjectsAction.h>
+#include <sarafun_tree/demo_bt_nodes/GrabObjectAction.h>
+#include <sarafun_tree/demo_bt_nodes/FoldingAssemblyAction.h>
+#include <sarafun_tree/demo_bt_nodes/InsertionWithDeformationAction.h>
+#include <sarafun_tree/demo_bt_nodes/PlaceAction.h>
 #include <sarafun_tree/parse_tree.h>
 
 using namespace sarafun;

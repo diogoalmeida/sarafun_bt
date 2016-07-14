@@ -1,4 +1,4 @@
-#include <sarafun_tree/ApproachObjectsAction.h>
+#include <sarafun_tree/demo_bt_nodes/ApproachObjectsAction.h>
 
 namespace sarafun {
 bool ApproachObjectsAction::fillGoal(sarafun_manipulation::ApproachGoal &goal) {

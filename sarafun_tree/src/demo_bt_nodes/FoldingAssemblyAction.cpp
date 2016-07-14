@@ -1,4 +1,4 @@
-#include <sarafun_tree/FoldingAssemblyAction.h>
+#include <sarafun_tree/demo_bt_nodes/FoldingAssemblyAction.h>
 
 namespace sarafun {
 double FoldingAssemblyAction::getTimeoutValue() {

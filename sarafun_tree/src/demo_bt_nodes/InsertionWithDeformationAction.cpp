@@ -1,4 +1,4 @@
-#include <sarafun_tree/InsertionWithDeformationAction.h>
+#include <sarafun_tree/demo_bt_nodes/InsertionWithDeformationAction.h>
 
 namespace sarafun {
 double InsertionWithDeformationAction::getTimeoutValue() {

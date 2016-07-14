@@ -3,3 +3,6 @@
 
 # ABB description of Yumi
 abb_irb14000_support/
+
+# Temp files
+*~

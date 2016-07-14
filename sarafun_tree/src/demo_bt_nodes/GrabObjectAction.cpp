@@ -1,4 +1,4 @@
-#include <sarafun_tree/GrabObjectAction.h>
+#include <sarafun_tree/demo_bt_nodes/GrabObjectAction.h>
 
 namespace sarafun {
 double GrabObjectAction::getTimeoutValue() {

@@ -1,4 +1,4 @@
-#include <sarafun_tree/IsSimple.h>
+#include <sarafun_tree/demo_bt_nodes/IsSimple.h>
 
 namespace sarafun {
 
