@@ -5,6 +5,9 @@
   <!-- Launch the tree client -->
   <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo"/>
 
+  <!-- General parameters -->
+  <param name="/sarafun/bt/tick_period" type="int" value="500"/> <!-- Tick period in milisseconds -->
+
   <group if="$(arg demo1)" >
 	  <group unless="$(arg demo2)">
 		  <param name="/sarafun/bt/file" type="string" value="example_demo1.json"/>
@@ -40,7 +43,7 @@
       <param name="/sarafun/bt/online_motion/timeout" type="double" value="20.0"/>
 
       <param name="/sarafun/bt/running" type="bool" value="false"/>
-	  <param name="/IsSimple/count_limit" type="int" value="24"/>
+	  <param name="/IsSimple/count_limit" type="int" value="48"/>
 
 	  <!-- Load the parameters for the motion commands -->
 	  <rosparam command="load" file="$(find sarafun_tree)/data/motion_params.yaml"/>
