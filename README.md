@@ -119,3 +119,9 @@ There are four currently supported flow control nodes and two possible leaf node
 *  **SelectorStar**: The same as Selector, but with memory, that is, every time it receives a tick from its parent, it will skip tick'ing all the children that previously returned ```FAILURE```
 *  **Action**: An action will execute some well defined program when it is tick'ed, and will return ```SUCCESS``` or ```FAILURE``` at the end of its execution, according to the implementation. While executing, it will return ```RUNNING```
 *  **Condition**: A condition is similar to an action, but it is meant to return ```SUCCESS``` or ```FAILURE``` as soon as it tick'ed, and should be used to help the behavior tree logic by verifying some condition.
+
+Tree visualization
+----
+The BT engine provides a basic openGL tree visualization. An arbitrary tree may not be rendered adequately, in which case the user can use the keyboard to ajust the tree:
+*  The directional arrows on the keyboard will translate the tree on the visualization window;
+*  Page up will zoom the tree in, page down will zoom out.
