@@ -92,6 +92,7 @@ bool ExecuteAction<ActionClass, ActionGoal>::isSystemActive() {
 
 template <class ActionClass, class ActionGoal>
 void ExecuteAction<ActionClass, ActionGoal>::preemptionRoutine() {
+  action_client_->cancelAllGoals(); 
   ROS_WARN("The node %s was preempted", action_name_.c_str());
 }
 

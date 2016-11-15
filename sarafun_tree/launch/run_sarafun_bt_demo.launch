@@ -3,7 +3,7 @@
   <arg name="demo2" default="false"/>
 
   <!-- Launch the tree client -->
-  <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo"/>
+  <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo" output="screen"/>
 
   <!-- General parameters -->
   <param name="/sarafun/bt/tick_period" type="int" value="500"/> <!-- Tick period in milisseconds -->
