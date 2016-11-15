@@ -18,12 +18,16 @@ set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 catkin_package(
   CATKIN_DEPENDS actionlib_msgs behavior_tree_leaves behavior_tree_core
   INCLUDE_DIRS include
+  LIBRARIES tree_runner
 )
 
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
+
+add_library(tree_runner src/TreeRunner.cpp)
+target_link_libraries(tree_runner ${catkin_LIBRARIES})
 
 add_executable(GrabObjectAction src/demo_bt_nodes/GrabObjectAction.cpp)
 target_link_libraries(GrabObjectAction ${catkin_LIBRARIES})
