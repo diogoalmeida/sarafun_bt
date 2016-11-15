@@ -92,14 +92,13 @@ bool ExecuteAction<ActionClass, ActionGoal>::isSystemActive() {
 
 template <class ActionClass, class ActionGoal>
 void ExecuteAction<ActionClass, ActionGoal>::preemptionRoutine() {
-  action_client_->cancelAllGoals(); 
+  action_client_->cancelAllGoals();
   ROS_WARN("The node %s was preempted", action_name_.c_str());
 }
 
 template <class ActionClass, class ActionGoal>
 int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
-  action_client_ =
-      new actionlib::SimpleActionClient<ActionClass>(action_name_, true);
+  action_client_ = new actionlib::SimpleActionClient<ActionClass>(action_name_, true);
 
   if (!isSystemActive()) {
     return 0; // Keep running
@@ -120,11 +119,30 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
     return -1; // Failure
   }
 
+  ros::Time start = ros::Time::now();
   ROS_INFO("Sending goal from action: %s. Timeout value: %.2f",
            action_name_.c_str(), getTimeoutValue());
   action_client_->sendGoal(goal_);
-  bool finished =
-      action_client_->waitForResult(ros::Duration(getTimeoutValue()));
+
+  actionlib::SimpleClientGoalState goal_state = action_client_->getState();
+  bool finished = false;
+  while ((ros::Time::now() - start).toSec() < getTimeoutValue())
+  {
+    goal_state = action_client_->getState();
+
+    if (goal_state != actionlib::SimpleClientGoalState::ACTIVE && goal_state != actionlib::SimpleClientGoalState::PENDING)
+    {
+      finished = true;
+      break;
+    }
+
+    if (action_server_.isPreemptRequested())
+    {
+      ROS_WARN("BT preempted action. Cancelling goals");
+      action_client_->cancelAllGoals();
+      return 0;
+    }
+  }
 
   if (finished) {
     action_client_->cancelAllGoals(); // To be safe
