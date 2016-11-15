@@ -1,18 +1,45 @@
 #include <ros/ros.h>
-#include <behavior_tree_core/BehaviorTree.h>
-#include <behavior_tree_core/ControlNode.h>
 #include <sarafun_tree/demo_bt_nodes/ApproachObjectsAction.h>
 #include <sarafun_tree/demo_bt_nodes/GrabObjectAction.h>
 #include <sarafun_tree/demo_bt_nodes/FoldingAssemblyAction.h>
 #include <sarafun_tree/demo_bt_nodes/InsertionWithDeformationAction.h>
 #include <sarafun_tree/demo_bt_nodes/PlaceAction.h>
-#include <sarafun_tree/parse_tree.h>
+#include <sarafun_tree/TreeRunner.h>
+#include <std_srvs/Empty.h>
 
 using namespace sarafun;
 using namespace BT;
 
+TreeRunner *runner;
+
+/*
+  Starts behavior tree execution
+*/
+bool startTreeCallback(std_srvs::Empty::Request &req, std_srvs::Empty::Response &ans)
+{
+  runner->startTree();
+}
+
+/*
+  Stops behavior tree execution
+*/
+bool stopTreeCallback(std_srvs::Empty::Request &req, std_srvs::Empty::Response &ans)
+{
+  runner->stopTree();
+}
+
+/*
+  Restarts behavior tree execution
+*/
+bool restartTreeCallback(std_srvs::Empty::Request &req, std_srvs::Empty::Response &ans)
+{
+  runner->stopTree();
+  runner->startTree();
+}
+
 int main(int argc, char **argv) {
   ros::init(argc, argv, "sarafun_bt_demo");
+  ros::NodeHandle n;
   std::string filename;
   int TickPeriod_milliseconds = 0;
 
@@ -30,16 +57,13 @@ int main(int argc, char **argv) {
 
   std::string path =
       ros::package::getPath("sarafun_tree") + "/data/" + filename;
-  bt_parser::Parser parser(path);
-  try {
-    ControlNode *root = dynamic_cast<ControlNode *>(parser.parseTree());
 
-    if (root != nullptr) {
-      Execute(root, TickPeriod_milliseconds);
-    }
-  } catch (BehaviorTreeException &Exception) {
-    ROS_ERROR("%s", Exception.what());
-  }
+  ros::ServiceServer bt_start_service = n.advertiseService("/sarafun/start_tree", startTreeCallback);
+  ros::ServiceServer bt_stop_service = n.advertiseService("/sarafun/stop_tree", stopTreeCallback);
+  ros::ServiceServer bt_restart_service = n.advertiseService("/sarafun/restart_tree", restartTreeCallback);
+
+  runner = new TreeRunner(TickPeriod_milliseconds, path);
+  ros::spin();
 
   return 0;
 }

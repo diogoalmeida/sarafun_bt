@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   sarafun_assembly
   roscpp
   std_msgs
+  std_srvs
   actionlib_msgs
   actionlib
 )
@@ -26,7 +27,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_library(tree_runner src/TreeRunner.cpp)
+add_library(tree_runner src/TreeRunner.cpp src/parse_tree.cpp)
 target_link_libraries(tree_runner ${catkin_LIBRARIES})
 
 add_executable(GrabObjectAction src/demo_bt_nodes/GrabObjectAction.cpp)
@@ -47,8 +48,8 @@ target_link_libraries(PlaceAction ${catkin_LIBRARIES})
 add_executable(OnlineMotionAction src/demo_bt_nodes/OnlineMotionAction.cpp)
 target_link_libraries(OnlineMotionAction ${catkin_LIBRARIES})
 
-add_executable(sarafun_bt_demo src/sarafun_bt_demo.cpp src/parse_tree.cpp)
-target_link_libraries(sarafun_bt_demo ${catkin_LIBRARIES})
+add_executable(sarafun_bt_demo src/sarafun_bt_demo.cpp)
+target_link_libraries(sarafun_bt_demo tree_runner ${catkin_LIBRARIES})
 
 add_executable(IsSimple src/demo_bt_nodes/IsSimple.cpp)
 target_link_libraries(IsSimple ${catkin_LIBRARIES})
