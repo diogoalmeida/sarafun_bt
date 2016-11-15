@@ -18,6 +18,6 @@ namespace sarafun
     std::string path_;
     bt_parser::Parser *parser_;
     ControlNode *root_;
-    boost::thread *tree_thread_;
+    boost::thread *tree_thread_, *draw_thread_;
   };
 }

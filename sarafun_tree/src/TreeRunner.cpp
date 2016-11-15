@@ -14,7 +14,8 @@ namespace sarafun
     tick_period_ = tick_period;
     parser_ = 0;
     tree_thread_ = 0;
-    root_ = 0;
+    draw_thread_ = 0;
+    root_  = new SequenceNode("root"); // Make a permanent root to avoid screwing up the draw method
   }
 
   /*
@@ -22,6 +23,7 @@ namespace sarafun
   */
   bool TreeRunner::startTree()
   {
+    ControlNode *tree_root;
     if (parser_ != 0)
     {
       ROS_WARN("startTree called with an active tree running. Will terminate active tree.");
@@ -31,11 +33,19 @@ namespace sarafun
 
     try
     {
-      root_ = dynamic_cast<ControlNode *>(parser_->parseTree());
+      tree_root = dynamic_cast<ControlNode *>(parser_->parseTree());
 
-      if (root_ == nullptr)
+      if (tree_root == nullptr)
       {
         return false;
+      }
+
+      root_->AddChild(tree_root);
+
+      if (draw_thread_ == 0)
+      {
+        ROS_INFO("Start drawing");
+        draw_thread_ = new boost::thread(&drawTree, root_);
       }
     }
     catch(BehaviorTreeException &Exception)
@@ -46,6 +56,7 @@ namespace sarafun
 
     tree_thread_ = new boost::thread(Execute, root_, tick_period_);
 
+    enableDrawing();
     return true;
   }
 
@@ -54,22 +65,28 @@ namespace sarafun
   */
   void TreeRunner::stopTree()
   {
+    disableDrawing();
+    sleep(1.0); // TODO: Make this deterministic
     if (tree_thread_ != 0)
     {
       if (tree_thread_->joinable())
       {
         ROS_INFO("Stopping a running behavior tree");
-        tree_thread_->interrupt();
-        tree_thread_->join();
-        delete tree_thread_;
+        try
+        {
+          tree_thread_->interrupt();
+          tree_thread_->join();
+          delete tree_thread_;
+        }
+        catch (std::exception &e)
+        {
+          ROS_WARN("Exception when joining the tree thread: %s", e.what());
+        }
         tree_thread_ = 0;
       }
 
       delete parser_;
       parser_ = 0;
-
-      delete root_;
-      root_ = 0;
     }
     else
     {
