@@ -56,6 +56,7 @@ private:
   actionlib::SimpleActionClient<ActionClass> *action_client_;
   ActionGoal goal_;
   std::string action_name_;
+  ros::Time start_time_; // Current execution start time
 };
 
 // Template classes "must" be implemented in the header files... -->
@@ -67,6 +68,7 @@ ExecuteAction<ActionClass, ActionGoal>::ExecuteAction(
     : ActionTemplate::ActionTemplate(bt_name) {
   nh_ = ros::NodeHandle("~");
   action_name_ = actionlib_name;
+  action_client_ = 0;
 }
 
 template <class ActionClass, class ActionGoal>
@@ -93,55 +95,54 @@ bool ExecuteAction<ActionClass, ActionGoal>::isSystemActive() {
 template <class ActionClass, class ActionGoal>
 void ExecuteAction<ActionClass, ActionGoal>::preemptionRoutine() {
   action_client_->cancelAllGoals();
+  delete action_client_;
+  action_client_ = 0;
   ROS_WARN("The node %s was preempted", action_name_.c_str());
 }
 
 template <class ActionClass, class ActionGoal>
 int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
-  action_client_ = new actionlib::SimpleActionClient<ActionClass>(action_name_, true);
+
+  if (action_client_ == 0) // fresh call!
+  {
+    action_client_ = new actionlib::SimpleActionClient<ActionClass>(action_name_, true);
+    bool active_server = action_client_->waitForServer(ros::Duration(2.0));
+    if (!active_server) {
+      ROS_ERROR("Actionlib server failed to start for action %s!",
+      action_name_.c_str());
+      delete action_client_;
+      action_client_ = 0;
+      return -1; // Failure
+    }
+    start_time_ = ros::Time::now();
+
+    bool has_parameters = fillGoal(goal_);
+
+    if (!has_parameters) {
+      ROS_ERROR("Failed to get parameters for action %s!", action_name_.c_str());
+      return -1; // Failure
+    }
+
+    ROS_INFO("Sending goal from action: %s. Timeout value: %.2f", action_name_.c_str(), getTimeoutValue());
+    action_client_->sendGoal(goal_);
+  }
 
   if (!isSystemActive()) {
     return 0; // Keep running
   }
 
-  bool active_server = action_client_->waitForServer(ros::Duration(2.0));
-
-  if (!active_server) {
-    ROS_ERROR("Actionlib server failed to start for action %s!",
-              action_name_.c_str());
-    return -1; // Failure
-  }
-
-  bool has_parameters = fillGoal(goal_);
-
-  if (!has_parameters) {
-    ROS_ERROR("Failed to get parameters for action %s!", action_name_.c_str());
-    return -1; // Failure
-  }
-
-  ros::Time start = ros::Time::now();
-  ROS_INFO("Sending goal from action: %s. Timeout value: %.2f",
-           action_name_.c_str(), getTimeoutValue());
-  action_client_->sendGoal(goal_);
-
-  actionlib::SimpleClientGoalState goal_state = action_client_->getState();
-  bool finished = false;
-  while ((ros::Time::now() - start).toSec() < getTimeoutValue())
+  bool finished = false, timeout = false;
+  if ((ros::Time::now() - start_time_).toSec() < getTimeoutValue())
   {
-    goal_state = action_client_->getState();
-
+    actionlib::SimpleClientGoalState goal_state = action_client_->getState();
     if (goal_state != actionlib::SimpleClientGoalState::ACTIVE && goal_state != actionlib::SimpleClientGoalState::PENDING)
     {
       finished = true;
-      break;
     }
-
-    if (action_server_.isPreemptRequested())
-    {
-      ROS_WARN("BT preempted action. Cancelling goals");
-      action_client_->cancelAllGoals();
-      return 0;
-    }
+  }
+  else
+  {
+    timeout = true;
   }
 
   if (finished) {
@@ -149,16 +150,22 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
     actionlib::SimpleClientGoalState state = action_client_->getState();
     ROS_INFO("Action finished: %s", state.toString().c_str());
 
+    delete action_client_;
+    action_client_ = 0;
     if (state == actionlib::SimpleClientGoalState::SUCCEEDED) {
-      action_client_->getResult();
       return 1;
     } else {
       return -1;
     }
   } else {
-    ROS_ERROR("Action %s timeout! Cancelling goals...", action_name_.c_str());
-    action_client_->cancelAllGoals();
-    return -1;
+    if (timeout)
+    {
+      ROS_ERROR("Action %s timeout! Cancelling goals...", action_name_.c_str());
+      action_client_->cancelAllGoals();
+      delete action_client_;
+      action_client_ = 0;
+      return -1;
+    }
   }
 }
 

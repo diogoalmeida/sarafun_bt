@@ -71,10 +71,14 @@ BT::TreeNode *Parser::parseTree(json node) {
     bt_node = new BT::SequenceNode(id);
   } else if (type == std::string("SequenceStar")) {
     bt_node = new BT::SequenceStarNode(id);
-  } else if (type == std::string("Action") || type == std::string("Condition")) {
+  } else if (type == std::string("Action")) {
     is_leaf = true;
     std::string name = node["name"];
     bt_node = new BT::ROSAction(name);
+  } else if (type == std::string("Condition")) {
+    is_leaf = true;
+    std::string name = node["name"];
+    bt_node = new BT::ROSCondition(name);
   } else {
     std::string error_message("BT input file includes an unknown node type: ");
     error_message = error_message + type;
