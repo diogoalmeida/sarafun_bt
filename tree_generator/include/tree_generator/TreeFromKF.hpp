@@ -3,6 +3,8 @@
 
 #include <fstream>
 #include <json/json.hpp>
+#include <sarafun_msgs/KeyframeList.h>
+#include <sarafun_msgs/KeyframeMsg.h>
 
 using json = nlohmann::json;
 namespace tree_generator {
@@ -41,11 +43,13 @@ public:
   TreeFromKF();
   ~TreeFromKF(){}
 
+  json createTree(sarafun_msgs::KeyframeList keyframes);
+
 private:
-  std::vector<int> indices; // to keep track of the id's
+  std::vector<int> indices_; // to keep track of the id's
 
   json tree_;
-  SubTreeFromKF subtree_parser;
+  SubTreeFromKF subtree_parser_;
 };
 }
 
