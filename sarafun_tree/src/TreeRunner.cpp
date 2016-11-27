@@ -8,9 +8,8 @@ namespace sarafun
     and execute it. On request, it will stop and reload the tree with a new
     description.
   */
-  TreeRunner::TreeRunner(int tick_period, std::string tree_description_path)
+  TreeRunner::TreeRunner(int tick_period)
   {
-    path_ = tree_description_path;
     tick_period_ = tick_period;
     parser_ = 0;
     tree_thread_ = 0;
@@ -21,7 +20,7 @@ namespace sarafun
   /*
     Creates a behavior tree from the input file and executes it.
   */
-  bool TreeRunner::startTree()
+  bool TreeRunner::startTree(std::string tree_description_path)
   {
     ControlNode *tree_root;
     if (parser_ != 0)
@@ -30,8 +29,8 @@ namespace sarafun
       stopTree();
     }
 
-    parser_ = new bt_parser::Parser(path_);
-    
+    parser_ = new bt_parser::Parser(tree_description_path);
+
     try
     {
       tree_root = dynamic_cast<ControlNode *>(parser_->parseTree());

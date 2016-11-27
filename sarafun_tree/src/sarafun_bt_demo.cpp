@@ -11,13 +11,14 @@ using namespace sarafun;
 using namespace BT;
 
 TreeRunner *runner;
+std::string filename;
 
 /*
   Starts behavior tree execution
 */
 bool startTreeCallback(std_srvs::Empty::Request &req, std_srvs::Empty::Response &ans)
 {
-  runner->startTree();
+  runner->startTree(filename);
 }
 
 /*
@@ -34,13 +35,12 @@ bool stopTreeCallback(std_srvs::Empty::Request &req, std_srvs::Empty::Response &
 bool restartTreeCallback(std_srvs::Empty::Request &req, std_srvs::Empty::Response &ans)
 {
   runner->stopTree();
-  runner->startTree();
+  runner->startTree(filename);
 }
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "sarafun_bt_demo");
   ros::NodeHandle n;
-  std::string filename;
   int TickPeriod_milliseconds = 0;
 
   if (ros::param::has("/sarafun/bt/file")) {
@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
   ros::ServiceServer bt_stop_service = n.advertiseService("/sarafun/stop_tree", stopTreeCallback);
   ros::ServiceServer bt_restart_service = n.advertiseService("/sarafun/restart_tree", restartTreeCallback);
 
-  runner = new TreeRunner(TickPeriod_milliseconds, path);
+  runner = new TreeRunner(TickPeriod_milliseconds);
   ros::spin();
 
   return 0;

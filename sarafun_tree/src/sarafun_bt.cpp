@@ -11,7 +11,8 @@
 using namespace sarafun;
 using namespace BT;
 
-TreeRunner *runner;
+TreeRunner *runner = 0;
+bool running = false;
 int TickPeriod_milliseconds = 0;
 
 /*
@@ -19,18 +20,22 @@ int TickPeriod_milliseconds = 0;
 */
 bool initializeTree(std::string tree_description_path)
 {
-  if (runner == 0)
+  if (!running)
   {
-    runner = new TreeRunner(TickPeriod_milliseconds, tree_description_path);
-    if(runner->startTree())
+    if (runner == 0)
     {
+      runner = new TreeRunner(TickPeriod_milliseconds);
+    }
+
+    if(runner->startTree(tree_description_path))
+    {
+      running = true;
       ROS_INFO("Tree started successfully!");
       return true;
     }
     else
     {
-      delete runner;
-      runner = 0;
+      running = false;
       ROS_ERROR("Tree failed to start!");
       return false;
     }
@@ -45,11 +50,10 @@ bool initializeTree(std::string tree_description_path)
 */
 bool unloadTree()
 {
-  if (runner != 0)
+  if (running)
   {
     runner->stopTree();
-    delete runner;
-    runner = 0;
+    running = false;
     return true;
   }
 
@@ -62,6 +66,7 @@ bool unloadTree()
 bool startTreeCallback(sarafun_tree::LoadTree::Request &req, sarafun_tree::LoadTree::Response &ans)
 {
   ans.success = initializeTree(req.file_path);
+  return true;
 }
 
 /*
@@ -72,7 +77,11 @@ bool stopTreeCallback(std_srvs::Empty::Request &req, std_srvs::Empty::Response &
   if (!unloadTree())
   {
     ROS_ERROR("Called the service to stop tree without having started it");
+    return false;
   }
+
+  ROS_INFO("Tree stopped successfully");
+  return true;
 }
 
 /*
@@ -84,10 +93,12 @@ bool restartTreeCallback(sarafun_tree::LoadTree::Request &req, sarafun_tree::Loa
   {
     ROS_ERROR("Called the service to stop tree without having started it");
     ans.success = false;
+    return false;
   }
   else
   {
     ans.success = initializeTree(req.file_path);
+    return true;
   }
 }
 

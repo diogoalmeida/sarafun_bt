@@ -106,6 +106,7 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
   if (action_client_ == 0) // fresh call!
   {
     action_client_ = new actionlib::SimpleActionClient<ActionClass>(action_name_, true);
+    ROS_INFO("Action %s is waiting for the corresponding actionlib server!", action_name_.c_str());
     bool active_server = action_client_->waitForServer(ros::Duration(2.0));
     if (!active_server) {
       ROS_ERROR("Actionlib server failed to start for action %s!",
