@@ -21,3 +21,7 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
+
+add_executable(tree_generator src/tree_generator.cpp)
+target_link_libraries(tree_generator ${catkin_LIBRARIES})
+add_dependencies(tree_generator ${catkin_EXPORTED_TARGETS})

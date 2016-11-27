@@ -1,0 +1,21 @@
+# This file defines where is a particular subtree for a specific keyframe label
+initial:
+  file: initial.json
+
+grasp:
+  file: grasp.json
+
+pick-up:
+  file: pick.json
+
+align:
+  file: align.json
+
+contact:
+  file: contact.json
+
+assembled:
+  file: assembled.json
+
+retract:
+  file: retract.json

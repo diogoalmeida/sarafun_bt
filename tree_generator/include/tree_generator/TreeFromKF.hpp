@@ -1,0 +1,52 @@
+#ifndef __TREE_FROM_KF__
+#define __TREE_FROM_KF__
+
+#include <fstream>
+#include <json/json.hpp>
+
+using json = nlohmann::json;
+namespace tree_generator {
+
+enum node_type {SEQ=0, SEL, SEQSTAR, SELSTAR, ACTION, CONDITION};
+
+/*
+  This class constructs one pre-defined BT subtree,
+  given the semantic information contained in a keyframe
+*/
+class SubTreeFromKF {
+public:
+  SubTreeFromKF();
+  ~SubTreeFromKF(){}
+
+  bool loadLabel(std::string label);
+  json createSubTree(std::vector<int> &indices);
+
+private:
+  ros::NodeHandle nh_;
+  json subtree_;
+  std::ifstream file_;
+  bool has_label_;
+  std::string current_id_;
+
+  json modifyId(json node, std::vector<int> &indices);
+};
+
+/*
+  Class responsible from creating a JSON file from the
+  given keyframe sequence
+*/
+class TreeFromKF
+{
+public:
+  TreeFromKF();
+  ~TreeFromKF(){}
+
+private:
+  std::vector<int> indices; // to keep track of the id's
+
+  json tree_;
+  SubTreeFromKF subtree_parser;
+};
+}
+
+#endif
