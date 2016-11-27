@@ -105,7 +105,7 @@ int main(int argc, char **argv) {
   ros::ServiceServer bt_stop_service = n.advertiseService("/sarafun/stop_tree", stopTreeCallback);
   ros::ServiceServer bt_restart_service = n.advertiseService("/sarafun/restart_tree", restartTreeCallback);
 
+  ROS_INFO("Started the sarafun tree node!");
   ros::spin();
-
   return 0;
 }
