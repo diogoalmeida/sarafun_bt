@@ -47,7 +47,7 @@ namespace tree_generator {
   {
     if (!has_label_)
     {
-      throw logic_error("Called the createSubTree method without a loaded label");
+      throw std::logic_error("Called the createSubTree method without a loaded label");
     }
 
     file_ >> subtree_;
@@ -58,12 +58,12 @@ namespace tree_generator {
                       "at the base level!"));
     }
 
-    std::vector<std::string> nodes = subtree["nodes"];
+    std::vector<std::string> nodes = subtree_["nodes"];
     for (auto i = nodes.begin(); i != nodes.end(); i++) {
-      subtree["nodes"][*i] = modifyId(subtree["nodes"][*i]);
+      subtree_["nodes"][*i] = modifyId((json) subtree_["nodes"][*i], indices);
     }
 
-    return subtree["nodes"];
+    return subtree_["nodes"];
   }
 
   /*
@@ -77,29 +77,29 @@ namespace tree_generator {
       throw std::logic_error(std::string("modifyId called on a json object without the 'id' and 'type' members!"));
     }
 
-    std::string type == node["type"];
+    std::string type =node["type"];
 
     if(type == "Selector") {
-      indices[SEL]++
-      node["id"] = node["id"] + indices[SEL];
+      indices[SEL]++;
+      node["id"] = node["id"].get<std::string>() + std::to_string(indices[SEL]);
     } else if (type == "SelectorStar") {
-      indices[SELSTAR]++
-      node["id"] = node["id"] + indices[SELSTAR];
+      indices[SELSTAR]++;
+      node["id"] = node["id"].get<std::string>() + std::to_string(indices[SELSTAR]);
     } else if (type == "Sequence") {
-      indices[SEQ]++
-      node["id"] = node["id"] + indices[SEQ];
+      indices[SEQ]++;
+      node["id"] = node["id"].get<std::string>() + std::to_string(indices[SEQ]);
     } else if (type == "SequenceStar") {
-      indices[SEQSTAR]++
-      node["id"] = node["id"] + indices[SEQSTAR];
+      indices[SEQSTAR]++;
+      node["id"] = node["id"].get<std::string>() + std::to_string(indices[SEQSTAR]);
     } else if (type == "SequenceStar") {
-      indices[SEQSTAR]++
-      node["id"] = node["id"] + indices[SEQSTAR];
-    } else if (type = "Action") {
-      indices[ACTION]++
-      node["id"] = node["id"] + indices[ACTION];
+      indices[SEQSTAR]++;
+      node["id"] = node["id"].get<std::string>() + std::to_string(indices[SEQSTAR]);
+    } else if (type == "Action") {
+      indices[ACTION]++;
+      node["id"] = node["id"].get<std::string>() + std::to_string(indices[ACTION]);
     } else if (type == "Condition") {
-      indices[CONDITION]++
-      node["id"] = node["id"] + indices[CONDITION];
+      indices[CONDITION]++;
+      node["id"] = node["id"].get<std::string>() + std::to_string(indices[CONDITION]);
     } else {
       std::string error_message("Tried to modify id of an unknown node type: ");
       error_message = error_message + type;
@@ -118,7 +118,7 @@ namespace tree_generator {
     Given a keyframe list, this method creates a JSON file
     describing the desired behavior tree
   */
-  json TreeFromKF::createTree(saragun_msgs::KeyframeList keyframes)
+  json TreeFromKF::createTree(sarafun_msgs::KeyframeList keyframes)
   {
     json tree, root_sequence;
     std::vector<sarafun_msgs::KeyframeMsg> messages;
@@ -129,11 +129,11 @@ namespace tree_generator {
 
     root_sequence["id"] = "root_sequence";
     root_sequence["type"] = "SequenceStar";
-    root_sequence["name"] = "SequenceStar"
+    root_sequence["name"] = "SequenceStar";
 
-    for (int i = 0; i < keyframes.size(); i++) // cycle through the keyframes and initialize the pre-defined subtrees
+    for (int i = 0; i < keyframes.list.size(); i++) // cycle through the keyframes and initialize the pre-defined subtrees
     {
-      subtree_parser_.loadLabel(keyframes[i].label) // TODO: I am assuming an ordered list. Will this always be the case?
+      subtree_parser_.loadLabel(keyframes.list[i].label); // TODO: I am assuming an ordered list. Will this always be the case?
       json subtree = subtree_parser_.createSubTree(indices_);
       children_id_list.push_back(subtree["id"]);
       children_list.push_back(subtree);

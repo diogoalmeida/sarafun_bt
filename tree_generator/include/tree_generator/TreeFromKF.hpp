@@ -1,6 +1,8 @@
 #ifndef __TREE_FROM_KF__
 #define __TREE_FROM_KF__
 
+#include <ros/ros.h>
+#include <ros/package.h>
 #include <fstream>
 #include <json/json.hpp>
 #include <sarafun_msgs/KeyframeList.h>
