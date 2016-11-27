@@ -1,27 +1,21 @@
 <?xml version="1.0"?>
-<package>
+<package format="2">
   <name>sarafun_tree</name>
-  <version>0.1.0</version>
-  <description>Behavior tree example implementation for the SARAFun project</description>
+  <version>0.2.0</version>
+  <description>Behavior tree implementation for the SARAFun project</description>
   <maintainer email="diogoa@kth.se">Diogo Almeida</maintainer>
   <author>Diogo Almeida</author>
-  <license>TODO</license>
+  <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>actionlib</build_depend>
-  <build_depend>std_srvs</build_depend>
-  <build_depend>actionlib_msgs</build_depend>
-  <build_depend>roscpp</build_depend>
-  <build_depend>sarafun_manipulation</build_depend>
-  <build_depend>sarafun_assembly</build_depend>
-  <build_depend>behavior_tree_leaves</build_depend>
-  <build_depend>behavior_tree_core</build_depend>
-  <run_depend>behavior_tree_core</run_depend>
-  <run_depend>behavior_tree_leaves</run_depend>
-  <run_depend>sarafun_manipulation</run_depend>
-  <run_depend>sarafun_assembly</run_depend>
-  <run_depend>actionlib</run_depend>
-  <run_depend>std_srvs</run_depend>
-  <run_depend>actionlib_msgs</run_depend>
-  <run_depend>roscpp</run_depend>
+
+  <depend>actionlib</depend>
+  <depend>std_srvs</depend>
+  <depend>actionlib_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>sarafun_manipulation</depend>
+  <depend>sarafun_assembly</depend>
+  <depend>behavior_tree_leaves</depend>
+  <depend>behavior_tree_core</depend>
+
 </package>

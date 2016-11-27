@@ -1,16 +1,18 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>sarafun_generic_al_server</name>
-  <version>0.2.0</version>
-  <description>Implements a generic actionlib server for demo purposes</description>
+  <name>tree_generator</name>
+  <version>0.1.0</version>
+  <description>Behavior tree example implementation for the SARAFun project</description>
   <maintainer email="diogoa@kth.se">Diogo Almeida</maintainer>
   <author>Diogo Almeida</author>
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <depend>actionlib</depend>
-  <depend>actionlib_msgs</depend>
   <depend>roscpp</depend>
+  <depend>actionlib</depend>
+  <depend>std_srvs</depend>
+  <depend>actionlib_msgs</depend>
+  <depend>sarafun_msgs</depend>
 
 </package>
