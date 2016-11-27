@@ -29,8 +29,9 @@ namespace sarafun
       ROS_WARN("startTree called with an active tree running. Will terminate active tree.");
       stopTree();
     }
-    parser_ = new bt_parser::Parser(path_);
 
+    parser_ = new bt_parser::Parser(path_);
+    
     try
     {
       tree_root = dynamic_cast<ControlNode *>(parser_->parseTree());

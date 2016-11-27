@@ -11,13 +11,21 @@ find_package(catkin REQUIRED COMPONENTS
   std_srvs
   actionlib_msgs
   actionlib
+  message_generation
+)
+
+add_service_files(
+  DIRECTORY srv
+  FILES LoadTree.srv
 )
 
 link_directories(${catkin_LIBRARY_DIRS})
 set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 
+generate_messages(DEPENDENCIES std_msgs)
+
 catkin_package(
-  CATKIN_DEPENDS actionlib_msgs behavior_tree_leaves behavior_tree_core
+  CATKIN_DEPENDS actionlib_msgs behavior_tree_leaves behavior_tree_core message_runtime
   INCLUDE_DIRS include
   LIBRARIES tree_runner
 )
@@ -48,8 +56,12 @@ target_link_libraries(PlaceAction ${catkin_LIBRARIES})
 add_executable(OnlineMotionAction src/demo_bt_nodes/OnlineMotionAction.cpp)
 target_link_libraries(OnlineMotionAction ${catkin_LIBRARIES})
 
+add_executable(IsSimple src/demo_bt_nodes/IsSimple.cpp)
+target_link_libraries(IsSimple ${catkin_LIBRARIES})
+
 add_executable(sarafun_bt_demo src/sarafun_bt_demo.cpp)
 target_link_libraries(sarafun_bt_demo tree_runner ${catkin_LIBRARIES})
 
-add_executable(IsSimple src/demo_bt_nodes/IsSimple.cpp)
-target_link_libraries(IsSimple ${catkin_LIBRARIES})
+add_executable(sarafun_bt src/sarafun_bt.cpp)
+target_link_libraries(sarafun_bt tree_runner ${catkin_LIBRARIES})
+add_dependencies(sarafun_bt ${catkin_EXPORTED_TARGETS})
