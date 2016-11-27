@@ -33,6 +33,7 @@ private:
   std::string current_id_;
 
   json modifyId(json node, std::vector<int> &indices);
+  void replaceWithUnderscore(std::string &label);
 };
 
 /*

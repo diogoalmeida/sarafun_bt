@@ -1,0 +1,10 @@
+{
+  "root": "initial",
+  "nodes":{
+    "initial": {
+        "id": "initial",
+        "type": "Action",
+        "name": "initial"
+    }
+  }
+}

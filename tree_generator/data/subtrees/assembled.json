@@ -1,0 +1,10 @@
+{
+  "root": "assembled",
+  "nodes":{
+    "assembled": {
+        "id": "assembled",
+        "type": "Action",
+        "name": "assembled"
+    }
+  }
+}

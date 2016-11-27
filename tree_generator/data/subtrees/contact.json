@@ -1,0 +1,10 @@
+{
+  "root": "contact",
+  "nodes":{
+    "contact": {
+        "id": "contact",
+        "type": "Action",
+        "name": "contact"
+    }
+  }
+}

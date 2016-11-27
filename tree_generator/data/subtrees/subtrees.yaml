@@ -5,7 +5,7 @@ initial:
 grasp:
   file: grasp.json
 
-pick-up:
+pick_up:
   file: pick.json
 
 align:

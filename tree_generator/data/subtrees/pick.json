@@ -1,0 +1,10 @@
+{
+  "root": "pick",
+  "nodes":{
+    "pick": {
+        "id": "pick",
+        "type": "Action",
+        "name": "pick"
+    }
+  }
+}

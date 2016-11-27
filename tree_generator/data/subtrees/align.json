@@ -1,0 +1,15 @@
+{
+  "root": "align",
+  "nodes":{
+    "align": {
+        "id": "align",
+        "type": "Action",
+        "name": "align"
+    },
+    "adjust": {
+        "id": "adjust",
+        "type": "Action",
+        "name": "adjust"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "root": "grasp",
+  "nodes":{
+    "grasp": {
+        "id": "grasp",
+        "type": "Action",
+        "name": "grasp"
+    }
+  }
+}
