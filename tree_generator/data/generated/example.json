@@ -1,32 +1,42 @@
 {
   "nodes": {
+    "adjust": {
+      "id": "adjust13",
+      "name": "adjust",
+      "type": "Action"
+    },
+    "align": {
+      "id": "align14",
+      "name": "align",
+      "type": "Action"
+    },
     "assembled": {
-      "id": "assembled12",
+      "id": "assembled16",
       "name": "assembled",
       "type": "Action"
     },
     "contact": {
-      "id": "contact11",
+      "id": "contact15",
       "name": "contact",
       "type": "Action"
     },
     "grasp": {
-      "id": "grasp7",
+      "id": "grasp11",
       "name": "grasp",
       "type": "Action"
     },
     "initial": {
-      "id": "initial6",
+      "id": "initial10",
       "name": "initial",
       "type": "Action"
     },
     "pick": {
-      "id": "pick8",
+      "id": "pick12",
       "name": "pick",
       "type": "Action"
     },
     "retract": {
-      "id": "retract13",
+      "id": "retract17",
       "name": "retract",
       "type": "Action"
     },
@@ -49,7 +59,7 @@
         "align",
         "adjust"
       ],
-      "id": "selector1",
+      "id": "selector2",
       "name": "selector",
       "type": "SelectorStar"
     }

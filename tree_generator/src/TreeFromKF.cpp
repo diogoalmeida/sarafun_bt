@@ -109,9 +109,6 @@ namespace tree_generator {
     } else if (type == "SequenceStar") {
       indices[SEQSTAR]++;
       node["id"] = id + std::to_string(indices[SEQSTAR]);
-    } else if (type == "SequenceStar") {
-      indices[SEQSTAR]++;
-      node["id"] = id + std::to_string(indices[SEQSTAR]);
     } else if (type == "Action") {
       indices[ACTION]++;
       node["id"] = id + std::to_string(indices[ACTION]);
@@ -136,7 +133,7 @@ namespace tree_generator {
     Given a keyframe list, this method creates a JSON file
     describing the desired behavior tree
   */
-  json TreeFromKF::createTree(sarafun_msgs::KeyframeList keyframes)
+  json TreeFromKF::createTree(const sarafun_msgs::KeyframeList &keyframes)
   {
     json tree, root_sequence;
     std::vector<sarafun_msgs::KeyframeMsg> messages;
@@ -157,7 +154,7 @@ namespace tree_generator {
       json subtree = subtree_parser_.createSubTree(indices_);
       id = subtree["root"];
       children_id_list.push_back(id);
-      children[id] = subtree["nodes"][id];
+      addChildren(subtree, children);
     }
 
     root_sequence["children"] = children_id_list;
@@ -167,5 +164,17 @@ namespace tree_generator {
     std::cout << tree << std::endl;
 
     return tree;
+  }
+
+  /*
+    Fill the map with all the nodes in the given tree
+  */
+  void TreeFromKF::addChildren(const json &tree, std::map<std::string, json> &children_map)
+  {
+    for(auto i = tree["nodes"].begin(); i != tree["nodes"].end(); i++)
+    {
+      children_map[i.key()] = i.value();
+    }
+    return;
   }
 }

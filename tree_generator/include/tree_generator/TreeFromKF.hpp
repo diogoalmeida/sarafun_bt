@@ -46,13 +46,14 @@ public:
   TreeFromKF();
   ~TreeFromKF(){}
 
-  json createTree(sarafun_msgs::KeyframeList keyframes);
+  json createTree(const sarafun_msgs::KeyframeList &keyframes);
 
 private:
   std::vector<int> indices_; // to keep track of the id's
 
   json tree_;
   SubTreeFromKF subtree_parser_;
+  void addChildren(const json &tree, std::map<std::string, json> &children_map);
 };
 }
 
