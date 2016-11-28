@@ -1,0 +1,58 @@
+{
+  "nodes": {
+    "assembled": {
+      "id": "assembled12",
+      "name": "assembled",
+      "type": "Action"
+    },
+    "contact": {
+      "id": "contact11",
+      "name": "contact",
+      "type": "Action"
+    },
+    "grasp": {
+      "id": "grasp7",
+      "name": "grasp",
+      "type": "Action"
+    },
+    "initial": {
+      "id": "initial6",
+      "name": "initial",
+      "type": "Action"
+    },
+    "pick": {
+      "id": "pick8",
+      "name": "pick",
+      "type": "Action"
+    },
+    "retract": {
+      "id": "retract13",
+      "name": "retract",
+      "type": "Action"
+    },
+    "root_sequence": {
+      "children": [
+        "initial",
+        "grasp",
+        "pick",
+        "selector",
+        "contact",
+        "assembled",
+        "retract"
+      ],
+      "id": "root_sequence",
+      "name": "SequenceStar",
+      "type": "SequenceStar"
+    },
+    "selector": {
+      "children": [
+        "align",
+        "adjust"
+      ],
+      "id": "selector1",
+      "name": "selector",
+      "type": "SelectorStar"
+    }
+  },
+  "root": "root_sequence"
+}

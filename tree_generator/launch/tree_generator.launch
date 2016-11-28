@@ -1,0 +1,6 @@
+<launch>
+  <node name="tree_generator" pkg="tree_generator" type="tree_generator" output="screen">
+    <rosparam command="load" file="$(find tree_generator)/data/config.yaml"/>
+    <rosparam command="load" file="$(find tree_generator)/data/subtrees/subtrees.yaml"/>
+  </node>
+</launch>

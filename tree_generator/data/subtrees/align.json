@@ -1,6 +1,15 @@
 {
-  "root": "align",
+  "root": "selector",
   "nodes":{
+    "selector": {
+        "id": "selector",
+        "type": "SelectorStar",
+        "name": "selector",
+        "children": [
+          "align",
+          "adjust"
+        ]
+    },
     "align": {
         "id": "align",
         "type": "Action",

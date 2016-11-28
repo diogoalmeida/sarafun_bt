@@ -34,7 +34,7 @@ namespace tree_generator {
 
     replaceWithUnderscore(label);
 
-    if (!nh_.getParam("/" + label + "/file", filename))
+    if (!nh_.getParam(ros::this_node::getName() + "/" + label + "/file", filename))
     {
       ROS_ERROR("Got label %s, which is not defined in the tree generator", label.c_str());
       return false;
