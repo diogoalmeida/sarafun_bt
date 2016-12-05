@@ -46,6 +46,7 @@ protected:
   void fillParameter(std::string param_name, std::string def,
                      std::string &param_val);
   void fillParameter(std::string param_name, double def, double &param_val);
+  void fillParameter(std::string param_name, int def, int &param_val);
 
   /*
       Checks if BT action execution is allowed
@@ -200,6 +201,17 @@ void ExecuteAction<ActionClass, ActionGoal>::fillParameter(
     nh_.getParam(param_name.c_str(), param_val);
   } else {
     ROS_WARN("Param '%s' not set. Using default: %.2f", param_name.c_str(),
+             def);
+  }
+}
+
+template <class ActionClass, class ActionGoal>
+void ExecuteAction<ActionClass, ActionGoal>::fillParameter(
+    std::string param_name, int def, int &param_val) {
+  if (nh_.hasParam(param_name.c_str())) {
+    nh_.getParam(param_name.c_str(), param_val);
+  } else {
+    ROS_WARN("Param '%s' not set. Using default: %d", param_name.c_str(),
              def);
   }
 }

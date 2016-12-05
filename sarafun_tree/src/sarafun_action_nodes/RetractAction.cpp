@@ -2,6 +2,11 @@
 
 namespace sarafun {
 bool RetractAction::fillGoal(sarafun_msgs::RetractKeyframeGoal &goal) {
+  int idx;
+
+  fillParameter("/sarafun/retract/idx", 0, idx);
+  goal.idx = idx;
+
   return true;
 }
 

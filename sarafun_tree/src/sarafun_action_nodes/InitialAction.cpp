@@ -2,6 +2,11 @@
 
 namespace sarafun {
 bool InitialAction::fillGoal(sarafun_msgs::InitialKeyframeGoal &goal) {
+  int idx;
+
+  fillParameter("/sarafun/initial/idx", 0, idx);
+  goal.idx = idx;
+
   return true;
 }
 

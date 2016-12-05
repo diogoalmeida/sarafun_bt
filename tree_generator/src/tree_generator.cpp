@@ -13,6 +13,18 @@ void keyframeCallback(const sarafun_msgs::KeyframeList::ConstPtr &msg)
 {
   try
   {
+    std::string label;
+    // For now, I am loading the indices in the parameter server, and I expect the
+    // client nodes to read this parameters. TODO: If we want to pass more information
+    // from the keyframes to the clients in the future, we will need to adopt a more
+    // interesting way of passing values (possibly through the json)
+    for (int i = 0; i < msg->list.size(); i++)
+    {
+      label = msg->list[i].label;
+      tree_generator::replaceWithUnderscore(label);
+      ros::param::set("/sarafun/" + label + "/idx", msg->list[i].idx);
+    }
+
     json tree = create_json->createTree(*msg);
     std::ofstream file;
     std::string path = ros::package::getPath("tree_generator") + "/data/generated/" + tree_name + ".json";

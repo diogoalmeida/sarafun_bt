@@ -2,6 +2,11 @@
 
 namespace sarafun {
 bool ContactAction::fillGoal(sarafun_msgs::ContactKeyframeGoal &goal) {
+  int idx;
+
+  fillParameter("/sarafun/contact/idx", 0, idx);
+  goal.idx = idx;
+
   return true;
 }
 

@@ -2,6 +2,11 @@
 
 namespace sarafun {
 bool MoveAction::fillGoal(sarafun_msgs::MoveKeyframeGoal &goal) {
+  int idx;
+
+  fillParameter("/sarafun/move/idx", 0, idx);
+  goal.idx = idx;
+
   return true;
 }
 

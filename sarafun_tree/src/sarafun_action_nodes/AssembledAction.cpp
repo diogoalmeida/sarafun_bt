@@ -2,6 +2,11 @@
 
 namespace sarafun {
 bool AssembledAction::fillGoal(sarafun_msgs::AssembledKeyframeGoal &goal) {
+  int idx;
+
+  fillParameter("/sarafun/assembled/idx", 0, idx);
+  goal.idx = idx;
+
   return true;
 }
 

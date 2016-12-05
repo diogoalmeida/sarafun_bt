@@ -12,7 +12,7 @@ namespace tree_generator {
   /*
     Replace all hifens in a string with an underscore
   */
-  void SubTreeFromKF::replaceWithUnderscore(std::string &label)
+  void replaceWithUnderscore(std::string &label)
   {
     for (int i = 0; i < label.size(); i++)
     {

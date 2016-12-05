@@ -33,7 +33,6 @@ private:
   std::string current_id_;
 
   json modifyId(json node, std::vector<int> &indices);
-  void replaceWithUnderscore(std::string &label);
 };
 
 /*
@@ -55,6 +54,8 @@ private:
   SubTreeFromKF subtree_parser_;
   void addChildren(const json &tree, std::map<std::string, json> &children_map);
 };
+
+void replaceWithUnderscore(std::string &label);
 }
 
 #endif

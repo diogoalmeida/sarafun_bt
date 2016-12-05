@@ -2,6 +2,11 @@
 
 namespace sarafun {
 bool AlignAction::fillGoal(sarafun_msgs::AlignKeyframeGoal &goal) {
+  int idx;
+
+  fillParameter("/sarafun/align/idx", 0, idx);
+  goal.idx = idx;
+
   return true;
 }
 

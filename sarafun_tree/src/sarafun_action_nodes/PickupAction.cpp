@@ -2,6 +2,11 @@
 
 namespace sarafun {
 bool PickupAction::fillGoal(sarafun_msgs::PickUpKeyframeGoal &goal) {
+  int idx;
+
+  fillParameter("/sarafun/pick_up/idx", 0, idx);
+  goal.idx = idx;
+
   return true;
 }
 
