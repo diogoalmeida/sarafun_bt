@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>sarafun_bt</name>
+  <version>0.2.0</version>
+  <description>
+    Meta package that aggregates all the sarafun behavior tree packages
+  </description>
+  <maintainer email="diogoa@kth.se">Diogo Almeida</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>sarafun_tree</exec_depend>
+  <exec_depend>tree_generator</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
