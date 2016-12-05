@@ -1,0 +1,26 @@
+sarafun:
+  bt_action_nodes:
+    align:
+      name: align_action_node
+      timeout: 60
+    assembled:
+      name: assembled_action_node
+      timeout: 60
+    contact:
+      name: contact_action_node
+      timeout: 60
+    grasp:
+      name: grasp_action_node
+      timeout: 60
+    initial:
+      name: initial_action_node
+      timeout: 60
+    move:
+      name: move_action_node
+      timeout: 60
+    pickup:
+      name: pickup_action_node
+      timeout: 60
+    retract:
+      name: retract_action_node
+      timeout: 60

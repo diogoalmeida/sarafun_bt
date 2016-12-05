@@ -4,7 +4,7 @@
     "grasp": {
         "id": "grasp",
         "type": "Action",
-        "name": "grasp"
+        "name": "grasp_action_node"
     }
   }
 }

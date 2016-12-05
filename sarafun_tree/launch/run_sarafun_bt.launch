@@ -4,32 +4,28 @@
 
   <!-- General parameters -->
   <param name="/sarafun/bt/tick_period" type="int" value="500"/> <!-- Tick period in milisseconds -->
+  <param name="/sarafun/bt/running" type="bool" value="true"/> <!-- Immediately start the behavior tree -->
+  <rosparam command="load" file="$(find sarafun_tree)/config/sarafun_action_nodes_config.yaml"/>
 
   <group if="$(arg debug)" >
-	  <param name="/sarafun/bt/file" type="string" value="example_demo1.json"/>
-
-	  <!-- Timeout parameters -->
-	  <param name="/sarafun/bt/approach_objects/timeout" type="double" value="10.0"/>
-	  <param name="/sarafun/bt/grab_object/timeout" type="double" value="10.0"/>
-	  <param name="/sarafun/bt/folding_assembly/timeout" type="double" value="10.0"/>
-	  <param name="/sarafun/bt/insertion_deformation/timeout" type="double" value="10.0"/>
-	  <param name="/sarafun/bt/place/timeout" type="double" value="10.0"/>
-
-	  <!-- In case of demo1, immediatelly start the behavior tree -->
-	  <param name="/sarafun/bt/running" type="bool" value="true"/>
-
-	  <!-- Launch the Behavior tree action nodes -->
-	  <node name="GrabObjectAction" pkg="sarafun_tree" type="GrabObjectAction" output="screen"/>
-	  <node name="ApproachObjectsAction" pkg="sarafun_tree" type="ApproachObjectsAction" output="screen"/>
-	  <node name="FoldingAssemblyAction" pkg="sarafun_tree" type="FoldingAssemblyAction" output="screen"/>
-	  <node name="InsertionWithDeformationAction" pkg="sarafun_tree" type="InsertionWithDeformationAction" output="screen"/>
-	  <node name="PlaceAction" pkg="sarafun_tree" type="PlaceAction" output="screen"/>
-
-	  <!-- Dummy actionlib servers for demo purposes -->
-	  <node name="ApproachDummy" pkg="sarafun_manipulation" type="ApproachDummy" output="screen"/>
-	  <node name="GrabDummy" pkg="sarafun_manipulation" type="GrabDummy" output="screen"/>
-	  <node name="PlaceDummy" pkg="sarafun_manipulation" type="PlaceDummy" output="screen"/>
-	  <node name="FoldingDummy" pkg="sarafun_assembly" type="FoldingDummy" output="screen"/>
-	  <node name="InsertionDummy" pkg="sarafun_assembly" type="InsertionDummy" output="screen"/>
+	  <!-- Dummy actionlib servers for debug purposes -->
+	  <node name="AlignDummy" pkg="sarafun_manipulation" type="AlignDummy" output="screen"/>
+	  <node name="AssembledDummy" pkg="sarafun_manipulation" type="AssembledDummy" output="screen"/>
+	  <node name="ContactDummy" pkg="sarafun_manipulation" type="ContactDummy" output="screen"/>
+	  <node name="GraspDummy" pkg="sarafun_assembly" type="GraspDummy" output="screen"/>
+    <node name="InitialDummy" pkg="sarafun_assembly" type="InitialDummy" output="screen"/>
+    <node name="MoveDummy" pkg="sarafun_assembly" type="MoveDummy" output="screen"/>
+    <node name="PickupDummy" pkg="sarafun_assembly" type="PickupDummy" output="screen"/>
+	  <node name="RetractDummy" pkg="sarafun_assembly" type="RetractDummy" output="screen"/>
   </group>
+
+  <!-- Launch the Behavior tree action nodes -->
+  <node name="AlignAction" pkg="sarafun_tree" type="AlignAction" output="screen"/>
+  <node name="AssembledAction" pkg="sarafun_tree" type="AssembledAction" output="screen"/>
+  <node name="ContactAction" pkg="sarafun_tree" type="FoldingAssemblyAction" output="screen"/>
+  <node name="GraspAction" pkg="sarafun_tree" type="GraspAction" output="screen"/>
+  <node name="InitialAction" pkg="sarafun_tree" type="InitialAction" output="screen"/>
+  <node name="MoveAction" pkg="sarafun_tree" type="MoveAction" output="screen"/>
+  <node name="PickupAction" pkg="sarafun_tree" type="PickupAction" output="screen"/>
+  <node name="RetractAction" pkg="sarafun_tree" type="RetractAction" output="screen"/>
 </launch>

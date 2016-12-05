@@ -4,7 +4,7 @@
     "contact": {
         "id": "contact",
         "type": "Action",
-        "name": "contact"
+        "name": "contact_action_node"
     }
   }
 }

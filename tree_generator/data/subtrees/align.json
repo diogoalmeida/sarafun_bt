@@ -1,24 +1,10 @@
 {
-  "root": "selector",
+  "root": "align",
   "nodes":{
-    "selector": {
-        "id": "selector",
-        "type": "SelectorStar",
-        "name": "selector",
-        "children": [
-          "align",
-          "adjust"
-        ]
-    },
     "align": {
         "id": "align",
         "type": "Action",
-        "name": "align"
-    },
-    "adjust": {
-        "id": "adjust",
-        "type": "Action",
-        "name": "adjust"
+        "name": "align_action_node"
     }
   }
 }

@@ -4,7 +4,7 @@
     "pick": {
         "id": "pick",
         "type": "Action",
-        "name": "pick"
+        "name": "pickup_action_node"
     }
   }
 }

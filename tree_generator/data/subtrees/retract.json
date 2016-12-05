@@ -4,7 +4,7 @@
     "retract": {
         "id": "retract",
         "type": "Action",
-        "name": "retract"
+        "name": "retract_action_node"
     }
   }
 }
