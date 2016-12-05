@@ -9,20 +9,20 @@
 
   <group if="$(arg debug)" >
 	  <!-- Dummy actionlib servers for debug purposes -->
-	  <node name="AlignDummy" pkg="sarafun_manipulation" type="AlignDummy" output="screen"/>
-	  <node name="AssembledDummy" pkg="sarafun_manipulation" type="AssembledDummy" output="screen"/>
-	  <node name="ContactDummy" pkg="sarafun_manipulation" type="ContactDummy" output="screen"/>
-	  <node name="GraspDummy" pkg="sarafun_assembly" type="GraspDummy" output="screen"/>
-    <node name="InitialDummy" pkg="sarafun_assembly" type="InitialDummy" output="screen"/>
-    <node name="MoveDummy" pkg="sarafun_assembly" type="MoveDummy" output="screen"/>
-    <node name="PickupDummy" pkg="sarafun_assembly" type="PickupDummy" output="screen"/>
-	  <node name="RetractDummy" pkg="sarafun_assembly" type="RetractDummy" output="screen"/>
+	  <node name="AlignDummy" pkg="sarafun_bt_nodes_test" type="AlignDummy" output="screen"/>
+	  <node name="AssembledDummy" pkg="sarafun_bt_nodes_test" type="AssembledDummy" output="screen"/>
+	  <node name="ContactDummy" pkg="sarafun_bt_nodes_test" type="ContactDummy" output="screen"/>
+	  <node name="GraspDummy" pkg="sarafun_bt_nodes_test" type="GraspDummy" output="screen"/>
+    <node name="InitialDummy" pkg="sarafun_bt_nodes_test" type="InitialDummy" output="screen"/>
+    <node name="MoveDummy" pkg="sarafun_bt_nodes_test" type="MoveDummy" output="screen"/>
+    <node name="PickupDummy" pkg="sarafun_bt_nodes_test" type="PickupDummy" output="screen"/>
+	  <node name="RetractDummy" pkg="sarafun_bt_nodes_test" type="RetractDummy" output="screen"/>
   </group>
 
   <!-- Launch the Behavior tree action nodes -->
   <node name="AlignAction" pkg="sarafun_tree" type="AlignAction" output="screen"/>
   <node name="AssembledAction" pkg="sarafun_tree" type="AssembledAction" output="screen"/>
-  <node name="ContactAction" pkg="sarafun_tree" type="FoldingAssemblyAction" output="screen"/>
+  <node name="ContactAction" pkg="sarafun_tree" type="ContactAction" output="screen"/>
   <node name="GraspAction" pkg="sarafun_tree" type="GraspAction" output="screen"/>
   <node name="InitialAction" pkg="sarafun_tree" type="InitialAction" output="screen"/>
   <node name="MoveAction" pkg="sarafun_tree" type="MoveAction" output="screen"/>

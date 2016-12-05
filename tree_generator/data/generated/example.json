@@ -1,43 +1,38 @@
 {
   "nodes": {
-    "adjust": {
-      "id": "adjust13",
-      "name": "adjust",
-      "type": "Action"
-    },
     "align": {
-      "id": "align14",
-      "name": "align",
+      "id": "align4",
+      "name": "align_action",
       "type": "Action"
     },
     "assembled": {
-      "id": "assembled16",
-      "name": "assembled",
+      "id": "assembled6",
+      "name": "assembled_action",
       "type": "Action"
     },
     "contact": {
-      "id": "contact15",
-      "name": "contact",
+      "id": "contact5",
+      "name": "contact_action",
       "type": "Action"
     },
     "grasp": {
-      "id": "grasp11",
-      "name": "grasp",
+      "id": "grasp2",
+      "name": "grasp_action",
       "type": "Action"
     },
     "initial": {
-      "id": "initial10",
-      "name": "initial",
+      "id": "initial1",
+      "name": "initial_action",
       "type": "Action"
     },
     "pick": {
-      "id": "pick12",
-      "name": "pick",
+      "id": "pick3",
+      "name": "pickup_action",
       "type": "Action"
     },
     "retract": {
-      "id": "retract17",
-      "name": "retract",
+      "id": "retract7",
+      "name": "retract_action",
       "type": "Action"
     },
     "root_sequence": {
@@ -45,7 +40,7 @@
         "initial",
         "grasp",
         "pick",
-        "selector",
+        "align",
         "contact",
         "assembled",
         "retract"
@@ -53,15 +48,6 @@
       "id": "root_sequence",
       "name": "SequenceStar",
       "type": "SequenceStar"
-    },
-    "selector": {
-      "children": [
-        "align",
-        "adjust"
-      ],
-      "id": "selector2",
-      "name": "selector",
-      "type": "SelectorStar"
     }
   },
   "root": "root_sequence"

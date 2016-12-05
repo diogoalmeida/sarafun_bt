@@ -1,26 +1,34 @@
 sarafun:
   bt_action_nodes:
     align:
-      name: align_action_node
+      action_server_name: /sarafun/bt_nodes_test/align
+      bt_client_name: align_action
       timeout: 60
     assembled:
-      name: assembled_action_node
+      action_server_name: /sarafun/bt_nodes_test/assembled
+      bt_client_name: assembled_action
       timeout: 60
     contact:
-      name: contact_action_node
+      action_server_name: /sarafun/bt_nodes_test/contact
+      bt_client_name: contact_action
       timeout: 60
     grasp:
-      name: grasp_action_node
+      action_server_name: /sarafun/bt_nodes_test/grasp
+      bt_client_name: grasp_action
       timeout: 60
     initial:
-      name: initial_action_node
+      action_server_name: /sarafun/bt_nodes_test/initial
+      bt_client_name: initial_action
       timeout: 60
     move:
-      name: move_action_node
+      action_server_name: /sarafun/bt_nodes_test/move
+      bt_client_name: move_action
       timeout: 60
     pickup:
-      name: pickup_action_node
+      action_server_name: /sarafun/bt_nodes_test/pickup
+      bt_client_name: pickup_action
       timeout: 60
     retract:
-      name: retract_action_node
+      action_server_name: /sarafun/bt_nodes_test/retract
+      bt_client_name: retract_action
       timeout: 60

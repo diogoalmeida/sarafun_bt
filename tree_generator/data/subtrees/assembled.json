@@ -4,7 +4,7 @@
     "assembled": {
         "id": "assembled",
         "type": "Action",
-        "name": "assembled_action_node"
+        "name": "assembled_action"
     }
   }
 }

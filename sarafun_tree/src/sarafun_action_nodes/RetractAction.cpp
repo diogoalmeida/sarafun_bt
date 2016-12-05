@@ -15,9 +15,22 @@ double RetractAction::getTimeoutValue() {
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "RetractAction");
+  std::string bt_client_name, action_server_name;
+
+  if (!ros::param::get("/sarafun/bt_action_nodes/retract/action_server_name", action_server_name))
+  {
+    ROS_ERROR("%s missing action server name", ros::this_node::getName().c_str());
+    return -1;
+  }
+
+  if (!ros::param::get("/sarafun/bt_action_nodes/retract/bt_client_name", bt_client_name))
+  {
+    ROS_ERROR("%s missing bt client name", ros::this_node::getName().c_str());
+    return -1;
+  }
+
   sarafun::RetractAction retract_action(
-      ros::this_node::getName(), "/sarafun/bt_action_nodes/retract/name",
-      "align_action");
+      ros::this_node::getName(),  action_server_name, bt_client_name);
   ros::spin();
   return 1;
 }

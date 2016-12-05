@@ -4,7 +4,7 @@
     "align": {
         "id": "align",
         "type": "Action",
-        "name": "align_action_node"
+        "name": "align_action"
     }
   }
 }
