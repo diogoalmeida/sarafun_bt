@@ -38,6 +38,15 @@ include_directories(
 add_library(tree_runner src/TreeRunner.cpp src/parse_tree.cpp)
 target_link_libraries(tree_runner ${catkin_LIBRARIES})
 
+add_executable(sarafun_bt_demo src/sarafun_bt_demo.cpp)
+target_link_libraries(sarafun_bt_demo tree_runner ${catkin_LIBRARIES})
+
+add_executable(sarafun_bt src/sarafun_bt.cpp)
+target_link_libraries(sarafun_bt tree_runner ${catkin_LIBRARIES})
+add_dependencies(sarafun_bt ${catkin_EXPORTED_TARGETS})
+
+## Demo nodes
+
 add_executable(GrabObjectAction src/demo_bt_nodes/GrabObjectAction.cpp)
 target_link_libraries(GrabObjectAction ${catkin_LIBRARIES})
 
@@ -59,9 +68,28 @@ target_link_libraries(OnlineMotionAction ${catkin_LIBRARIES})
 add_executable(IsSimple src/demo_bt_nodes/IsSimple.cpp)
 target_link_libraries(IsSimple ${catkin_LIBRARIES})
 
-add_executable(sarafun_bt_demo src/sarafun_bt_demo.cpp)
-target_link_libraries(sarafun_bt_demo tree_runner ${catkin_LIBRARIES})
+## Sarafun tree client nodes
 
-add_executable(sarafun_bt src/sarafun_bt.cpp)
-target_link_libraries(sarafun_bt tree_runner ${catkin_LIBRARIES})
-add_dependencies(sarafun_bt ${catkin_EXPORTED_TARGETS})
+add_executable(AlignAction src/sarafun_action_nodes/AlignAction.cpp)
+target_link_libraries(AlignAction ${catkin_LIBRARIES})
+
+add_executable(AssembledAction src/sarafun_action_nodes/AssembledAction.cpp)
+target_link_libraries(AssembledAction ${catkin_LIBRARIES})
+
+add_executable(ContactAction src/sarafun_action_nodes/ContactAction.cpp)
+target_link_libraries(ContactAction ${catkin_LIBRARIES})
+
+add_executable(GraspAction src/sarafun_action_nodes/GraspAction.cpp)
+target_link_libraries(GraspAction ${catkin_LIBRARIES})
+
+add_executable(InitialAction src/sarafun_action_nodes/InitialAction.cpp)
+target_link_libraries(InitialAction ${catkin_LIBRARIES})
+
+add_executable(MoveAction src/sarafun_action_nodes/MoveAction.cpp)
+target_link_libraries(MoveAction ${catkin_LIBRARIES})
+
+add_executable(PickupAction src/sarafun_action_nodes/PickupAction.cpp)
+target_link_libraries(PickupAction ${catkin_LIBRARIES})
+
+add_executable(RetractAction src/sarafun_action_nodes/RetractAction.cpp)
+target_link_libraries(RetractAction ${catkin_LIBRARIES})
