@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>sarafun_bt_nodes_test</name>
+  <version>0.3.0</version>
+  <description>Dummy sarafun actionlib servers for debugging the BT implementation</description>
+  <maintainer email="diogoa@kth.se">Diogo Almeida</maintainer>
+  <author>Diogo Almeida</author>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>actionlib</depend>
+  <depend>actionlib_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>sarafun_generic_al_server</depend>
+  <depend>sarafun_msgs</depend>
+
+</package>
