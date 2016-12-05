@@ -2,6 +2,7 @@
 
 namespace sarafun {
 bool TestAlign::parseGoal(const sarafun_msgs::AlignKeyframeGoalConstPtr &goal) {
+  ROS_INFO("%s got goal idx: %d", action_name_.c_str(), goal->idx);
   return true;
 }
 }

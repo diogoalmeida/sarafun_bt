@@ -2,6 +2,7 @@
 
 namespace sarafun {
 bool TestInitial::parseGoal(const sarafun_msgs::InitialKeyframeGoalConstPtr &goal) {
+  ROS_INFO("%s got goal idx: %d", action_name_.c_str(), goal->idx);
   return true;
 }
 }

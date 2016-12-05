@@ -24,11 +24,11 @@ protected:
       if they are properly filled in or not.
   */
   virtual bool parseGoal(const ActionGoalConstPtr &goal) = 0;
+  std::string action_name_;
 
 private:
   ros::NodeHandle nh_;
   actionlib::SimpleActionServer<ActionClass> action_server_;
-  std::string action_name_;
   ActionFeedback feedback_;
   ActionResult result_;
 };
