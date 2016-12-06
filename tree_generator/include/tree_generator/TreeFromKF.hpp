@@ -5,7 +5,6 @@
 #include <ros/package.h>
 #include <fstream>
 #include <json/json.hpp>
-#include <sarafun_msgs/KeyframeList.h>
 #include <sarafun_msgs/KeyframeMsg.h>
 
 using json = nlohmann::json;
@@ -45,7 +44,7 @@ public:
   TreeFromKF();
   ~TreeFromKF(){}
 
-  json createTree(const sarafun_msgs::KeyframeList &keyframes);
+  json createTree(const std::vector<sarafun_msgs::KeyframeMsg> &keyframes_list);
 
 private:
   std::vector<int> indices_; // to keep track of the id's

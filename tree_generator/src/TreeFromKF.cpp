@@ -133,10 +133,9 @@ namespace tree_generator {
     Given a keyframe list, this method creates a JSON file
     describing the desired behavior tree
   */
-  json TreeFromKF::createTree(const sarafun_msgs::KeyframeList &keyframes)
+  json TreeFromKF::createTree(const std::vector<sarafun_msgs::KeyframeMsg> &keyframes_list)
   {
     json tree, root_sequence;
-    std::vector<sarafun_msgs::KeyframeMsg> messages;
     std::vector<std::string> children_id_list;
     std::map<std::string, json> children;
     std::vector<json> children_list;
@@ -148,9 +147,9 @@ namespace tree_generator {
     root_sequence["type"] = "SequenceStar";
     root_sequence["name"] = "SequenceStar";
 
-    for (int i = 0; i < keyframes.list.size(); i++) // cycle through the keyframes and initialize the pre-defined subtrees
+    for (int i = 0; i < keyframes_list.size(); i++) // cycle through the keyframes and initialize the pre-defined subtrees
     {
-      subtree_parser_.loadLabel(keyframes.list[i].label); // TODO: I am assuming an ordered list. Will this always be the case?
+      subtree_parser_.loadLabel(keyframes_list[i].label); // TODO: I am assuming an ordered list. Will this always be the case?
       json subtree = subtree_parser_.createSubTree(indices_);
       id = subtree["root"];
       children_id_list.push_back(id);
