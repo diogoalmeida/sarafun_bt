@@ -43,6 +43,9 @@ This will download the ```ROS-Behavior-Tree``` package, as well as the SARAFun p
 $ source devel/setup.bash
 ```
 
+### YAML parser
+These packages depend on yaml-cpp, version 0.5.3, which can be obtained [here](https://github.com/jbeder/yaml-cpp/tree/yaml-cpp-0.5.3)
+
 Services
 ----
 The tree client provides services to start, stop and restart a tree. When starting, the tree client will parse the input file and generate a tree based on it.
@@ -51,7 +54,7 @@ Restarting a tree stops the currently running tree, parses the input file and ge
 * ```/sarafun/stop_tree```
 * ```/sarafun/restart_tree```
 
-All the services use empty requests.
+The start service requires a file path to be given. This will be used by the json parser to load the appropriate tree.
 
 Running the demo
 ----
