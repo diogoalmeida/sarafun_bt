@@ -12,6 +12,12 @@ std::string tree_name;
 bool keyframeCallback(sarafun_msgs::BTGeneration::Request &req,
                       sarafun_msgs::BTGeneration::Response &res)
 {
+  if (req.keyframe_sequence.size() == 0)
+  {
+    ROS_ERROR("Received an empty keyframe sequence!");
+    res.success = false;
+    return true;
+  }
   try
   {
     std::string label;
@@ -34,6 +40,7 @@ bool keyframeCallback(sarafun_msgs::BTGeneration::Request &req,
     file.open(path);
     file << tree.dump(2);
     file.close();
+    res.success = true;
     return true;
   }
   catch(std::logic_error &e)

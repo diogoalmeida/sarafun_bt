@@ -6,3 +6,6 @@ abb_irb14000_support/
 
 # Temp files
 *~
+
+# Generated files
+tree_generator/data/generated/*
