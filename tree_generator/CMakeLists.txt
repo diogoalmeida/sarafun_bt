@@ -23,6 +23,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(tree_generator src/TreeFromKF.cpp src/tree_generator.cpp)
-target_link_libraries(tree_generator ${catkin_LIBRARIES})
+add_executable(tree_generator src/TreeFromKF.cpp src/tree_generator.cpp src/YamlCreator.cpp)
+target_link_libraries(tree_generator ${catkin_LIBRARIES} yaml-cpp)
 add_dependencies(tree_generator ${catkin_EXPORTED_TARGETS})
