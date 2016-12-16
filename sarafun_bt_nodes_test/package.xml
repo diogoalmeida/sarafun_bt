@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>sarafun_bt_nodes_test</name>
-  <version>0.3.0</version>
+  <version>1.0.0</version>
   <description>Dummy sarafun actionlib servers for debugging the BT implementation</description>
   <maintainer email="diogoa@kth.se">Diogo Almeida</maintainer>
   <author>Diogo Almeida</author>
