@@ -22,3 +22,7 @@ retract:
 
 contact:
   file: contact.json
+
+move:
+  file: move.json
+

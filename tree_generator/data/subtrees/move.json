@@ -1,0 +1,10 @@
+{
+  "root": "move",
+  "nodes":{
+    "move": {
+        "id": "move",
+        "type": "Action",
+        "name": "move_action"
+    }
+  }
+}
