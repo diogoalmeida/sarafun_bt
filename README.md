@@ -1,9 +1,9 @@
-Behavior Trees for the SARAFun project
+Behavior Trees for the SARAFun project [![Build Status](https://travis-ci.org/diogoalmeida/sarafun_bt.svg?branch=master)](https://travis-ci.org/diogoalmeida/sarafun_bt)
 =====
 
 This repository contains code that showcases a potential application of behavior trees.
 It provides:
-*  A ```sarafun_tree``` ROS package. It shows a possible implementation of the ```ROS-Behavior-Tree``` package in the context of SARAFun.
+*  A ```sarafun_tree``` ROS package. It provides the required utilities for running a behavior tree in the context of the SARAFun EU project.
 *  Dummy packages ```sarafun_manipulation```, ```sarafun_generic_al_server``` and ```sarafun_assembly```, that implement [actionlib](http://wiki.ros.org/actionlib) servers for interacting with the behavior tree.
 
 It depends on a modified version of the [ROS-Behavior-Tree](https://github.com/miccol/ROS-Behavior-Tree) package by Michele Colledanchise. The main changes are
@@ -23,6 +23,9 @@ $ sudo apt-get update
 $ sudo apt-get install gcc-4.9 g++-4.9
 ```
 and your system should now be correctly configured.
+
+### Dependencies
+The provided packages depend on [yaml-cpp](https://github.com/oftc/yaml-cpp.git).
 
 ### ROS packages
 If you do not have a created catkin workspace, create one by doing
