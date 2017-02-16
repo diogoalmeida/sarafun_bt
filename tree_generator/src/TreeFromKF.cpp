@@ -23,10 +23,6 @@ namespace tree_generator {
     }
   }
 
-  /*
-    Makes sure that the given KF label has a matching defined
-    subtree. If so, it reads the file that defines the subtree
-  */
   bool SubTreeFromKF::loadLabel(std::string label)
   {
     std::string filename;
@@ -54,11 +50,6 @@ namespace tree_generator {
     return false;
   }
 
-  /*
-    Creates the subtree for the loaded label, adjusting the id's
-    based on the given indices. Updates the given indices.
-    Throws a logic error if not called with a loaded label.
-  */
   json SubTreeFromKF::createSubTree(std::vector<int> &indices)
   {
     if (!has_label_)
@@ -83,10 +74,6 @@ namespace tree_generator {
     return subtree_;
   }
 
-  /*
-    Changes the id of a node, given the provided indices.
-    Updates the indices.
-  */
   json SubTreeFromKF::modifyId(json node, std::vector<int> &indices)
   {
     if (!node.count("id") || !node.count("type"))
@@ -129,10 +116,6 @@ namespace tree_generator {
     indices_.resize(6);
   }
 
-  /*
-    Given a keyframe list, this method creates a JSON file
-    describing the desired behavior tree
-  */
   json TreeFromKF::createTree(const std::vector<sarafun_msgs::KeyframeMsg> &keyframes_list)
   {
     json tree, root_sequence;
@@ -165,9 +148,6 @@ namespace tree_generator {
     return tree;
   }
 
-  /*
-    Fill the map with all the nodes in the given tree
-  */
   void TreeFromKF::addChildren(const json &tree, std::map<std::string, json> &children_map)
   {
     for(auto i = tree["nodes"].begin(); i != tree["nodes"].end(); i++)

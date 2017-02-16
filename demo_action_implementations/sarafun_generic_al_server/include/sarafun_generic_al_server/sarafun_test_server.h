@@ -8,7 +8,7 @@ namespace sarafun {
   This class implements an interface for generic test servers to be built.
   They will mimic the actual servers implemented by the remaining project
   workpackages.
-*/
+**/
 template <class ActionClass, class ActionGoalConstPtr, class ActionFeedback,
           class ActionResult>
 class TestServer {
@@ -18,11 +18,11 @@ public:
   void executeCB(const ActionGoalConstPtr &goal);
 
 protected:
-  /*
+  /**
       Should print goal contents on the screen and return true or false
      depending on
       if they are properly filled in or not.
-  */
+  **/
   virtual bool parseGoal(const ActionGoalConstPtr &goal) = 0;
   std::string action_name_;
 

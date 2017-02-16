@@ -12,16 +12,36 @@ namespace tree_generator {
 
 enum node_type {SEQ=0, SEL, SEQSTAR, SELSTAR, ACTION, CONDITION};
 
-/*
+/**
   This class constructs one pre-defined BT subtree,
-  given the semantic information contained in a keyframe
-*/
+  given the semantic information contained in a keyframe.
+
+  The files describing the subtrees are defined in the /data/subtrees directory,
+  and must have names matching the labels loaded in the parameter server.
+**/
 class SubTreeFromKF {
 public:
   SubTreeFromKF();
   ~SubTreeFromKF(){}
 
+  /**
+    Recovers a BT subtree with a label that matches the keyframe.
+
+    @param label The KF label that identifies the subtree.
+    @return True in case the label exists and the file is recovered. False otherwise.
+  **/
   bool loadLabel(std::string label);
+
+  /*
+    Creates the subtree for the loaded label, adjusting the id's
+    based on the given indices. Updates the given indices.
+
+    @param indices Vector of indices that define the number of actions and conditions
+    of a given label that have occurred.
+    @return A JSON node with the JSON description of the subtree defined by the
+    KD label
+    @throw logic_error
+  */
   json createSubTree(std::vector<int> &indices);
 
 private:
@@ -31,19 +51,33 @@ private:
   bool has_label_;
   std::string current_id_;
 
+  /**
+    Make sure that the created json subtree has nodes with proper indices.
+
+    @param node The JSON node with the subtree description.
+    @param indices The vector of indices.
+    @return The modified json NODE.
+    @throw logic_error
+  **/
   json modifyId(json node, std::vector<int> &indices);
 };
 
-/*
-  Class responsible from creating a JSON file from the
-  given keyframe sequence
-*/
+/**
+  Creates a JSON behavior tree description from a sequence of keyframe labels.
+  It works by aggregating different subtrees defined for each label.
+**/
 class TreeFromKF
 {
 public:
   TreeFromKF();
   ~TreeFromKF(){}
 
+  /**
+    Creates a JSON BT description from a sequence of keyframe labels.
+
+    @param keyframes_list The list of received keyframe messages.
+    @return The JSON node representing the JSON BT description.
+  **/
   json createTree(const std::vector<sarafun_msgs::KeyframeMsg> &keyframes_list);
 
 private:
@@ -51,9 +85,15 @@ private:
 
   json tree_;
   SubTreeFromKF subtree_parser_;
+
   void addChildren(const json &tree, std::map<std::string, json> &children_map);
 };
 
+/**
+  Catches and replaces possible hifens '-' in a KF label with an underscore.
+
+  @param The KF label.
+**/
 void replaceWithUnderscore(std::string &label);
 }
 

@@ -3,11 +3,6 @@
 using namespace BT;
 namespace sarafun
 {
-  /*
-    The tree runner class will read the input file in the given path
-    and execute it. On request, it will stop and reload the tree with a new
-    description.
-  */
   TreeRunner::TreeRunner(int tick_period)
   {
     tick_period_ = tick_period;
@@ -17,9 +12,6 @@ namespace sarafun
     root_  = new SequenceNode("root"); // Make a permanent root to avoid screwing up the draw method
   }
 
-  /*
-    Creates a behavior tree from the input file and executes it.
-  */
   bool TreeRunner::startTree(std::string tree_description_path)
   {
     ControlNode *tree_root;
@@ -44,7 +36,7 @@ namespace sarafun
 
       if (draw_thread_ == 0)
       {
-        ROS_INFO("Start drawing");
+        ROS_DEBUG("Start drawing");
         draw_thread_ = new boost::thread(&drawTree, root_);
       }
     }
@@ -60,9 +52,6 @@ namespace sarafun
     return true;
   }
 
-  /*
-    Stops a running tree
-  */
   void TreeRunner::stopTree()
   {
     disableDrawing();

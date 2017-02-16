@@ -9,17 +9,20 @@ namespace sarafun {
 /**
   This class implements an interface for BT actions destined to call a generic
   rosaction server.
-*/
+
+  It establishes a bridge between the behavior tree action class and
+  an externally implemented action: BT <--> ExecuteAction <--> external implementation
+**/
 template <class ActionClass, class ActionGoal>
 class ExecuteAction : ActionTemplate {
 public:
-  /*
-    Contructor receives:
+  /**
+    Contructor.
 
-    node_name: The ROS node name
-    actionlib_name: The actionlib server name that this action will call
-    bt_name: The name defined in the "name" tag from the BT json input file
-  */
+    @param node_name The ROS node name.
+    @param actionlib_name The actionlib server name that this action will call.
+    @param bt_name The name defined in the "name" tag from the BT JSON input file.
+  **/
   ExecuteAction(std::string node_name, std::string actionlib_name,
                 std::string bt_name);
   virtual ~ExecuteAction();
@@ -28,29 +31,49 @@ public:
   void preemptionRoutine();
 
 protected:
-  /*
+  /**
     Fills in the goal for a particular action.
-  */
+
+    @param goal The actionlib goal message of the externally implemented action.
+    @return False in case of error, true otherwise.
+  **/
   virtual bool fillGoal(ActionGoal &goal) = 0;
 
-  /*
-    Provides the client with a timeout value (in seconds) for actionlib
-    connections
-  */
+  /**
+    Provides the client with a timeout value for actionlib
+    connections.
+
+    @return The timeout value (in seconds).
+  **/
   virtual double getTimeoutValue() = 0;
 
-  /*
-      Fills in a generic parameter from the parameter server
-  */
+  /**
+      Gets generic parameter from the parameter server.
+
+      @param The parameter name.
+      @param_val The parameter value.
+      @return False in case the parameter does not exist, true otherise.
+  **/
   bool fillParameter(std::string param_name, std::string &param_val);
+
+  /**
+      Gets a generic parameter from the parameter server.
+      Sets it to a default in case the parameter does not exist.
+
+      @param The parameter name
+      @param def The default parameter value
+      @param_val The parameter value
+  **/
   void fillParameter(std::string param_name, std::string def,
                      std::string &param_val);
   void fillParameter(std::string param_name, double def, double &param_val);
   void fillParameter(std::string param_name, int def, int &param_val);
 
-  /*
-      Checks if BT action execution is allowed
-  */
+  /**
+      Checks if BT action execution is allowed.
+
+      @return True if the tree is active, false otherwise.
+  **/
   bool isSystemActive();
 
 private:
