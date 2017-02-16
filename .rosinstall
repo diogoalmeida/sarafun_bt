@@ -7,3 +7,6 @@
 - git:
     local-name: sarafun_online_motion_generation
     uri: https://github.com/diogoalmeida/sarafun_online_motion_generation.git
+- git:
+    local-name: sarafun_msgs
+    uri: https://github.com/diogoalmeida/sarafun_msgs.git
