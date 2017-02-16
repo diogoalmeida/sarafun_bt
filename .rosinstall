@@ -7,6 +7,11 @@
 - git:
     local-name: sarafun_online_motion_generation
     uri: https://github.com/diogoalmeida/sarafun_online_motion_generation.git
+
+# travis
 - git:
     local-name: sarafun_msgs
     uri: https://github.com/diogoalmeida/sarafun_msgs.git
+- git:
+    local-name: soth
+    uri: https://github.com/stack-of-tasks/soth.git
