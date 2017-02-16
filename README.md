@@ -89,43 +89,42 @@ The ```id``` tag should be unique, and it is used to refer to a particular insta
 A simple example is as follows
 ```json
 {
-  "root": "sequence1",
-  "nodes": {
-    "sequence1": {
-      "id": "sequence1",
-      "type": "SequenceStar",
-      "name": "SequenceStar",
-      "children": [
-        "action1",
-        "selector1",
-      ]
-    },
-    "selector1": {
-      "id": "selector1",
-      "type": "Selector",
-      "name": "Selector",
-      "children": [
-        "action2",
-        "action3"
-      ]
-    },
-    "action1": {
-      "id": "action1",
-      "type": "Action",
-      "name": "action_1",
-    },
-    "action2": {
-      "id": "action2",
-      "type": "Action",
-      "name": "action_2",
-    },
-    "action3": {
-      "id": "action3",
-      "type": "Action",
-      "name": "action_3",
-    }
-    }
-  }
+	"root": "sequence1",
+	"nodes": {
+		"sequence1": {
+			"id": "sequence1",
+			"type": "SequenceStar",
+			"name": "SequenceStar",
+			"children": [
+				"action1",
+				"selector1"
+			]
+		},
+		"selector1": {
+			"id": "selector1",
+			"type": "Selector",
+			"name": "Selector",
+			"children": [
+				"action2",
+				"action3"
+			]
+		},
+		"action1": {
+			"id": "action1",
+			"type": "Action",
+			"name": "action_1"
+		},
+		"action2": {
+			"id": "action2",
+			"type": "Action",
+			"name": "action_2"
+		},
+		"action3": {
+			"id": "action3",
+			"type": "Action",
+			"name": "action_3"
+		}
+	}
 }
 ```
 
