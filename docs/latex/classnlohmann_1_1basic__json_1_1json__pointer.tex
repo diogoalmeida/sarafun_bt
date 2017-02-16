@@ -1,0 +1,119 @@
+\hypertarget{classnlohmann_1_1basic__json_1_1json__pointer}{\section{nlohmann\-:\-:basic\-\_\-json$<$ Object\-Type, Array\-Type, String\-Type, Boolean\-Type, Number\-Integer\-Type, Number\-Unsigned\-Type, Number\-Float\-Type, Allocator\-Type $>$\-:\-:json\-\_\-pointer Class Reference}
+\label{classnlohmann_1_1basic__json_1_1json__pointer}\index{nlohmann\-::basic\-\_\-json$<$ Object\-Type, Array\-Type, String\-Type, Boolean\-Type, Number\-Integer\-Type, Number\-Unsigned\-Type, Number\-Float\-Type, Allocator\-Type $>$\-::json\-\_\-pointer@{nlohmann\-::basic\-\_\-json$<$ Object\-Type, Array\-Type, String\-Type, Boolean\-Type, Number\-Integer\-Type, Number\-Unsigned\-Type, Number\-Float\-Type, Allocator\-Type $>$\-::json\-\_\-pointer}}
+}
+
+
+J\-S\-O\-N Pointer.  
+
+
+
+
+{\ttfamily \#include $<$json.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1json__pointer_ae12db117a2742d826465080979d7c835}{json\-\_\-pointer} (const std\-::string \&s=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em create J\-S\-O\-N pointer \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1json__pointer_ae12db117a2742d826465080979d7c835}{json\-\_\-pointer} (const std\-::string \&s=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em create J\-S\-O\-N pointer \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classnlohmann_1_1basic__json_1_1json__pointer_a069a4f73a702f4c2bc0d14ca1565a7b0}{basic\-\_\-json}
+\begin{DoxyCompactList}\small\item\em allow \hyperlink{classnlohmann_1_1basic__json}{basic\-\_\-json} to access private members \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$template$<$ typename U, typename V, typename...\-Args $>$ class Object\-Type = std\-::map, template$<$ typename U, typename...\-Args $>$ class Array\-Type = std\-::vector, class String\-Type = std\-::string, class Boolean\-Type = bool, class Number\-Integer\-Type = std\-::int64\-\_\-t, class Number\-Unsigned\-Type = std\-::uint64\-\_\-t, class Number\-Float\-Type = double, template$<$ typename U $>$ class Allocator\-Type = std\-::allocator$>$class nlohmann\-::basic\-\_\-json$<$ Object\-Type, Array\-Type, String\-Type, Boolean\-Type, Number\-Integer\-Type, Number\-Unsigned\-Type, Number\-Float\-Type, Allocator\-Type $>$\-::json\-\_\-pointer}
+
+J\-S\-O\-N Pointer. 
+
+\begin{DoxySeeAlso}{See Also}
+\href{https://tools.ietf.org/html/rfc6901}{\tt R\-F\-C 6901}
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+version 2.\-0.\-0 
+\end{DoxySince}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classnlohmann_1_1basic__json_1_1json__pointer_ae12db117a2742d826465080979d7c835}{\index{nlohmann\-::basic\-\_\-json\-::json\-\_\-pointer@{nlohmann\-::basic\-\_\-json\-::json\-\_\-pointer}!json\-\_\-pointer@{json\-\_\-pointer}}
+\index{json\-\_\-pointer@{json\-\_\-pointer}!nlohmann::basic_json::json_pointer@{nlohmann\-::basic\-\_\-json\-::json\-\_\-pointer}}
+\subsubsection[{json\-\_\-pointer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\-Args $>$ class Object\-Type = std\-::map, template$<$ typename U, typename...\-Args $>$ class Array\-Type = std\-::vector, class String\-Type  = std\-::string, class Boolean\-Type  = bool, class Number\-Integer\-Type  = std\-::int64\-\_\-t, class Number\-Unsigned\-Type  = std\-::uint64\-\_\-t, class Number\-Float\-Type  = double, template$<$ typename U $>$ class Allocator\-Type = std\-::allocator$>$ {\bf nlohmann\-::basic\-\_\-json}$<$ Object\-Type, Array\-Type, String\-Type, Boolean\-Type, Number\-Integer\-Type, Number\-Unsigned\-Type, Number\-Float\-Type, Allocator\-Type $>$\-::json\-\_\-pointer\-::json\-\_\-pointer (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}}\label{classnlohmann_1_1basic__json_1_1json__pointer_ae12db117a2742d826465080979d7c835}
+
+
+create J\-S\-O\-N pointer 
+
+Create a J\-S\-O\-N pointer according to the syntax described in \href{https://tools.ietf.org/html/rfc6901#section-3}{\tt Section 3 of R\-F\-C6901}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & string representing the J\-S\-O\-N pointer; if omitted, the empty string is assumed which references the whole J\-S\-O\-N value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::domain\-\_\-error} & if reference token is nonempty and does not begin with a slash ({\ttfamily /}); example\-: {\ttfamily \char`\"{}\-J\-S\-O\-N pointer must be empty or
+begin with /\char`\"{}} \\
+\hline
+{\em std\-::domain\-\_\-error} & if a tilde ({\ttfamily $\sim$}) is not followed by {\ttfamily 0} (representing {\ttfamily $\sim$}) or {\ttfamily 1} (representing {\ttfamily /}); example\-: {\ttfamily \char`\"{}escape error\-:
+$\sim$ must be followed with 0 or 1\char`\"{}}\\
+\hline
+\end{DoxyExceptions}
+\{The example shows the construction several valid J\-S\-O\-N pointers as well as the exceptional behavior.,\hyperlink{classnlohmann_1_1basic__json_1_1json__pointer}{json\-\_\-pointer}\}
+
+\begin{DoxySince}{Since}
+version 2.\-0.\-0 
+\end{DoxySince}
+\hypertarget{classnlohmann_1_1basic__json_1_1json__pointer_ae12db117a2742d826465080979d7c835}{\index{nlohmann\-::basic\-\_\-json\-::json\-\_\-pointer@{nlohmann\-::basic\-\_\-json\-::json\-\_\-pointer}!json\-\_\-pointer@{json\-\_\-pointer}}
+\index{json\-\_\-pointer@{json\-\_\-pointer}!nlohmann::basic_json::json_pointer@{nlohmann\-::basic\-\_\-json\-::json\-\_\-pointer}}
+\subsubsection[{json\-\_\-pointer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\-Args $>$ class Object\-Type = std\-::map, template$<$ typename U, typename...\-Args $>$ class Array\-Type = std\-::vector, class String\-Type  = std\-::string, class Boolean\-Type  = bool, class Number\-Integer\-Type  = std\-::int64\-\_\-t, class Number\-Unsigned\-Type  = std\-::uint64\-\_\-t, class Number\-Float\-Type  = double, template$<$ typename U $>$ class Allocator\-Type = std\-::allocator$>$ {\bf nlohmann\-::basic\-\_\-json}$<$ Object\-Type, Array\-Type, String\-Type, Boolean\-Type, Number\-Integer\-Type, Number\-Unsigned\-Type, Number\-Float\-Type, Allocator\-Type $>$\-::json\-\_\-pointer\-::json\-\_\-pointer (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}}\label{classnlohmann_1_1basic__json_1_1json__pointer_ae12db117a2742d826465080979d7c835}
+
+
+create J\-S\-O\-N pointer 
+
+Create a J\-S\-O\-N pointer according to the syntax described in \href{https://tools.ietf.org/html/rfc6901#section-3}{\tt Section 3 of R\-F\-C6901}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & string representing the J\-S\-O\-N pointer; if omitted, the empty string is assumed which references the whole J\-S\-O\-N value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::domain\-\_\-error} & if reference token is nonempty and does not begin with a slash ({\ttfamily /}); example\-: {\ttfamily \char`\"{}\-J\-S\-O\-N pointer must be empty or
+begin with /\char`\"{}} \\
+\hline
+{\em std\-::domain\-\_\-error} & if a tilde ({\ttfamily $\sim$}) is not followed by {\ttfamily 0} (representing {\ttfamily $\sim$}) or {\ttfamily 1} (representing {\ttfamily /}); example\-: {\ttfamily \char`\"{}escape error\-:
+$\sim$ must be followed with 0 or 1\char`\"{}}\\
+\hline
+\end{DoxyExceptions}
+\{The example shows the construction several valid J\-S\-O\-N pointers as well as the exceptional behavior.,\hyperlink{classnlohmann_1_1basic__json_1_1json__pointer}{json\-\_\-pointer}\}
+
+\begin{DoxySince}{Since}
+version 2.\-0.\-0 
+\end{DoxySince}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classnlohmann_1_1basic__json_1_1json__pointer_a069a4f73a702f4c2bc0d14ca1565a7b0}{\index{nlohmann\-::basic\-\_\-json\-::json\-\_\-pointer@{nlohmann\-::basic\-\_\-json\-::json\-\_\-pointer}!basic\-\_\-json@{basic\-\_\-json}}
+\index{basic\-\_\-json@{basic\-\_\-json}!nlohmann::basic_json::json_pointer@{nlohmann\-::basic\-\_\-json\-::json\-\_\-pointer}}
+\subsubsection[{basic\-\_\-json}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\-Args $>$ class Object\-Type = std\-::map, template$<$ typename U, typename...\-Args $>$ class Array\-Type = std\-::vector, class String\-Type  = std\-::string, class Boolean\-Type  = bool, class Number\-Integer\-Type  = std\-::int64\-\_\-t, class Number\-Unsigned\-Type  = std\-::uint64\-\_\-t, class Number\-Float\-Type  = double, template$<$ typename U $>$ class Allocator\-Type = std\-::allocator$>$ {\bf basic\-\_\-json}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classnlohmann_1_1basic__json_1_1json__pointer_a069a4f73a702f4c2bc0d14ca1565a7b0}
+
+
+allow \hyperlink{classnlohmann_1_1basic__json}{basic\-\_\-json} to access private members 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+sarafun\-\_\-tree/include/json/\hyperlink{sarafun__tree_2include_2json_2json_8hpp}{json.\-hpp}\end{DoxyCompactItemize}

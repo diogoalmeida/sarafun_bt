@@ -1,0 +1,89 @@
+\hypertarget{classsarafun_1_1OnlineMotionAction}{\section{sarafun\-:\-:Online\-Motion\-Action Class Reference}
+\label{classsarafun_1_1OnlineMotionAction}\index{sarafun\-::\-Online\-Motion\-Action@{sarafun\-::\-Online\-Motion\-Action}}
+}
+
+
+{\ttfamily \#include $<$Online\-Motion\-Action.\-h$>$}
+
+Inheritance diagram for sarafun\-:\-:Online\-Motion\-Action\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.845140cm]{classsarafun_1_1OnlineMotionAction}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsarafun_1_1OnlineMotionAction_ab66225e6e9383411dc925e88fb1cf4f9}{Online\-Motion\-Action} (std\-::string node\-\_\-name, std\-::string action\-\_\-name, std\-::string bt\-\_\-name)
+\item 
+\hyperlink{classsarafun_1_1OnlineMotionAction_a63134a65e9ead7a8250abe2afee5b388}{$\sim$\-Online\-Motion\-Action} ()
+\item 
+bool \hyperlink{classsarafun_1_1OnlineMotionAction_aacaa264dad7ba07b5c9a985d66ea48f7}{fill\-Goal} (sarafun\-\_\-hqp\-\_\-omg\-::\-Online\-Motion\-Goal \&goal)
+\item 
+double \hyperlink{classsarafun_1_1OnlineMotionAction_a453e7dca41a0d73b5297ce191e760b31}{get\-Timeout\-Value} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsarafun_1_1OnlineMotionAction_ab66225e6e9383411dc925e88fb1cf4f9}{\index{sarafun\-::\-Online\-Motion\-Action@{sarafun\-::\-Online\-Motion\-Action}!Online\-Motion\-Action@{Online\-Motion\-Action}}
+\index{Online\-Motion\-Action@{Online\-Motion\-Action}!sarafun::OnlineMotionAction@{sarafun\-::\-Online\-Motion\-Action}}
+\subsubsection[{Online\-Motion\-Action}]{\setlength{\rightskip}{0pt plus 5cm}sarafun\-::\-Online\-Motion\-Action\-::\-Online\-Motion\-Action (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{node\-\_\-name, }
+\item[{std\-::string}]{action\-\_\-name, }
+\item[{std\-::string}]{bt\-\_\-name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsarafun_1_1OnlineMotionAction_ab66225e6e9383411dc925e88fb1cf4f9}
+\hypertarget{classsarafun_1_1OnlineMotionAction_a63134a65e9ead7a8250abe2afee5b388}{\index{sarafun\-::\-Online\-Motion\-Action@{sarafun\-::\-Online\-Motion\-Action}!$\sim$\-Online\-Motion\-Action@{$\sim$\-Online\-Motion\-Action}}
+\index{$\sim$\-Online\-Motion\-Action@{$\sim$\-Online\-Motion\-Action}!sarafun::OnlineMotionAction@{sarafun\-::\-Online\-Motion\-Action}}
+\subsubsection[{$\sim$\-Online\-Motion\-Action}]{\setlength{\rightskip}{0pt plus 5cm}sarafun\-::\-Online\-Motion\-Action\-::$\sim$\-Online\-Motion\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsarafun_1_1OnlineMotionAction_a63134a65e9ead7a8250abe2afee5b388}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsarafun_1_1OnlineMotionAction_aacaa264dad7ba07b5c9a985d66ea48f7}{\index{sarafun\-::\-Online\-Motion\-Action@{sarafun\-::\-Online\-Motion\-Action}!fill\-Goal@{fill\-Goal}}
+\index{fill\-Goal@{fill\-Goal}!sarafun::OnlineMotionAction@{sarafun\-::\-Online\-Motion\-Action}}
+\subsubsection[{fill\-Goal}]{\setlength{\rightskip}{0pt plus 5cm}bool sarafun\-::\-Online\-Motion\-Action\-::fill\-Goal (
+\begin{DoxyParamCaption}
+\item[{sarafun\-\_\-hqp\-\_\-omg\-::\-Online\-Motion\-Goal \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsarafun_1_1OnlineMotionAction_aacaa264dad7ba07b5c9a985d66ea48f7}
+Fills in the goal for a particular action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The actionlib goal message of the externally implemented action. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False in case of error, true otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classsarafun_1_1ExecuteAction_a6dd9c0f013d15a17d7e7ce8dbe40a436}{sarafun\-::\-Execute\-Action$<$ sarafun\-\_\-hqp\-\_\-omg\-::\-Online\-Motion\-Action, sarafun\-\_\-hqp\-\_\-omg\-::\-Online\-Motion\-Goal $>$}.
+
+\hypertarget{classsarafun_1_1OnlineMotionAction_a453e7dca41a0d73b5297ce191e760b31}{\index{sarafun\-::\-Online\-Motion\-Action@{sarafun\-::\-Online\-Motion\-Action}!get\-Timeout\-Value@{get\-Timeout\-Value}}
+\index{get\-Timeout\-Value@{get\-Timeout\-Value}!sarafun::OnlineMotionAction@{sarafun\-::\-Online\-Motion\-Action}}
+\subsubsection[{get\-Timeout\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double sarafun\-::\-Online\-Motion\-Action\-::get\-Timeout\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsarafun_1_1OnlineMotionAction_a453e7dca41a0d73b5297ce191e760b31}
+Provides the client with a timeout value for actionlib connections.
+
+\begin{DoxyReturn}{Returns}
+The timeout value (in seconds). 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classsarafun_1_1ExecuteAction_aba6cfa8a8ce19e735eb6394424df6d17}{sarafun\-::\-Execute\-Action$<$ sarafun\-\_\-hqp\-\_\-omg\-::\-Online\-Motion\-Action, sarafun\-\_\-hqp\-\_\-omg\-::\-Online\-Motion\-Goal $>$}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+sarafun\-\_\-tree/include/sarafun\-\_\-tree/demo\-\_\-bt\-\_\-nodes/\hyperlink{OnlineMotionAction_8h}{Online\-Motion\-Action.\-h}\item 
+sarafun\-\_\-tree/src/demo\-\_\-bt\-\_\-nodes/\hyperlink{OnlineMotionAction_8cpp}{Online\-Motion\-Action.\-cpp}\end{DoxyCompactItemize}

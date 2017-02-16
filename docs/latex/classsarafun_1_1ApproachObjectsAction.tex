@@ -1,0 +1,89 @@
+\hypertarget{classsarafun_1_1ApproachObjectsAction}{\section{sarafun\-:\-:Approach\-Objects\-Action Class Reference}
+\label{classsarafun_1_1ApproachObjectsAction}\index{sarafun\-::\-Approach\-Objects\-Action@{sarafun\-::\-Approach\-Objects\-Action}}
+}
+
+
+{\ttfamily \#include $<$Approach\-Objects\-Action.\-h$>$}
+
+Inheritance diagram for sarafun\-:\-:Approach\-Objects\-Action\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.839080cm]{classsarafun_1_1ApproachObjectsAction}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsarafun_1_1ApproachObjectsAction_ab0d857c262d75eeb85d8dc0e8f746f5f}{Approach\-Objects\-Action} (std\-::string node\-\_\-name, std\-::string action\-\_\-name, std\-::string bt\-\_\-name)
+\item 
+\hyperlink{classsarafun_1_1ApproachObjectsAction_adb6adaf7dae2e4addf53f47f07afd21e}{$\sim$\-Approach\-Objects\-Action} ()
+\item 
+bool \hyperlink{classsarafun_1_1ApproachObjectsAction_af5d216551122da780bc550daf4f1dca4}{fill\-Goal} (sarafun\-\_\-manipulation\-::\-Approach\-Goal \&goal)
+\item 
+double \hyperlink{classsarafun_1_1ApproachObjectsAction_a6852994a6e8a1edf9b2c24c91fd07df2}{get\-Timeout\-Value} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsarafun_1_1ApproachObjectsAction_ab0d857c262d75eeb85d8dc0e8f746f5f}{\index{sarafun\-::\-Approach\-Objects\-Action@{sarafun\-::\-Approach\-Objects\-Action}!Approach\-Objects\-Action@{Approach\-Objects\-Action}}
+\index{Approach\-Objects\-Action@{Approach\-Objects\-Action}!sarafun::ApproachObjectsAction@{sarafun\-::\-Approach\-Objects\-Action}}
+\subsubsection[{Approach\-Objects\-Action}]{\setlength{\rightskip}{0pt plus 5cm}sarafun\-::\-Approach\-Objects\-Action\-::\-Approach\-Objects\-Action (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{node\-\_\-name, }
+\item[{std\-::string}]{action\-\_\-name, }
+\item[{std\-::string}]{bt\-\_\-name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsarafun_1_1ApproachObjectsAction_ab0d857c262d75eeb85d8dc0e8f746f5f}
+\hypertarget{classsarafun_1_1ApproachObjectsAction_adb6adaf7dae2e4addf53f47f07afd21e}{\index{sarafun\-::\-Approach\-Objects\-Action@{sarafun\-::\-Approach\-Objects\-Action}!$\sim$\-Approach\-Objects\-Action@{$\sim$\-Approach\-Objects\-Action}}
+\index{$\sim$\-Approach\-Objects\-Action@{$\sim$\-Approach\-Objects\-Action}!sarafun::ApproachObjectsAction@{sarafun\-::\-Approach\-Objects\-Action}}
+\subsubsection[{$\sim$\-Approach\-Objects\-Action}]{\setlength{\rightskip}{0pt plus 5cm}sarafun\-::\-Approach\-Objects\-Action\-::$\sim$\-Approach\-Objects\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsarafun_1_1ApproachObjectsAction_adb6adaf7dae2e4addf53f47f07afd21e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsarafun_1_1ApproachObjectsAction_af5d216551122da780bc550daf4f1dca4}{\index{sarafun\-::\-Approach\-Objects\-Action@{sarafun\-::\-Approach\-Objects\-Action}!fill\-Goal@{fill\-Goal}}
+\index{fill\-Goal@{fill\-Goal}!sarafun::ApproachObjectsAction@{sarafun\-::\-Approach\-Objects\-Action}}
+\subsubsection[{fill\-Goal}]{\setlength{\rightskip}{0pt plus 5cm}bool sarafun\-::\-Approach\-Objects\-Action\-::fill\-Goal (
+\begin{DoxyParamCaption}
+\item[{sarafun\-\_\-manipulation\-::\-Approach\-Goal \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsarafun_1_1ApproachObjectsAction_af5d216551122da780bc550daf4f1dca4}
+Fills in the goal for a particular action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The actionlib goal message of the externally implemented action. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False in case of error, true otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classsarafun_1_1ExecuteAction_a6dd9c0f013d15a17d7e7ce8dbe40a436}{sarafun\-::\-Execute\-Action$<$ sarafun\-\_\-manipulation\-::\-Approach\-Action, sarafun\-\_\-manipulation\-::\-Approach\-Goal $>$}.
+
+\hypertarget{classsarafun_1_1ApproachObjectsAction_a6852994a6e8a1edf9b2c24c91fd07df2}{\index{sarafun\-::\-Approach\-Objects\-Action@{sarafun\-::\-Approach\-Objects\-Action}!get\-Timeout\-Value@{get\-Timeout\-Value}}
+\index{get\-Timeout\-Value@{get\-Timeout\-Value}!sarafun::ApproachObjectsAction@{sarafun\-::\-Approach\-Objects\-Action}}
+\subsubsection[{get\-Timeout\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double sarafun\-::\-Approach\-Objects\-Action\-::get\-Timeout\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsarafun_1_1ApproachObjectsAction_a6852994a6e8a1edf9b2c24c91fd07df2}
+Provides the client with a timeout value for actionlib connections.
+
+\begin{DoxyReturn}{Returns}
+The timeout value (in seconds). 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classsarafun_1_1ExecuteAction_aba6cfa8a8ce19e735eb6394424df6d17}{sarafun\-::\-Execute\-Action$<$ sarafun\-\_\-manipulation\-::\-Approach\-Action, sarafun\-\_\-manipulation\-::\-Approach\-Goal $>$}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+sarafun\-\_\-tree/include/sarafun\-\_\-tree/demo\-\_\-bt\-\_\-nodes/\hyperlink{ApproachObjectsAction_8h}{Approach\-Objects\-Action.\-h}\item 
+sarafun\-\_\-tree/src/demo\-\_\-bt\-\_\-nodes/\hyperlink{ApproachObjectsAction_8cpp}{Approach\-Objects\-Action.\-cpp}\end{DoxyCompactItemize}

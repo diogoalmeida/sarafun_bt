@@ -1,0 +1,97 @@
+\hypertarget{sarafun__bt_8cpp}{\section{sarafun\-\_\-tree/src/sarafun\-\_\-bt.cpp File Reference}
+\label{sarafun__bt_8cpp}\index{sarafun\-\_\-tree/src/sarafun\-\_\-bt.\-cpp@{sarafun\-\_\-tree/src/sarafun\-\_\-bt.\-cpp}}
+}
+{\ttfamily \#include $<$ros/ros.\-h$>$}\\*
+{\ttfamily \#include $<$sarafun\-\_\-tree/demo\-\_\-bt\-\_\-nodes/\-Approach\-Objects\-Action.\-h$>$}\\*
+{\ttfamily \#include $<$sarafun\-\_\-tree/demo\-\_\-bt\-\_\-nodes/\-Grab\-Object\-Action.\-h$>$}\\*
+{\ttfamily \#include $<$sarafun\-\_\-tree/demo\-\_\-bt\-\_\-nodes/\-Folding\-Assembly\-Action.\-h$>$}\\*
+{\ttfamily \#include $<$sarafun\-\_\-tree/demo\-\_\-bt\-\_\-nodes/\-Insertion\-With\-Deformation\-Action.\-h$>$}\\*
+{\ttfamily \#include $<$sarafun\-\_\-tree/demo\-\_\-bt\-\_\-nodes/\-Place\-Action.\-h$>$}\\*
+{\ttfamily \#include $<$sarafun\-\_\-tree/\-Tree\-Runner.\-h$>$}\\*
+{\ttfamily \#include $<$sarafun\-\_\-tree/\-Load\-Tree.\-h$>$}\\*
+{\ttfamily \#include $<$std\-\_\-srvs/\-Empty.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{sarafun__bt_8cpp_a0316b57253e5588977a46dcfc4b7aa27}{initialize\-Tree} (std\-::string tree\-\_\-description\-\_\-path)
+\item 
+bool \hyperlink{sarafun__bt_8cpp_a6dab42bbad6fe60c5e1a3ce656100d33}{unload\-Tree} ()
+\item 
+bool \hyperlink{sarafun__bt_8cpp_a0e4fea3ebdf710bfe81aa9393d185465}{start\-Tree\-Callback} (sarafun\-\_\-tree\-::\-Load\-Tree\-::\-Request \&req, sarafun\-\_\-tree\-::\-Load\-Tree\-::\-Response \&ans)
+\item 
+bool \hyperlink{sarafun__bt_8cpp_a30a73ee9c58545f6813b06b383ecc7c8}{stop\-Tree\-Callback} (std\-\_\-srvs\-::\-Empty\-::\-Request \&req, std\-\_\-srvs\-::\-Empty\-::\-Response \&ans)
+\item 
+bool \hyperlink{sarafun__bt_8cpp_a7c3ae4677fdea817e9398158707c0d96}{restart\-Tree\-Callback} (sarafun\-\_\-tree\-::\-Load\-Tree\-::\-Request \&req, sarafun\-\_\-tree\-::\-Load\-Tree\-::\-Response \&ans)
+\item 
+int \hyperlink{sarafun__bt_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsarafun_1_1TreeRunner}{Tree\-Runner} $\ast$ \hyperlink{sarafun__bt_8cpp_a813a6acbbc666029bbb1c88c35d6a5d9}{runner} = 0
+\item 
+bool \hyperlink{sarafun__bt_8cpp_a36f7b6be7108281af77939ceaec42fd6}{running} = false
+\item 
+int \hyperlink{sarafun__bt_8cpp_a97ff8fb5d62a1a81134b0657debb54b0}{Tick\-Period\-\_\-milliseconds} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{sarafun__bt_8cpp_a0316b57253e5588977a46dcfc4b7aa27}{\index{sarafun\-\_\-bt.\-cpp@{sarafun\-\_\-bt.\-cpp}!initialize\-Tree@{initialize\-Tree}}
+\index{initialize\-Tree@{initialize\-Tree}!sarafun_bt.cpp@{sarafun\-\_\-bt.\-cpp}}
+\subsubsection[{initialize\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}bool initialize\-Tree (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{tree\-\_\-description\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{sarafun__bt_8cpp_a0316b57253e5588977a46dcfc4b7aa27}
+\hypertarget{sarafun__bt_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{sarafun\-\_\-bt.\-cpp@{sarafun\-\_\-bt.\-cpp}!main@{main}}
+\index{main@{main}!sarafun_bt.cpp@{sarafun\-\_\-bt.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{sarafun__bt_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+\hypertarget{sarafun__bt_8cpp_a7c3ae4677fdea817e9398158707c0d96}{\index{sarafun\-\_\-bt.\-cpp@{sarafun\-\_\-bt.\-cpp}!restart\-Tree\-Callback@{restart\-Tree\-Callback}}
+\index{restart\-Tree\-Callback@{restart\-Tree\-Callback}!sarafun_bt.cpp@{sarafun\-\_\-bt.\-cpp}}
+\subsubsection[{restart\-Tree\-Callback}]{\setlength{\rightskip}{0pt plus 5cm}bool restart\-Tree\-Callback (
+\begin{DoxyParamCaption}
+\item[{sarafun\-\_\-tree\-::\-Load\-Tree\-::\-Request \&}]{req, }
+\item[{sarafun\-\_\-tree\-::\-Load\-Tree\-::\-Response \&}]{ans}
+\end{DoxyParamCaption}
+)}}\label{sarafun__bt_8cpp_a7c3ae4677fdea817e9398158707c0d96}
+\hypertarget{sarafun__bt_8cpp_a0e4fea3ebdf710bfe81aa9393d185465}{\index{sarafun\-\_\-bt.\-cpp@{sarafun\-\_\-bt.\-cpp}!start\-Tree\-Callback@{start\-Tree\-Callback}}
+\index{start\-Tree\-Callback@{start\-Tree\-Callback}!sarafun_bt.cpp@{sarafun\-\_\-bt.\-cpp}}
+\subsubsection[{start\-Tree\-Callback}]{\setlength{\rightskip}{0pt plus 5cm}bool start\-Tree\-Callback (
+\begin{DoxyParamCaption}
+\item[{sarafun\-\_\-tree\-::\-Load\-Tree\-::\-Request \&}]{req, }
+\item[{sarafun\-\_\-tree\-::\-Load\-Tree\-::\-Response \&}]{ans}
+\end{DoxyParamCaption}
+)}}\label{sarafun__bt_8cpp_a0e4fea3ebdf710bfe81aa9393d185465}
+\hypertarget{sarafun__bt_8cpp_a30a73ee9c58545f6813b06b383ecc7c8}{\index{sarafun\-\_\-bt.\-cpp@{sarafun\-\_\-bt.\-cpp}!stop\-Tree\-Callback@{stop\-Tree\-Callback}}
+\index{stop\-Tree\-Callback@{stop\-Tree\-Callback}!sarafun_bt.cpp@{sarafun\-\_\-bt.\-cpp}}
+\subsubsection[{stop\-Tree\-Callback}]{\setlength{\rightskip}{0pt plus 5cm}bool stop\-Tree\-Callback (
+\begin{DoxyParamCaption}
+\item[{std\-\_\-srvs\-::\-Empty\-::\-Request \&}]{req, }
+\item[{std\-\_\-srvs\-::\-Empty\-::\-Response \&}]{ans}
+\end{DoxyParamCaption}
+)}}\label{sarafun__bt_8cpp_a30a73ee9c58545f6813b06b383ecc7c8}
+\hypertarget{sarafun__bt_8cpp_a6dab42bbad6fe60c5e1a3ce656100d33}{\index{sarafun\-\_\-bt.\-cpp@{sarafun\-\_\-bt.\-cpp}!unload\-Tree@{unload\-Tree}}
+\index{unload\-Tree@{unload\-Tree}!sarafun_bt.cpp@{sarafun\-\_\-bt.\-cpp}}
+\subsubsection[{unload\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}bool unload\-Tree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{sarafun__bt_8cpp_a6dab42bbad6fe60c5e1a3ce656100d33}
+
+
+\subsection{Variable Documentation}
+\hypertarget{sarafun__bt_8cpp_a813a6acbbc666029bbb1c88c35d6a5d9}{\index{sarafun\-\_\-bt.\-cpp@{sarafun\-\_\-bt.\-cpp}!runner@{runner}}
+\index{runner@{runner}!sarafun_bt.cpp@{sarafun\-\_\-bt.\-cpp}}
+\subsubsection[{runner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tree\-Runner}$\ast$ runner = 0}}\label{sarafun__bt_8cpp_a813a6acbbc666029bbb1c88c35d6a5d9}
+\hypertarget{sarafun__bt_8cpp_a36f7b6be7108281af77939ceaec42fd6}{\index{sarafun\-\_\-bt.\-cpp@{sarafun\-\_\-bt.\-cpp}!running@{running}}
+\index{running@{running}!sarafun_bt.cpp@{sarafun\-\_\-bt.\-cpp}}
+\subsubsection[{running}]{\setlength{\rightskip}{0pt plus 5cm}bool running = false}}\label{sarafun__bt_8cpp_a36f7b6be7108281af77939ceaec42fd6}
+\hypertarget{sarafun__bt_8cpp_a97ff8fb5d62a1a81134b0657debb54b0}{\index{sarafun\-\_\-bt.\-cpp@{sarafun\-\_\-bt.\-cpp}!Tick\-Period\-\_\-milliseconds@{Tick\-Period\-\_\-milliseconds}}
+\index{Tick\-Period\-\_\-milliseconds@{Tick\-Period\-\_\-milliseconds}!sarafun_bt.cpp@{sarafun\-\_\-bt.\-cpp}}
+\subsubsection[{Tick\-Period\-\_\-milliseconds}]{\setlength{\rightskip}{0pt plus 5cm}int Tick\-Period\-\_\-milliseconds = 0}}\label{sarafun__bt_8cpp_a97ff8fb5d62a1a81134b0657debb54b0}

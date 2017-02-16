@@ -1,0 +1,89 @@
+\hypertarget{classsarafun_1_1MoveAction}{\section{sarafun\-:\-:Move\-Action Class Reference}
+\label{classsarafun_1_1MoveAction}\index{sarafun\-::\-Move\-Action@{sarafun\-::\-Move\-Action}}
+}
+
+
+{\ttfamily \#include $<$Move\-Action.\-h$>$}
+
+Inheritance diagram for sarafun\-:\-:Move\-Action\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.914530cm]{classsarafun_1_1MoveAction}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsarafun_1_1MoveAction_a423d16aa9d5a47e9f558eae9e013c5e7}{Move\-Action} (std\-::string node\-\_\-name, std\-::string action\-\_\-name, std\-::string bt\-\_\-name)
+\item 
+\hyperlink{classsarafun_1_1MoveAction_ab9b7f0e483bd9a0b53f9651d661c93b7}{$\sim$\-Move\-Action} ()
+\item 
+bool \hyperlink{classsarafun_1_1MoveAction_ad5259389b6a5718389c24fab920c9296}{fill\-Goal} (sarafun\-\_\-msgs\-::\-Move\-Keyframe\-Goal \&goal)
+\item 
+double \hyperlink{classsarafun_1_1MoveAction_a3a0d4d2919b30b878c603a884db6a470}{get\-Timeout\-Value} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsarafun_1_1MoveAction_a423d16aa9d5a47e9f558eae9e013c5e7}{\index{sarafun\-::\-Move\-Action@{sarafun\-::\-Move\-Action}!Move\-Action@{Move\-Action}}
+\index{Move\-Action@{Move\-Action}!sarafun::MoveAction@{sarafun\-::\-Move\-Action}}
+\subsubsection[{Move\-Action}]{\setlength{\rightskip}{0pt plus 5cm}sarafun\-::\-Move\-Action\-::\-Move\-Action (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{node\-\_\-name, }
+\item[{std\-::string}]{action\-\_\-name, }
+\item[{std\-::string}]{bt\-\_\-name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsarafun_1_1MoveAction_a423d16aa9d5a47e9f558eae9e013c5e7}
+\hypertarget{classsarafun_1_1MoveAction_ab9b7f0e483bd9a0b53f9651d661c93b7}{\index{sarafun\-::\-Move\-Action@{sarafun\-::\-Move\-Action}!$\sim$\-Move\-Action@{$\sim$\-Move\-Action}}
+\index{$\sim$\-Move\-Action@{$\sim$\-Move\-Action}!sarafun::MoveAction@{sarafun\-::\-Move\-Action}}
+\subsubsection[{$\sim$\-Move\-Action}]{\setlength{\rightskip}{0pt plus 5cm}sarafun\-::\-Move\-Action\-::$\sim$\-Move\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsarafun_1_1MoveAction_ab9b7f0e483bd9a0b53f9651d661c93b7}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsarafun_1_1MoveAction_ad5259389b6a5718389c24fab920c9296}{\index{sarafun\-::\-Move\-Action@{sarafun\-::\-Move\-Action}!fill\-Goal@{fill\-Goal}}
+\index{fill\-Goal@{fill\-Goal}!sarafun::MoveAction@{sarafun\-::\-Move\-Action}}
+\subsubsection[{fill\-Goal}]{\setlength{\rightskip}{0pt plus 5cm}bool sarafun\-::\-Move\-Action\-::fill\-Goal (
+\begin{DoxyParamCaption}
+\item[{sarafun\-\_\-msgs\-::\-Move\-Keyframe\-Goal \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsarafun_1_1MoveAction_ad5259389b6a5718389c24fab920c9296}
+Fills in the goal for a particular action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The actionlib goal message of the externally implemented action. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False in case of error, true otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classsarafun_1_1ExecuteAction_a6dd9c0f013d15a17d7e7ce8dbe40a436}{sarafun\-::\-Execute\-Action$<$ sarafun\-\_\-msgs\-::\-Move\-Keyframe\-Action, sarafun\-\_\-msgs\-::\-Move\-Keyframe\-Goal $>$}.
+
+\hypertarget{classsarafun_1_1MoveAction_a3a0d4d2919b30b878c603a884db6a470}{\index{sarafun\-::\-Move\-Action@{sarafun\-::\-Move\-Action}!get\-Timeout\-Value@{get\-Timeout\-Value}}
+\index{get\-Timeout\-Value@{get\-Timeout\-Value}!sarafun::MoveAction@{sarafun\-::\-Move\-Action}}
+\subsubsection[{get\-Timeout\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double sarafun\-::\-Move\-Action\-::get\-Timeout\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsarafun_1_1MoveAction_a3a0d4d2919b30b878c603a884db6a470}
+Provides the client with a timeout value for actionlib connections.
+
+\begin{DoxyReturn}{Returns}
+The timeout value (in seconds). 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classsarafun_1_1ExecuteAction_aba6cfa8a8ce19e735eb6394424df6d17}{sarafun\-::\-Execute\-Action$<$ sarafun\-\_\-msgs\-::\-Move\-Keyframe\-Action, sarafun\-\_\-msgs\-::\-Move\-Keyframe\-Goal $>$}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+sarafun\-\_\-tree/include/sarafun\-\_\-tree/sarafun\-\_\-action\-\_\-nodes/\hyperlink{MoveAction_8h}{Move\-Action.\-h}\item 
+sarafun\-\_\-tree/src/sarafun\-\_\-action\-\_\-nodes/\hyperlink{MoveAction_8cpp}{Move\-Action.\-cpp}\end{DoxyCompactItemize}

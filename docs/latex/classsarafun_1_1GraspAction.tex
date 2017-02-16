@@ -1,0 +1,89 @@
+\hypertarget{classsarafun_1_1GraspAction}{\section{sarafun\-:\-:Grasp\-Action Class Reference}
+\label{classsarafun_1_1GraspAction}\index{sarafun\-::\-Grasp\-Action@{sarafun\-::\-Grasp\-Action}}
+}
+
+
+{\ttfamily \#include $<$Grasp\-Action.\-h$>$}
+
+Inheritance diagram for sarafun\-:\-:Grasp\-Action\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.901528cm]{classsarafun_1_1GraspAction}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsarafun_1_1GraspAction_ae3eed6fe11388023bab8316803759ac5}{Grasp\-Action} (std\-::string node\-\_\-name, std\-::string action\-\_\-name, std\-::string bt\-\_\-name)
+\item 
+\hyperlink{classsarafun_1_1GraspAction_aeb09ce6ab575e2653bfb88aa62b09361}{$\sim$\-Grasp\-Action} ()
+\item 
+bool \hyperlink{classsarafun_1_1GraspAction_a7418fe9de5024a8fbbfe8e5f5336d66f}{fill\-Goal} (sarafun\-\_\-msgs\-::\-Grasp\-Keyframe\-Goal \&goal)
+\item 
+double \hyperlink{classsarafun_1_1GraspAction_a406d5c86b5f788537c5af9d125724a55}{get\-Timeout\-Value} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsarafun_1_1GraspAction_ae3eed6fe11388023bab8316803759ac5}{\index{sarafun\-::\-Grasp\-Action@{sarafun\-::\-Grasp\-Action}!Grasp\-Action@{Grasp\-Action}}
+\index{Grasp\-Action@{Grasp\-Action}!sarafun::GraspAction@{sarafun\-::\-Grasp\-Action}}
+\subsubsection[{Grasp\-Action}]{\setlength{\rightskip}{0pt plus 5cm}sarafun\-::\-Grasp\-Action\-::\-Grasp\-Action (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{node\-\_\-name, }
+\item[{std\-::string}]{action\-\_\-name, }
+\item[{std\-::string}]{bt\-\_\-name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsarafun_1_1GraspAction_ae3eed6fe11388023bab8316803759ac5}
+\hypertarget{classsarafun_1_1GraspAction_aeb09ce6ab575e2653bfb88aa62b09361}{\index{sarafun\-::\-Grasp\-Action@{sarafun\-::\-Grasp\-Action}!$\sim$\-Grasp\-Action@{$\sim$\-Grasp\-Action}}
+\index{$\sim$\-Grasp\-Action@{$\sim$\-Grasp\-Action}!sarafun::GraspAction@{sarafun\-::\-Grasp\-Action}}
+\subsubsection[{$\sim$\-Grasp\-Action}]{\setlength{\rightskip}{0pt plus 5cm}sarafun\-::\-Grasp\-Action\-::$\sim$\-Grasp\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsarafun_1_1GraspAction_aeb09ce6ab575e2653bfb88aa62b09361}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsarafun_1_1GraspAction_a7418fe9de5024a8fbbfe8e5f5336d66f}{\index{sarafun\-::\-Grasp\-Action@{sarafun\-::\-Grasp\-Action}!fill\-Goal@{fill\-Goal}}
+\index{fill\-Goal@{fill\-Goal}!sarafun::GraspAction@{sarafun\-::\-Grasp\-Action}}
+\subsubsection[{fill\-Goal}]{\setlength{\rightskip}{0pt plus 5cm}bool sarafun\-::\-Grasp\-Action\-::fill\-Goal (
+\begin{DoxyParamCaption}
+\item[{sarafun\-\_\-msgs\-::\-Grasp\-Keyframe\-Goal \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsarafun_1_1GraspAction_a7418fe9de5024a8fbbfe8e5f5336d66f}
+Fills in the goal for a particular action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The actionlib goal message of the externally implemented action. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False in case of error, true otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classsarafun_1_1ExecuteAction_a6dd9c0f013d15a17d7e7ce8dbe40a436}{sarafun\-::\-Execute\-Action$<$ sarafun\-\_\-msgs\-::\-Grasp\-Keyframe\-Action, sarafun\-\_\-msgs\-::\-Grasp\-Keyframe\-Goal $>$}.
+
+\hypertarget{classsarafun_1_1GraspAction_a406d5c86b5f788537c5af9d125724a55}{\index{sarafun\-::\-Grasp\-Action@{sarafun\-::\-Grasp\-Action}!get\-Timeout\-Value@{get\-Timeout\-Value}}
+\index{get\-Timeout\-Value@{get\-Timeout\-Value}!sarafun::GraspAction@{sarafun\-::\-Grasp\-Action}}
+\subsubsection[{get\-Timeout\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double sarafun\-::\-Grasp\-Action\-::get\-Timeout\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsarafun_1_1GraspAction_a406d5c86b5f788537c5af9d125724a55}
+Provides the client with a timeout value for actionlib connections.
+
+\begin{DoxyReturn}{Returns}
+The timeout value (in seconds). 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classsarafun_1_1ExecuteAction_aba6cfa8a8ce19e735eb6394424df6d17}{sarafun\-::\-Execute\-Action$<$ sarafun\-\_\-msgs\-::\-Grasp\-Keyframe\-Action, sarafun\-\_\-msgs\-::\-Grasp\-Keyframe\-Goal $>$}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+sarafun\-\_\-tree/include/sarafun\-\_\-tree/sarafun\-\_\-action\-\_\-nodes/\hyperlink{GraspAction_8h}{Grasp\-Action.\-h}\item 
+sarafun\-\_\-tree/src/sarafun\-\_\-action\-\_\-nodes/\hyperlink{GraspAction_8cpp}{Grasp\-Action.\-cpp}\end{DoxyCompactItemize}
