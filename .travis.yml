@@ -73,6 +73,7 @@ before_install:
   # Prepare rosdep to install dependencies.
   - sudo rosdep init
   - rosdep update
+  - cd ~
   - git clone https://github.com/stack-of-tasks/soth
 
 # Create a catkin workspace with the package under integration.
