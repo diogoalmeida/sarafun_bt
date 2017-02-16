@@ -73,6 +73,7 @@ before_install:
   - sudo apt-get install libblas-dev
   - sudo apt-get install libboost-dev
   - sudo apt-get install libarmadillo-dev
+  - sudo apt-get install gcc-4.9 g++-4.9
   - source /opt/ros/$ROS_DISTRO/setup.bash
   # Prepare rosdep to install dependencies.
   - sudo rosdep init
@@ -93,7 +94,7 @@ install:
   # Create the devel/setup.bash (run catkin_make with an empty workspace) and
   # source it to set the path variables.
   - cd ~/catkin_ws
-  - catkin_make
+  - catkin_make -DCMAKE_CXX_COMPILER=/usr/bin/g++-4.9 install
   - source devel/setup.bash
   # Add the package under integration to the workspace using a symlink.
   - cd ~/catkin_ws/src
