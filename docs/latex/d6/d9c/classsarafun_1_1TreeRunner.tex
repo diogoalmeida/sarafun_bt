@@ -1,0 +1,142 @@
+\hypertarget{classsarafun_1_1TreeRunner}{\section{sarafun\-:\-:Tree\-Runner Class Reference}
+\label{classsarafun_1_1TreeRunner}\index{sarafun\-::\-Tree\-Runner@{sarafun\-::\-Tree\-Runner}}
+}
+
+
+{\ttfamily \#include $<$Tree\-Runner.\-h$>$}
+
+
+
+Collaboration diagram for sarafun\-:\-:Tree\-Runner\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{de/d3b/classsarafun_1_1TreeRunner__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsarafun_1_1TreeRunner_a0db16bb58de51d41730e8ee71a0243e4_a0db16bb58de51d41730e8ee71a0243e4}{Tree\-Runner} (int tick\-\_\-period)
+\item 
+bool \hyperlink{classsarafun_1_1TreeRunner_ad89a0d33af669afeae2c299a1dfc1848_ad89a0d33af669afeae2c299a1dfc1848}{start\-Tree} (std\-::string tree\-\_\-description\-\_\-path)
+\item 
+void \hyperlink{classsarafun_1_1TreeRunner_a447a35fa7aba8eb30c80546bf2d4ccca_a447a35fa7aba8eb30c80546bf2d4ccca}{stop\-Tree} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classsarafun_1_1TreeRunner_a90077a79ad9abeddaf0083827b87e423_a90077a79ad9abeddaf0083827b87e423}{tick\-\_\-period\-\_\-}
+\item 
+\hyperlink{classbt__parser_1_1Parser}{bt\-\_\-parser\-::\-Parser} $\ast$ \hyperlink{classsarafun_1_1TreeRunner_a76ee0cb14aa5aedce70ca5e8ebf2b7a4_a76ee0cb14aa5aedce70ca5e8ebf2b7a4}{parser\-\_\-}
+\item 
+Control\-Node $\ast$ \hyperlink{classsarafun_1_1TreeRunner_ab867d518280fff9414b5e12732837164_ab867d518280fff9414b5e12732837164}{root\-\_\-}
+\item 
+boost\-::thread $\ast$ \hyperlink{classsarafun_1_1TreeRunner_a8279cc833571c5e46c59d1b801c8d38b_a8279cc833571c5e46c59d1b801c8d38b}{tree\-\_\-thread\-\_\-}
+\item 
+boost\-::thread $\ast$ \hyperlink{classsarafun_1_1TreeRunner_a2b675fc3cda6b8b578196c2578d937bb_a2b675fc3cda6b8b578196c2578d937bb}{draw\-\_\-thread\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that maintains a running behavior tree.
+
+It allows for starting and stoping a tree on demand. It reloads the tree definition when starting. 
+
+Definition at line 15 of file Tree\-Runner.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsarafun_1_1TreeRunner_a0db16bb58de51d41730e8ee71a0243e4_a0db16bb58de51d41730e8ee71a0243e4}{\index{sarafun\-::\-Tree\-Runner@{sarafun\-::\-Tree\-Runner}!Tree\-Runner@{Tree\-Runner}}
+\index{Tree\-Runner@{Tree\-Runner}!sarafun::TreeRunner@{sarafun\-::\-Tree\-Runner}}
+\subsubsection[{Tree\-Runner}]{\setlength{\rightskip}{0pt plus 5cm}sarafun\-::\-Tree\-Runner\-::\-Tree\-Runner (
+\begin{DoxyParamCaption}
+\item[{int}]{tick\-\_\-period}
+\end{DoxyParamCaption}
+)}}\label{classsarafun_1_1TreeRunner_a0db16bb58de51d41730e8ee71a0243e4_a0db16bb58de51d41730e8ee71a0243e4}
+
+\begin{DoxyParams}{Parameters}
+{\em tick\-\_\-period} & The period at which the tree will be tick'ed (ms). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 6 of file Tree\-Runner.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsarafun_1_1TreeRunner_ad89a0d33af669afeae2c299a1dfc1848_ad89a0d33af669afeae2c299a1dfc1848}{\index{sarafun\-::\-Tree\-Runner@{sarafun\-::\-Tree\-Runner}!start\-Tree@{start\-Tree}}
+\index{start\-Tree@{start\-Tree}!sarafun::TreeRunner@{sarafun\-::\-Tree\-Runner}}
+\subsubsection[{start\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}bool sarafun\-::\-Tree\-Runner\-::start\-Tree (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{tree\-\_\-description\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classsarafun_1_1TreeRunner_ad89a0d33af669afeae2c299a1dfc1848_ad89a0d33af669afeae2c299a1dfc1848}
+Starts executing the behavior tree. Loads the tree description from a J\-S\-O\-N definition.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree\-\_\-description\-\_\-path} & The path of the J\-S\-O\-N file describing the tree. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file Tree\-Runner.\-cpp.
+
+\hypertarget{classsarafun_1_1TreeRunner_a447a35fa7aba8eb30c80546bf2d4ccca_a447a35fa7aba8eb30c80546bf2d4ccca}{\index{sarafun\-::\-Tree\-Runner@{sarafun\-::\-Tree\-Runner}!stop\-Tree@{stop\-Tree}}
+\index{stop\-Tree@{stop\-Tree}!sarafun::TreeRunner@{sarafun\-::\-Tree\-Runner}}
+\subsubsection[{stop\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}void sarafun\-::\-Tree\-Runner\-::stop\-Tree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsarafun_1_1TreeRunner_a447a35fa7aba8eb30c80546bf2d4ccca_a447a35fa7aba8eb30c80546bf2d4ccca}
+Stops the tree execution. 
+
+Definition at line 55 of file Tree\-Runner.\-cpp.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{classsarafun_1_1TreeRunner_a2b675fc3cda6b8b578196c2578d937bb_a2b675fc3cda6b8b578196c2578d937bb}{\index{sarafun\-::\-Tree\-Runner@{sarafun\-::\-Tree\-Runner}!draw\-\_\-thread\-\_\-@{draw\-\_\-thread\-\_\-}}
+\index{draw\-\_\-thread\-\_\-@{draw\-\_\-thread\-\_\-}!sarafun::TreeRunner@{sarafun\-::\-Tree\-Runner}}
+\subsubsection[{draw\-\_\-thread\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}boost\-::thread $\ast$ sarafun\-::\-Tree\-Runner\-::draw\-\_\-thread\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classsarafun_1_1TreeRunner_a2b675fc3cda6b8b578196c2578d937bb_a2b675fc3cda6b8b578196c2578d937bb}
+
+
+Definition at line 40 of file Tree\-Runner.\-h.
+
+\hypertarget{classsarafun_1_1TreeRunner_a76ee0cb14aa5aedce70ca5e8ebf2b7a4_a76ee0cb14aa5aedce70ca5e8ebf2b7a4}{\index{sarafun\-::\-Tree\-Runner@{sarafun\-::\-Tree\-Runner}!parser\-\_\-@{parser\-\_\-}}
+\index{parser\-\_\-@{parser\-\_\-}!sarafun::TreeRunner@{sarafun\-::\-Tree\-Runner}}
+\subsubsection[{parser\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bt\-\_\-parser\-::\-Parser}$\ast$ sarafun\-::\-Tree\-Runner\-::parser\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classsarafun_1_1TreeRunner_a76ee0cb14aa5aedce70ca5e8ebf2b7a4_a76ee0cb14aa5aedce70ca5e8ebf2b7a4}
+
+
+Definition at line 38 of file Tree\-Runner.\-h.
+
+\hypertarget{classsarafun_1_1TreeRunner_ab867d518280fff9414b5e12732837164_ab867d518280fff9414b5e12732837164}{\index{sarafun\-::\-Tree\-Runner@{sarafun\-::\-Tree\-Runner}!root\-\_\-@{root\-\_\-}}
+\index{root\-\_\-@{root\-\_\-}!sarafun::TreeRunner@{sarafun\-::\-Tree\-Runner}}
+\subsubsection[{root\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}Control\-Node$\ast$ sarafun\-::\-Tree\-Runner\-::root\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classsarafun_1_1TreeRunner_ab867d518280fff9414b5e12732837164_ab867d518280fff9414b5e12732837164}
+
+
+Definition at line 39 of file Tree\-Runner.\-h.
+
+\hypertarget{classsarafun_1_1TreeRunner_a90077a79ad9abeddaf0083827b87e423_a90077a79ad9abeddaf0083827b87e423}{\index{sarafun\-::\-Tree\-Runner@{sarafun\-::\-Tree\-Runner}!tick\-\_\-period\-\_\-@{tick\-\_\-period\-\_\-}}
+\index{tick\-\_\-period\-\_\-@{tick\-\_\-period\-\_\-}!sarafun::TreeRunner@{sarafun\-::\-Tree\-Runner}}
+\subsubsection[{tick\-\_\-period\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}int sarafun\-::\-Tree\-Runner\-::tick\-\_\-period\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classsarafun_1_1TreeRunner_a90077a79ad9abeddaf0083827b87e423_a90077a79ad9abeddaf0083827b87e423}
+
+
+Definition at line 37 of file Tree\-Runner.\-h.
+
+\hypertarget{classsarafun_1_1TreeRunner_a8279cc833571c5e46c59d1b801c8d38b_a8279cc833571c5e46c59d1b801c8d38b}{\index{sarafun\-::\-Tree\-Runner@{sarafun\-::\-Tree\-Runner}!tree\-\_\-thread\-\_\-@{tree\-\_\-thread\-\_\-}}
+\index{tree\-\_\-thread\-\_\-@{tree\-\_\-thread\-\_\-}!sarafun::TreeRunner@{sarafun\-::\-Tree\-Runner}}
+\subsubsection[{tree\-\_\-thread\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}boost\-::thread$\ast$ sarafun\-::\-Tree\-Runner\-::tree\-\_\-thread\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classsarafun_1_1TreeRunner_a8279cc833571c5e46c59d1b801c8d38b_a8279cc833571c5e46c59d1b801c8d38b}
+
+
+Definition at line 40 of file Tree\-Runner.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Tree\-Runner.\-h\item 
+Tree\-Runner.\-cpp\end{DoxyCompactItemize}

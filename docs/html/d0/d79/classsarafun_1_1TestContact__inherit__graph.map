@@ -1,0 +1,4 @@
+<map id="sarafun::TestContact" name="sarafun::TestContact">
+<area shape="rect" id="node2" href="$dd/d24/classsarafun_1_1TestServer.html" title="{sarafun::TestServer\l\&lt; sarafun_msgs::ContactKeyframe\lAction, sarafun_msgs::ContactKeyframe\lGoalConstPtr, sarafun_msgs::ContactKeyframe\lFeedback, sarafun_msgs::ContactKeyframeResult \&gt;\n|# action_name_\l&#45; nh_\l&#45; action_server_\l&#45; feedback_\l&#45; result_\l|+ TestServer()\l+ ~TestServer()\l+ executeCB()\l# parseGoal()\l}" alt="" coords="5,323,333,562"/>
+<area shape="rect" id="node3" href="$dd/d24/classsarafun_1_1TestServer.html" title="{sarafun::TestServer\l\&lt; ActionClass, ActionGoalConst\lPtr, ActionFeedback, ActionResult \&gt;\n|# action_name_\l&#45; nh_\l&#45; action_server_\l&#45; feedback_\l&#45; result_\l|+ TestServer()\l+ ~TestServer()\l+ executeCB()\l# parseGoal()\l}" alt="" coords="51,6,287,215"/>
+</map>

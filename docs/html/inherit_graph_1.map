@@ -1,0 +1,31 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_assembly::FoldingAction,\l sarafun_assembly::FoldingGoal \&gt;" alt="" coords="211,5,442,61"/>
+<area shape="rect" id="node4" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_assembly::Insertion\lAction, sarafun_assembly::\lInsertionGoal \&gt;" alt="" coords="227,86,426,157"/>
+<area shape="rect" id="node6" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_hqp_omg::OnlineMotion\lAction, sarafun_hqp_omg::OnlineMotionGoal \&gt;" alt="" coords="180,181,473,237"/>
+<area shape="rect" id="node8" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_manipulation\l::ApproachAction, sarafun\l_manipulation::ApproachGoal \&gt;" alt="" coords="225,262,429,333"/>
+<area shape="rect" id="node10" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_manipulation\l::GrabAction, sarafun_manipulation\l::GrabGoal \&gt;" alt="" coords="213,357,440,427"/>
+<area shape="rect" id="node12" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_manipulation\l::PlaceAction, sarafun\l_manipulation::PlaceGoal \&gt;" alt="" coords="235,451,418,522"/>
+<area shape="rect" id="node14" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_msgs::AlignKeyframe\lAction, sarafun_msgs::AlignKeyframeGoal \&gt;" alt="" coords="186,547,467,603"/>
+<area shape="rect" id="node16" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_msgs::AssembledKeyframe\lAction, sarafun_msgs::AssembledKeyframeGoal \&gt;" alt="" coords="168,627,485,683"/>
+<area shape="rect" id="node18" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_msgs::ContactKeyframe\lAction, sarafun_msgs::ContactKeyframeGoal \&gt;" alt="" coords="177,707,476,763"/>
+<area shape="rect" id="node20" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_msgs::GraspKeyframe\lAction, sarafun_msgs::GraspKeyframeGoal \&gt;" alt="" coords="183,787,470,843"/>
+<area shape="rect" id="node22" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_msgs::InitialKeyframe\lAction, sarafun_msgs::InitialKeyframeGoal \&gt;" alt="" coords="185,867,468,923"/>
+<area shape="rect" id="node24" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_msgs::MoveKeyframe\lAction, sarafun_msgs::MoveKeyframeGoal \&gt;" alt="" coords="185,947,469,1003"/>
+<area shape="rect" id="node26" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_msgs::PickUpKeyframe\lAction, sarafun_msgs::PickUpKeyframeGoal \&gt;" alt="" coords="179,1027,474,1083"/>
+<area shape="rect" id="node28" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; sarafun_msgs::RetractKeyframe\lAction, sarafun_msgs::RetractKeyframeGoal \&gt;" alt="" coords="179,1107,474,1163"/>
+<area shape="rect" id="node30" href="$de/d35/classsarafun_1_1ExecuteAction.html" title="sarafun::ExecuteAction\l\&lt; ActionClass, ActionGoal \&gt;" alt="" coords="232,1186,421,1227"/>
+<area shape="rect" id="node3" href="$dd/df2/classsarafun_1_1FoldingAssemblyAction.html" title="sarafun::FoldingAssembly\lAction" alt="" coords="557,13,731,54"/>
+<area shape="rect" id="node5" href="$d8/db8/classsarafun_1_1InsertionWithDeformationAction.html" title="sarafun::InsertionWithDeformation\lAction" alt="" coords="533,101,755,142"/>
+<area shape="rect" id="node7" href="$d0/d3c/classsarafun_1_1OnlineMotionAction.html" title="sarafun::OnlineMotionAction" alt="" coords="551,196,737,223"/>
+<area shape="rect" id="node9" href="$d6/db4/classsarafun_1_1ApproachObjectsAction.html" title="sarafun::ApproachObjects\lAction" alt="" coords="557,277,731,318"/>
+<area shape="rect" id="node11" href="$db/d0c/classsarafun_1_1GrabObjectAction.html" title="sarafun::GrabObjectAction" alt="" coords="556,379,732,405"/>
+<area shape="rect" id="node13" href="$d3/dd9/classsarafun_1_1PlaceAction.html" title="sarafun::PlaceAction" alt="" coords="573,473,715,500"/>
+<area shape="rect" id="node15" href="$dc/df5/classsarafun_1_1AlignAction.html" title="sarafun::AlignAction" alt="" coords="575,561,713,588"/>
+<area shape="rect" id="node17" href="$dc/d58/classsarafun_1_1AssembledAction.html" title="sarafun::AssembledAction" alt="" coords="557,641,731,668"/>
+<area shape="rect" id="node19" href="$dc/d9f/classsarafun_1_1ContactAction.html" title="sarafun::ContactAction" alt="" coords="566,721,722,748"/>
+<area shape="rect" id="node21" href="$d0/d03/classsarafun_1_1GraspAction.html" title="sarafun::GraspAction" alt="" coords="571,801,717,828"/>
+<area shape="rect" id="node23" href="$d6/d64/classsarafun_1_1InitialAction.html" title="sarafun::InitialAction" alt="" coords="573,881,715,908"/>
+<area shape="rect" id="node25" href="$d6/d0e/classsarafun_1_1MoveAction.html" title="sarafun::MoveAction" alt="" coords="573,961,715,988"/>
+<area shape="rect" id="node27" href="$d8/dba/classsarafun_1_1PickupAction.html" title="sarafun::PickupAction" alt="" coords="569,1041,719,1068"/>
+<area shape="rect" id="node29" href="$d4/dd3/classsarafun_1_1RetractAction.html" title="sarafun::RetractAction" alt="" coords="567,1121,721,1148"/>
+</map>

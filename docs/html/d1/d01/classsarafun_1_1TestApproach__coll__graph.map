@@ -1,0 +1,4 @@
+<map id="sarafun::TestApproach" name="sarafun::TestApproach">
+<area shape="rect" id="node2" href="$dd/d24/classsarafun_1_1TestServer.html" title="{sarafun::TestServer\l\&lt; sarafun_manipulation\l::ApproachAction, sarafun\l_manipulation::ApproachGoalConst\lPtr, sarafun_manipulation::ApproachFeedback,\l sarafun_manipulation::ApproachResult \&gt;\n|# action_name_\l&#45; nh_\l&#45; action_server_\l&#45; feedback_\l&#45; result_\l|+ TestServer()\l+ ~TestServer()\l+ executeCB()\l# parseGoal()\l}" alt="" coords="5,339,299,592"/>
+<area shape="rect" id="node3" href="$dd/d24/classsarafun_1_1TestServer.html" title="{sarafun::TestServer\l\&lt; ActionClass, ActionGoalConst\lPtr, ActionFeedback, ActionResult \&gt;\n|# action_name_\l&#45; nh_\l&#45; action_server_\l&#45; feedback_\l&#45; result_\l|+ TestServer()\l+ ~TestServer()\l+ executeCB()\l# parseGoal()\l}" alt="" coords="34,6,269,215"/>
+</map>

@@ -1,0 +1,203 @@
+\hypertarget{classbt__parser_1_1Parser}{\section{bt\-\_\-parser\-:\-:Parser Class Reference}
+\label{classbt__parser_1_1Parser}\index{bt\-\_\-parser\-::\-Parser@{bt\-\_\-parser\-::\-Parser}}
+}
+
+
+{\ttfamily \#include $<$parse\-\_\-tree.\-h$>$}
+
+
+
+Collaboration diagram for bt\-\_\-parser\-:\-:Parser\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{d2/d92/classbt__parser_1_1Parser__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbt__parser_1_1Parser_abcd6235386f006f36b56ceb08c898deb_abcd6235386f006f36b56ceb08c898deb}{Parser} (std\-::string filepath)
+\item 
+\hyperlink{classbt__parser_1_1Parser_a5a8992b935e01bac1fa36da4d20eb718_a5a8992b935e01bac1fa36da4d20eb718}{$\sim$\-Parser} ()
+\item 
+B\-T\-::\-Tree\-Node $\ast$ \hyperlink{classbt__parser_1_1Parser_a7c744cc625df4ce26fbaa3deba496737_a7c744cc625df4ce26fbaa3deba496737}{parse\-Tree} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+B\-T\-::\-Tree\-Node $\ast$ \hyperlink{classbt__parser_1_1Parser_a30c924ebeff1273b8612c41bd5e7ffe2_a30c924ebeff1273b8612c41bd5e7ffe2}{parse\-Tree} (json node)
+\item 
+void \hyperlink{classbt__parser_1_1Parser_a67d8ea4c25f3088b8e5b18cc01837d1a_a67d8ea4c25f3088b8e5b18cc01837d1a}{verify\-Node} (json node)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ifstream \hyperlink{classbt__parser_1_1Parser_a2f2c7b9fcfd823c22b8e4385e8e2ce63_a2f2c7b9fcfd823c22b8e4385e8e2ce63}{file\-\_\-}
+\item 
+json \hyperlink{classbt__parser_1_1Parser_abd894df8a1d8c0aaf660fc02ca1f3882_abd894df8a1d8c0aaf660fc02ca1f3882}{tree\-\_\-j\-\_\-}
+\item 
+std\-::string \hyperlink{classbt__parser_1_1Parser_a8a2cd4996ff4cc8a6de26caa52756620_a8a2cd4996ff4cc8a6de26caa52756620}{current\-\_\-id\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implements a behavior tree parser, that reads a J\-S\-O\-N file describing the tree and generates the executable tree structure. 
+
+Definition at line 17 of file parse\-\_\-tree.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbt__parser_1_1Parser_abcd6235386f006f36b56ceb08c898deb_abcd6235386f006f36b56ceb08c898deb}{\index{bt\-\_\-parser\-::\-Parser@{bt\-\_\-parser\-::\-Parser}!Parser@{Parser}}
+\index{Parser@{Parser}!bt_parser::Parser@{bt\-\_\-parser\-::\-Parser}}
+\subsubsection[{Parser}]{\setlength{\rightskip}{0pt plus 5cm}bt\-\_\-parser\-::\-Parser\-::\-Parser (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{filepath}
+\end{DoxyParamCaption}
+)}}\label{classbt__parser_1_1Parser_abcd6235386f006f36b56ceb08c898deb_abcd6235386f006f36b56ceb08c898deb}
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & The directory of the J\-S\-O\-N tree description. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5 of file parse\-\_\-tree.\-cpp.
+
+
+
+References file\-\_\-.
+
+\hypertarget{classbt__parser_1_1Parser_a5a8992b935e01bac1fa36da4d20eb718_a5a8992b935e01bac1fa36da4d20eb718}{\index{bt\-\_\-parser\-::\-Parser@{bt\-\_\-parser\-::\-Parser}!$\sim$\-Parser@{$\sim$\-Parser}}
+\index{$\sim$\-Parser@{$\sim$\-Parser}!bt_parser::Parser@{bt\-\_\-parser\-::\-Parser}}
+\subsubsection[{$\sim$\-Parser}]{\setlength{\rightskip}{0pt plus 5cm}bt\-\_\-parser\-::\-Parser\-::$\sim$\-Parser (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbt__parser_1_1Parser_a5a8992b935e01bac1fa36da4d20eb718_a5a8992b935e01bac1fa36da4d20eb718}
+
+
+Definition at line 6 of file parse\-\_\-tree.\-cpp.
+
+
+
+References file\-\_\-.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbt__parser_1_1Parser_a7c744cc625df4ce26fbaa3deba496737_a7c744cc625df4ce26fbaa3deba496737}{\index{bt\-\_\-parser\-::\-Parser@{bt\-\_\-parser\-::\-Parser}!parse\-Tree@{parse\-Tree}}
+\index{parse\-Tree@{parse\-Tree}!bt_parser::Parser@{bt\-\_\-parser\-::\-Parser}}
+\subsubsection[{parse\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}B\-T\-::\-Tree\-Node $\ast$ bt\-\_\-parser\-::\-Parser\-::parse\-Tree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbt__parser_1_1Parser_a7c744cc625df4ce26fbaa3deba496737_a7c744cc625df4ce26fbaa3deba496737}
+
+
+Definition at line 29 of file parse\-\_\-tree.\-cpp.
+
+
+
+References current\-\_\-id\-\_\-, file\-\_\-, and tree\-\_\-j\-\_\-.
+
+
+
+Referenced by parse\-Tree().
+
+\hypertarget{classbt__parser_1_1Parser_a30c924ebeff1273b8612c41bd5e7ffe2_a30c924ebeff1273b8612c41bd5e7ffe2}{\index{bt\-\_\-parser\-::\-Parser@{bt\-\_\-parser\-::\-Parser}!parse\-Tree@{parse\-Tree}}
+\index{parse\-Tree@{parse\-Tree}!bt_parser::Parser@{bt\-\_\-parser\-::\-Parser}}
+\subsubsection[{parse\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}B\-T\-::\-Tree\-Node $\ast$ bt\-\_\-parser\-::\-Parser\-::parse\-Tree (
+\begin{DoxyParamCaption}
+\item[{json}]{node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classbt__parser_1_1Parser_a30c924ebeff1273b8612c41bd5e7ffe2_a30c924ebeff1273b8612c41bd5e7ffe2}
+
+
+Definition at line 56 of file parse\-\_\-tree.\-cpp.
+
+
+
+References current\-\_\-id\-\_\-, parse\-Tree(), tree\-\_\-j\-\_\-, and verify\-Node().
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{dd/d2f/classbt__parser_1_1Parser_a30c924ebeff1273b8612c41bd5e7ffe2_a30c924ebeff1273b8612c41bd5e7ffe2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classbt__parser_1_1Parser_a67d8ea4c25f3088b8e5b18cc01837d1a_a67d8ea4c25f3088b8e5b18cc01837d1a}{\index{bt\-\_\-parser\-::\-Parser@{bt\-\_\-parser\-::\-Parser}!verify\-Node@{verify\-Node}}
+\index{verify\-Node@{verify\-Node}!bt_parser::Parser@{bt\-\_\-parser\-::\-Parser}}
+\subsubsection[{verify\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void bt\-\_\-parser\-::\-Parser\-::verify\-Node (
+\begin{DoxyParamCaption}
+\item[{json}]{node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classbt__parser_1_1Parser_a67d8ea4c25f3088b8e5b18cc01837d1a_a67d8ea4c25f3088b8e5b18cc01837d1a}
+Verifies the sanity of the given J\-S\-O\-N node describing a B\-T subtree.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & A json node object with a B\-T subtree. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\-\_\-error} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 8 of file parse\-\_\-tree.\-cpp.
+
+
+
+Referenced by parse\-Tree().
+
+
+
+\subsection{Field Documentation}
+\hypertarget{classbt__parser_1_1Parser_a8a2cd4996ff4cc8a6de26caa52756620_a8a2cd4996ff4cc8a6de26caa52756620}{\index{bt\-\_\-parser\-::\-Parser@{bt\-\_\-parser\-::\-Parser}!current\-\_\-id\-\_\-@{current\-\_\-id\-\_\-}}
+\index{current\-\_\-id\-\_\-@{current\-\_\-id\-\_\-}!bt_parser::Parser@{bt\-\_\-parser\-::\-Parser}}
+\subsubsection[{current\-\_\-id\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string bt\-\_\-parser\-::\-Parser\-::current\-\_\-id\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classbt__parser_1_1Parser_a8a2cd4996ff4cc8a6de26caa52756620_a8a2cd4996ff4cc8a6de26caa52756620}
+
+
+Definition at line 36 of file parse\-\_\-tree.\-h.
+
+
+
+Referenced by parse\-Tree().
+
+\hypertarget{classbt__parser_1_1Parser_a2f2c7b9fcfd823c22b8e4385e8e2ce63_a2f2c7b9fcfd823c22b8e4385e8e2ce63}{\index{bt\-\_\-parser\-::\-Parser@{bt\-\_\-parser\-::\-Parser}!file\-\_\-@{file\-\_\-}}
+\index{file\-\_\-@{file\-\_\-}!bt_parser::Parser@{bt\-\_\-parser\-::\-Parser}}
+\subsubsection[{file\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ifstream bt\-\_\-parser\-::\-Parser\-::file\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classbt__parser_1_1Parser_a2f2c7b9fcfd823c22b8e4385e8e2ce63_a2f2c7b9fcfd823c22b8e4385e8e2ce63}
+
+
+Definition at line 34 of file parse\-\_\-tree.\-h.
+
+
+
+Referenced by Parser(), parse\-Tree(), and $\sim$\-Parser().
+
+\hypertarget{classbt__parser_1_1Parser_abd894df8a1d8c0aaf660fc02ca1f3882_abd894df8a1d8c0aaf660fc02ca1f3882}{\index{bt\-\_\-parser\-::\-Parser@{bt\-\_\-parser\-::\-Parser}!tree\-\_\-j\-\_\-@{tree\-\_\-j\-\_\-}}
+\index{tree\-\_\-j\-\_\-@{tree\-\_\-j\-\_\-}!bt_parser::Parser@{bt\-\_\-parser\-::\-Parser}}
+\subsubsection[{tree\-\_\-j\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}json bt\-\_\-parser\-::\-Parser\-::tree\-\_\-j\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classbt__parser_1_1Parser_abd894df8a1d8c0aaf660fc02ca1f3882_abd894df8a1d8c0aaf660fc02ca1f3882}
+
+
+Definition at line 35 of file parse\-\_\-tree.\-h.
+
+
+
+Referenced by parse\-Tree().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+parse\-\_\-tree.\-h\item 
+parse\-\_\-tree.\-cpp\end{DoxyCompactItemize}

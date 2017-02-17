@@ -1,0 +1,4 @@
+<map id="sarafun::TestGrasp" name="sarafun::TestGrasp">
+<area shape="rect" id="node2" href="$dd/d24/classsarafun_1_1TestServer.html" title="{sarafun::TestServer\l\&lt; sarafun_msgs::GraspKeyframe\lAction, sarafun_msgs::GraspKeyframe\lGoalConstPtr, sarafun_msgs::GraspKeyframe\lFeedback, sarafun_msgs::GraspKeyframeResult \&gt;\n|# action_name_\l&#45; nh_\l&#45; action_server_\l&#45; feedback_\l&#45; result_\l|+ TestServer()\l+ ~TestServer()\l+ executeCB()\l# parseGoal()\l}" alt="" coords="5,323,323,562"/>
+<area shape="rect" id="node3" href="$dd/d24/classsarafun_1_1TestServer.html" title="{sarafun::TestServer\l\&lt; ActionClass, ActionGoalConst\lPtr, ActionFeedback, ActionResult \&gt;\n|# action_name_\l&#45; nh_\l&#45; action_server_\l&#45; feedback_\l&#45; result_\l|+ TestServer()\l+ ~TestServer()\l+ executeCB()\l# parseGoal()\l}" alt="" coords="46,6,281,215"/>
+</map>

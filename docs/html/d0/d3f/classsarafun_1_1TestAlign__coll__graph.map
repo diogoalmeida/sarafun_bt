@@ -1,0 +1,4 @@
+<map id="sarafun::TestAlign" name="sarafun::TestAlign">
+<area shape="rect" id="node2" href="$dd/d24/classsarafun_1_1TestServer.html" title="{sarafun::TestServer\l\&lt; sarafun_msgs::AlignKeyframe\lAction, sarafun_msgs::AlignKeyframe\lGoalConstPtr, sarafun_msgs::AlignKeyframe\lFeedback, sarafun_msgs::AlignKeyframeResult \&gt;\n|# action_name_\l&#45; nh_\l&#45; action_server_\l&#45; feedback_\l&#45; result_\l|+ TestServer()\l+ ~TestServer()\l+ executeCB()\l# parseGoal()\l}" alt="" coords="5,323,317,562"/>
+<area shape="rect" id="node3" href="$dd/d24/classsarafun_1_1TestServer.html" title="{sarafun::TestServer\l\&lt; ActionClass, ActionGoalConst\lPtr, ActionFeedback, ActionResult \&gt;\n|# action_name_\l&#45; nh_\l&#45; action_server_\l&#45; feedback_\l&#45; result_\l|+ TestServer()\l+ ~TestServer()\l+ executeCB()\l# parseGoal()\l}" alt="" coords="43,6,279,215"/>
+</map>

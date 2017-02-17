@@ -1,0 +1,311 @@
+\hypertarget{classsarafun_1_1ExecuteAction}{\section{sarafun\-:\-:Execute\-Action$<$ Action\-Class, Action\-Goal $>$ Class Template Reference}
+\label{classsarafun_1_1ExecuteAction}\index{sarafun\-::\-Execute\-Action$<$ Action\-Class, Action\-Goal $>$@{sarafun\-::\-Execute\-Action$<$ Action\-Class, Action\-Goal $>$}}
+}
+
+
+{\ttfamily \#include $<$Execute\-Action.\-h$>$}
+
+
+
+Inheritance diagram for sarafun\-:\-:Execute\-Action$<$ Action\-Class, Action\-Goal $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d30/classsarafun_1_1ExecuteAction__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for sarafun\-:\-:Execute\-Action$<$ Action\-Class, Action\-Goal $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{de/dc6/classsarafun_1_1ExecuteAction__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsarafun_1_1ExecuteAction_acbe4336af2941a52a96aaaceb7e801cb_acbe4336af2941a52a96aaaceb7e801cb}{Execute\-Action} (std\-::string node\-\_\-name, std\-::string actionlib\-\_\-name, std\-::string bt\-\_\-name)
+\item 
+virtual \hyperlink{classsarafun_1_1ExecuteAction_a194ac46f85d7c70c0aa4f09a0c2941ae_a194ac46f85d7c70c0aa4f09a0c2941ae}{$\sim$\-Execute\-Action} ()
+\item 
+int \hyperlink{classsarafun_1_1ExecuteAction_ae5e3d1f2779c12923ccdc6289ebba25a_ae5e3d1f2779c12923ccdc6289ebba25a}{execution\-Routine} ()
+\item 
+void \hyperlink{classsarafun_1_1ExecuteAction_a4075792022071239c6e335c32c70ad2e_a4075792022071239c6e335c32c70ad2e}{preemption\-Routine} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classsarafun_1_1ExecuteAction_a6dd9c0f013d15a17d7e7ce8dbe40a436_a6dd9c0f013d15a17d7e7ce8dbe40a436}{fill\-Goal} (Action\-Goal \&goal)=0
+\item 
+virtual double \hyperlink{classsarafun_1_1ExecuteAction_aba6cfa8a8ce19e735eb6394424df6d17_aba6cfa8a8ce19e735eb6394424df6d17}{get\-Timeout\-Value} ()=0
+\item 
+bool \hyperlink{classsarafun_1_1ExecuteAction_ac1c8c1ac7392b0ebc8d095d6f6d336e3_ac1c8c1ac7392b0ebc8d095d6f6d336e3}{fill\-Parameter} (std\-::string param\-\_\-name, std\-::string \&param\-\_\-val)
+\item 
+void \hyperlink{classsarafun_1_1ExecuteAction_a78aa73f154cebe28d4c2fa11ec6a07cf_a78aa73f154cebe28d4c2fa11ec6a07cf}{fill\-Parameter} (std\-::string param\-\_\-name, std\-::string def, std\-::string \&param\-\_\-val)
+\item 
+void \hyperlink{classsarafun_1_1ExecuteAction_a0c5d656feaf29da583e87f8389570e7d_a0c5d656feaf29da583e87f8389570e7d}{fill\-Parameter} (std\-::string param\-\_\-name, double def, double \&param\-\_\-val)
+\item 
+void \hyperlink{classsarafun_1_1ExecuteAction_a0ab753300e7535025e7d0508335241a6_a0ab753300e7535025e7d0508335241a6}{fill\-Parameter} (std\-::string param\-\_\-name, int def, int \&param\-\_\-val)
+\item 
+bool \hyperlink{classsarafun_1_1ExecuteAction_ab9adb2cd743cb8e783fe2a927c94232b_ab9adb2cd743cb8e783fe2a927c94232b}{is\-System\-Active} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+actionlib\-::\-Simple\-Action\-Client\\*
+$<$ Action\-Class $>$ $\ast$ \hyperlink{classsarafun_1_1ExecuteAction_a8f41836853e5a9daa346b90b865fd113_a8f41836853e5a9daa346b90b865fd113}{action\-\_\-client\-\_\-}
+\item 
+Action\-Goal \hyperlink{classsarafun_1_1ExecuteAction_a31d3f0c6e50b6abeb68ef6d0cb3c8a4a_a31d3f0c6e50b6abeb68ef6d0cb3c8a4a}{goal\-\_\-}
+\item 
+std\-::string \hyperlink{classsarafun_1_1ExecuteAction_ac2deed790dd2ff6ef7534fb1a500381f_ac2deed790dd2ff6ef7534fb1a500381f}{action\-\_\-name\-\_\-}
+\item 
+ros\-::\-Time \hyperlink{classsarafun_1_1ExecuteAction_ad7a81f5e505c421c57bc32fa35e3e84f_ad7a81f5e505c421c57bc32fa35e3e84f}{start\-\_\-time\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Action\-Class, class Action\-Goal$>$class sarafun\-::\-Execute\-Action$<$ Action\-Class, Action\-Goal $>$}
+
+This class implements an interface for B\-T actions destined to call a generic rosaction server.
+
+It establishes a bridge between the behavior tree action class and an externally implemented action\-: B\-T $<$--$>$ \hyperlink{classsarafun_1_1ExecuteAction}{Execute\-Action} $<$--$>$ external implementation 
+
+Definition at line 17 of file Execute\-Action.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsarafun_1_1ExecuteAction_acbe4336af2941a52a96aaaceb7e801cb_acbe4336af2941a52a96aaaceb7e801cb}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!Execute\-Action@{Execute\-Action}}
+\index{Execute\-Action@{Execute\-Action}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{Execute\-Action}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class , class Action\-Goal $>$ {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::{\bf Execute\-Action} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{node\-\_\-name, }
+\item[{std\-::string}]{actionlib\-\_\-name, }
+\item[{std\-::string}]{bt\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{classsarafun_1_1ExecuteAction_acbe4336af2941a52a96aaaceb7e801cb_acbe4336af2941a52a96aaaceb7e801cb}
+Contructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\-\_\-name} & The R\-O\-S node name. \\
+\hline
+{\em actionlib\-\_\-name} & The actionlib server name that this action will call. \\
+\hline
+{\em bt\-\_\-name} & The name defined in the \char`\"{}name\char`\"{} tag from the B\-T J\-S\-O\-N input file. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 90 of file Execute\-Action.\-h.
+
+
+
+References sarafun\-::\-Execute\-Action$<$ Action\-Class, Action\-Goal $>$\-::action\-\_\-client\-\_\-, and sarafun\-::\-Execute\-Action$<$ Action\-Class, Action\-Goal $>$\-::action\-\_\-name\-\_\-.
+
+\hypertarget{classsarafun_1_1ExecuteAction_a194ac46f85d7c70c0aa4f09a0c2941ae_a194ac46f85d7c70c0aa4f09a0c2941ae}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!$\sim$\-Execute\-Action@{$\sim$\-Execute\-Action}}
+\index{$\sim$\-Execute\-Action@{$\sim$\-Execute\-Action}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{$\sim$\-Execute\-Action}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class , class Action\-Goal $>$ {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::$\sim${\bf Execute\-Action} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsarafun_1_1ExecuteAction_a194ac46f85d7c70c0aa4f09a0c2941ae_a194ac46f85d7c70c0aa4f09a0c2941ae}
+
+
+Definition at line 99 of file Execute\-Action.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsarafun_1_1ExecuteAction_ae5e3d1f2779c12923ccdc6289ebba25a_ae5e3d1f2779c12923ccdc6289ebba25a}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!execution\-Routine@{execution\-Routine}}
+\index{execution\-Routine@{execution\-Routine}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{execution\-Routine}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class , class Action\-Goal $>$ int {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::execution\-Routine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsarafun_1_1ExecuteAction_ae5e3d1f2779c12923ccdc6289ebba25a_ae5e3d1f2779c12923ccdc6289ebba25a}
+
+
+Definition at line 128 of file Execute\-Action.\-h.
+
+\hypertarget{classsarafun_1_1ExecuteAction_a6dd9c0f013d15a17d7e7ce8dbe40a436_a6dd9c0f013d15a17d7e7ce8dbe40a436}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!fill\-Goal@{fill\-Goal}}
+\index{fill\-Goal@{fill\-Goal}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{fill\-Goal}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class, class Action\-Goal$>$ virtual bool {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::fill\-Goal (
+\begin{DoxyParamCaption}
+\item[{Action\-Goal \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{classsarafun_1_1ExecuteAction_a6dd9c0f013d15a17d7e7ce8dbe40a436_a6dd9c0f013d15a17d7e7ce8dbe40a436}
+Fills in the goal for a particular action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The actionlib goal message of the externally implemented action. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False in case of error, true otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classsarafun_1_1ApproachObjectsAction_af5d216551122da780bc550daf4f1dca4_af5d216551122da780bc550daf4f1dca4}{sarafun\-::\-Approach\-Objects\-Action}, \hyperlink{classsarafun_1_1InsertionWithDeformationAction_a32d695dfcd626c5a7ca0fa987c245083_a32d695dfcd626c5a7ca0fa987c245083}{sarafun\-::\-Insertion\-With\-Deformation\-Action}, \hyperlink{classsarafun_1_1AlignAction_ab92a62085ebd60438638b7b6c56da786_ab92a62085ebd60438638b7b6c56da786}{sarafun\-::\-Align\-Action}, \hyperlink{classsarafun_1_1AssembledAction_a094a5cfde4d6bb6d024256834e771a39_a094a5cfde4d6bb6d024256834e771a39}{sarafun\-::\-Assembled\-Action}, \hyperlink{classsarafun_1_1ContactAction_a563907411debe223088ef5a34d8c0fb0_a563907411debe223088ef5a34d8c0fb0}{sarafun\-::\-Contact\-Action}, \hyperlink{classsarafun_1_1GraspAction_a7418fe9de5024a8fbbfe8e5f5336d66f_a7418fe9de5024a8fbbfe8e5f5336d66f}{sarafun\-::\-Grasp\-Action}, \hyperlink{classsarafun_1_1InitialAction_aac7f439c30455349e075e91542565a43_aac7f439c30455349e075e91542565a43}{sarafun\-::\-Initial\-Action}, \hyperlink{classsarafun_1_1MoveAction_ad5259389b6a5718389c24fab920c9296_ad5259389b6a5718389c24fab920c9296}{sarafun\-::\-Move\-Action}, \hyperlink{classsarafun_1_1PickupAction_a4aa9956733de9f12b52aa41038dbe87a_a4aa9956733de9f12b52aa41038dbe87a}{sarafun\-::\-Pickup\-Action}, \hyperlink{classsarafun_1_1RetractAction_ad0db1c2615d68603bc972ffa26049a70_ad0db1c2615d68603bc972ffa26049a70}{sarafun\-::\-Retract\-Action}, \hyperlink{classsarafun_1_1GrabObjectAction_a61fe8b0cb93dec244f10d6c5dbee913c_a61fe8b0cb93dec244f10d6c5dbee913c}{sarafun\-::\-Grab\-Object\-Action}, \hyperlink{classsarafun_1_1OnlineMotionAction_aacaa264dad7ba07b5c9a985d66ea48f7_aacaa264dad7ba07b5c9a985d66ea48f7}{sarafun\-::\-Online\-Motion\-Action}, \hyperlink{classsarafun_1_1PlaceAction_a7d48e758adf6cea93fa15409bafda8c8_a7d48e758adf6cea93fa15409bafda8c8}{sarafun\-::\-Place\-Action}, and \hyperlink{classsarafun_1_1FoldingAssemblyAction_a51597860319456f359d03c3e27c2fb96_a51597860319456f359d03c3e27c2fb96}{sarafun\-::\-Folding\-Assembly\-Action}.
+
+\hypertarget{classsarafun_1_1ExecuteAction_ac1c8c1ac7392b0ebc8d095d6f6d336e3_ac1c8c1ac7392b0ebc8d095d6f6d336e3}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!fill\-Parameter@{fill\-Parameter}}
+\index{fill\-Parameter@{fill\-Parameter}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{fill\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class , class Action\-Goal $>$ bool {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::fill\-Parameter (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{param\-\_\-name, }
+\item[{std\-::string \&}]{param\-\_\-val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classsarafun_1_1ExecuteAction_ac1c8c1ac7392b0ebc8d095d6f6d336e3_ac1c8c1ac7392b0ebc8d095d6f6d336e3}
+Gets generic parameter from the parameter server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & parameter name.  The parameter value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False in case the parameter does not exist, true otherise. 
+\end{DoxyReturn}
+
+
+Definition at line 198 of file Execute\-Action.\-h.
+
+\hypertarget{classsarafun_1_1ExecuteAction_a78aa73f154cebe28d4c2fa11ec6a07cf_a78aa73f154cebe28d4c2fa11ec6a07cf}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!fill\-Parameter@{fill\-Parameter}}
+\index{fill\-Parameter@{fill\-Parameter}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{fill\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class , class Action\-Goal $>$ void {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::fill\-Parameter (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{param\-\_\-name, }
+\item[{std\-::string}]{def, }
+\item[{std\-::string \&}]{param\-\_\-val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classsarafun_1_1ExecuteAction_a78aa73f154cebe28d4c2fa11ec6a07cf_a78aa73f154cebe28d4c2fa11ec6a07cf}
+Gets a generic parameter from the parameter server. Sets it to a default in case the parameter does not exist.
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & parameter name \\
+\hline
+{\em def} & The default parameter value  The parameter value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 210 of file Execute\-Action.\-h.
+
+\hypertarget{classsarafun_1_1ExecuteAction_a0c5d656feaf29da583e87f8389570e7d_a0c5d656feaf29da583e87f8389570e7d}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!fill\-Parameter@{fill\-Parameter}}
+\index{fill\-Parameter@{fill\-Parameter}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{fill\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class , class Action\-Goal $>$ void {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::fill\-Parameter (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{param\-\_\-name, }
+\item[{double}]{def, }
+\item[{double \&}]{param\-\_\-val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classsarafun_1_1ExecuteAction_a0c5d656feaf29da583e87f8389570e7d_a0c5d656feaf29da583e87f8389570e7d}
+
+
+Definition at line 221 of file Execute\-Action.\-h.
+
+\hypertarget{classsarafun_1_1ExecuteAction_a0ab753300e7535025e7d0508335241a6_a0ab753300e7535025e7d0508335241a6}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!fill\-Parameter@{fill\-Parameter}}
+\index{fill\-Parameter@{fill\-Parameter}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{fill\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class , class Action\-Goal $>$ void {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::fill\-Parameter (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{param\-\_\-name, }
+\item[{int}]{def, }
+\item[{int \&}]{param\-\_\-val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classsarafun_1_1ExecuteAction_a0ab753300e7535025e7d0508335241a6_a0ab753300e7535025e7d0508335241a6}
+
+
+Definition at line 232 of file Execute\-Action.\-h.
+
+\hypertarget{classsarafun_1_1ExecuteAction_aba6cfa8a8ce19e735eb6394424df6d17_aba6cfa8a8ce19e735eb6394424df6d17}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!get\-Timeout\-Value@{get\-Timeout\-Value}}
+\index{get\-Timeout\-Value@{get\-Timeout\-Value}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{get\-Timeout\-Value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class, class Action\-Goal$>$ virtual double {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::get\-Timeout\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{classsarafun_1_1ExecuteAction_aba6cfa8a8ce19e735eb6394424df6d17_aba6cfa8a8ce19e735eb6394424df6d17}
+Provides the client with a timeout value for actionlib connections.
+
+\begin{DoxyReturn}{Returns}
+The timeout value (in seconds). 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classsarafun_1_1ApproachObjectsAction_a6852994a6e8a1edf9b2c24c91fd07df2_a6852994a6e8a1edf9b2c24c91fd07df2}{sarafun\-::\-Approach\-Objects\-Action}, \hyperlink{classsarafun_1_1InsertionWithDeformationAction_a8d77b104fb2396000b273cb6754ff879_a8d77b104fb2396000b273cb6754ff879}{sarafun\-::\-Insertion\-With\-Deformation\-Action}, \hyperlink{classsarafun_1_1AlignAction_a9b9741ec3203bdc1b2e7b7cecc96e6ed_a9b9741ec3203bdc1b2e7b7cecc96e6ed}{sarafun\-::\-Align\-Action}, \hyperlink{classsarafun_1_1AssembledAction_ade9095a291dce652339238d137419b49_ade9095a291dce652339238d137419b49}{sarafun\-::\-Assembled\-Action}, \hyperlink{classsarafun_1_1ContactAction_a85d81232d228fc6d2856d318d25c1bf9_a85d81232d228fc6d2856d318d25c1bf9}{sarafun\-::\-Contact\-Action}, \hyperlink{classsarafun_1_1GraspAction_a406d5c86b5f788537c5af9d125724a55_a406d5c86b5f788537c5af9d125724a55}{sarafun\-::\-Grasp\-Action}, \hyperlink{classsarafun_1_1InitialAction_a1b58c06c32ec9f9d3e75c37de5e7d2c8_a1b58c06c32ec9f9d3e75c37de5e7d2c8}{sarafun\-::\-Initial\-Action}, \hyperlink{classsarafun_1_1MoveAction_a3a0d4d2919b30b878c603a884db6a470_a3a0d4d2919b30b878c603a884db6a470}{sarafun\-::\-Move\-Action}, \hyperlink{classsarafun_1_1PickupAction_a02643cdc836095102e5622b660233f26_a02643cdc836095102e5622b660233f26}{sarafun\-::\-Pickup\-Action}, \hyperlink{classsarafun_1_1RetractAction_af95bb8d3826dbe1444a8a3e12d8596b0_af95bb8d3826dbe1444a8a3e12d8596b0}{sarafun\-::\-Retract\-Action}, \hyperlink{classsarafun_1_1GrabObjectAction_a6e2ee834fda8bd8d0dbdc101c8acdd9c_a6e2ee834fda8bd8d0dbdc101c8acdd9c}{sarafun\-::\-Grab\-Object\-Action}, \hyperlink{classsarafun_1_1OnlineMotionAction_a453e7dca41a0d73b5297ce191e760b31_a453e7dca41a0d73b5297ce191e760b31}{sarafun\-::\-Online\-Motion\-Action}, \hyperlink{classsarafun_1_1PlaceAction_a0b53372fd2de920c3ebd94c8c7f80b6a_a0b53372fd2de920c3ebd94c8c7f80b6a}{sarafun\-::\-Place\-Action}, and \hyperlink{classsarafun_1_1FoldingAssemblyAction_a14174e375aa1b8d5b63159f275b7d971_a14174e375aa1b8d5b63159f275b7d971}{sarafun\-::\-Folding\-Assembly\-Action}.
+
+\hypertarget{classsarafun_1_1ExecuteAction_ab9adb2cd743cb8e783fe2a927c94232b_ab9adb2cd743cb8e783fe2a927c94232b}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!is\-System\-Active@{is\-System\-Active}}
+\index{is\-System\-Active@{is\-System\-Active}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{is\-System\-Active}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class , class Action\-Goal $>$ bool {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::is\-System\-Active (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classsarafun_1_1ExecuteAction_ab9adb2cd743cb8e783fe2a927c94232b_ab9adb2cd743cb8e783fe2a927c94232b}
+Checks if B\-T action execution is allowed.
+
+\begin{DoxyReturn}{Returns}
+True if the tree is active, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file Execute\-Action.\-h.
+
+\hypertarget{classsarafun_1_1ExecuteAction_a4075792022071239c6e335c32c70ad2e_a4075792022071239c6e335c32c70ad2e}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!preemption\-Routine@{preemption\-Routine}}
+\index{preemption\-Routine@{preemption\-Routine}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{preemption\-Routine}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class , class Action\-Goal $>$ void {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::preemption\-Routine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsarafun_1_1ExecuteAction_a4075792022071239c6e335c32c70ad2e_a4075792022071239c6e335c32c70ad2e}
+
+
+Definition at line 120 of file Execute\-Action.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{classsarafun_1_1ExecuteAction_a8f41836853e5a9daa346b90b865fd113_a8f41836853e5a9daa346b90b865fd113}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!action\-\_\-client\-\_\-@{action\-\_\-client\-\_\-}}
+\index{action\-\_\-client\-\_\-@{action\-\_\-client\-\_\-}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{action\-\_\-client\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class, class Action\-Goal$>$ actionlib\-::\-Simple\-Action\-Client$<$Action\-Class$>$$\ast$ {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::action\-\_\-client\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classsarafun_1_1ExecuteAction_a8f41836853e5a9daa346b90b865fd113_a8f41836853e5a9daa346b90b865fd113}
+
+
+Definition at line 80 of file Execute\-Action.\-h.
+
+
+
+Referenced by sarafun\-::\-Execute\-Action$<$ Action\-Class, Action\-Goal $>$\-::\-Execute\-Action().
+
+\hypertarget{classsarafun_1_1ExecuteAction_ac2deed790dd2ff6ef7534fb1a500381f_ac2deed790dd2ff6ef7534fb1a500381f}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!action\-\_\-name\-\_\-@{action\-\_\-name\-\_\-}}
+\index{action\-\_\-name\-\_\-@{action\-\_\-name\-\_\-}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{action\-\_\-name\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class, class Action\-Goal$>$ std\-::string {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::action\-\_\-name\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classsarafun_1_1ExecuteAction_ac2deed790dd2ff6ef7534fb1a500381f_ac2deed790dd2ff6ef7534fb1a500381f}
+
+
+Definition at line 82 of file Execute\-Action.\-h.
+
+
+
+Referenced by sarafun\-::\-Execute\-Action$<$ Action\-Class, Action\-Goal $>$\-::\-Execute\-Action().
+
+\hypertarget{classsarafun_1_1ExecuteAction_a31d3f0c6e50b6abeb68ef6d0cb3c8a4a_a31d3f0c6e50b6abeb68ef6d0cb3c8a4a}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!goal\-\_\-@{goal\-\_\-}}
+\index{goal\-\_\-@{goal\-\_\-}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{goal\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class, class Action\-Goal$>$ Action\-Goal {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::goal\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classsarafun_1_1ExecuteAction_a31d3f0c6e50b6abeb68ef6d0cb3c8a4a_a31d3f0c6e50b6abeb68ef6d0cb3c8a4a}
+
+
+Definition at line 81 of file Execute\-Action.\-h.
+
+\hypertarget{classsarafun_1_1ExecuteAction_ad7a81f5e505c421c57bc32fa35e3e84f_ad7a81f5e505c421c57bc32fa35e3e84f}{\index{sarafun\-::\-Execute\-Action@{sarafun\-::\-Execute\-Action}!start\-\_\-time\-\_\-@{start\-\_\-time\-\_\-}}
+\index{start\-\_\-time\-\_\-@{start\-\_\-time\-\_\-}!sarafun::ExecuteAction@{sarafun\-::\-Execute\-Action}}
+\subsubsection[{start\-\_\-time\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Action\-Class, class Action\-Goal$>$ ros\-::\-Time {\bf sarafun\-::\-Execute\-Action}$<$ Action\-Class, Action\-Goal $>$\-::start\-\_\-time\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classsarafun_1_1ExecuteAction_ad7a81f5e505c421c57bc32fa35e3e84f_ad7a81f5e505c421c57bc32fa35e3e84f}
+
+
+Definition at line 83 of file Execute\-Action.\-h.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Execute\-Action.\-h\end{DoxyCompactItemize}

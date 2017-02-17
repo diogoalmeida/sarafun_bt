@@ -1,0 +1,169 @@
+\hypertarget{classtree__generator_1_1TreeFromKF}{\section{tree\-\_\-generator\-:\-:Tree\-From\-K\-F Class Reference}
+\label{classtree__generator_1_1TreeFromKF}\index{tree\-\_\-generator\-::\-Tree\-From\-K\-F@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}}
+}
+
+
+{\ttfamily \#include $<$Tree\-From\-K\-F.\-hpp$>$}
+
+
+
+Collaboration diagram for tree\-\_\-generator\-:\-:Tree\-From\-K\-F\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{d1/dce/classtree__generator_1_1TreeFromKF__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtree__generator_1_1TreeFromKF_ae29828b16945e36e961283811c25e082_ae29828b16945e36e961283811c25e082}{Tree\-From\-K\-F} ()
+\item 
+\hyperlink{classtree__generator_1_1TreeFromKF_aaf65aa5f86c50c7496494e9338a10931_aaf65aa5f86c50c7496494e9338a10931}{$\sim$\-Tree\-From\-K\-F} ()
+\item 
+json \hyperlink{classtree__generator_1_1TreeFromKF_ac056f11be0625689ab20954944443755_ac056f11be0625689ab20954944443755}{create\-Tree} (const std\-::vector$<$ sarafun\-\_\-msgs\-::\-Keyframe\-Msg $>$ \&keyframes\-\_\-list)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classtree__generator_1_1TreeFromKF_ae60dd133d5ea0e946bd8ce8118e289cd_ae60dd133d5ea0e946bd8ce8118e289cd}{add\-Children} (const json \&tree, std\-::map$<$ std\-::string, json $>$ \&children\-\_\-map)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ int $>$ \hyperlink{classtree__generator_1_1TreeFromKF_aff6e96ef862180eebf69252f5a54c69c_aff6e96ef862180eebf69252f5a54c69c}{indices\-\_\-}
+\item 
+json \hyperlink{classtree__generator_1_1TreeFromKF_afa058fe0e8ad1d8ee164bf2f896245ea_afa058fe0e8ad1d8ee164bf2f896245ea}{tree\-\_\-}
+\item 
+\hyperlink{classtree__generator_1_1SubTreeFromKF}{Sub\-Tree\-From\-K\-F} \hyperlink{classtree__generator_1_1TreeFromKF_a87133c4e05cd7ef3570a7bb65cc4d4d4_a87133c4e05cd7ef3570a7bb65cc4d4d4}{subtree\-\_\-parser\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Creates a J\-S\-O\-N behavior tree description from a sequence of keyframe labels. It works by aggregating different subtrees defined for each label. 
+
+Definition at line 69 of file Tree\-From\-K\-F.\-hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtree__generator_1_1TreeFromKF_ae29828b16945e36e961283811c25e082_ae29828b16945e36e961283811c25e082}{\index{tree\-\_\-generator\-::\-Tree\-From\-K\-F@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}!Tree\-From\-K\-F@{Tree\-From\-K\-F}}
+\index{Tree\-From\-K\-F@{Tree\-From\-K\-F}!tree_generator::TreeFromKF@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}}
+\subsubsection[{Tree\-From\-K\-F}]{\setlength{\rightskip}{0pt plus 5cm}tree\-\_\-generator\-::\-Tree\-From\-K\-F\-::\-Tree\-From\-K\-F (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtree__generator_1_1TreeFromKF_ae29828b16945e36e961283811c25e082_ae29828b16945e36e961283811c25e082}
+
+
+Definition at line 114 of file Tree\-From\-K\-F.\-cpp.
+
+
+
+References indices\-\_\-.
+
+\hypertarget{classtree__generator_1_1TreeFromKF_aaf65aa5f86c50c7496494e9338a10931_aaf65aa5f86c50c7496494e9338a10931}{\index{tree\-\_\-generator\-::\-Tree\-From\-K\-F@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}!$\sim$\-Tree\-From\-K\-F@{$\sim$\-Tree\-From\-K\-F}}
+\index{$\sim$\-Tree\-From\-K\-F@{$\sim$\-Tree\-From\-K\-F}!tree_generator::TreeFromKF@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}}
+\subsubsection[{$\sim$\-Tree\-From\-K\-F}]{\setlength{\rightskip}{0pt plus 5cm}tree\-\_\-generator\-::\-Tree\-From\-K\-F\-::$\sim$\-Tree\-From\-K\-F (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classtree__generator_1_1TreeFromKF_aaf65aa5f86c50c7496494e9338a10931_aaf65aa5f86c50c7496494e9338a10931}
+
+
+Definition at line 73 of file Tree\-From\-K\-F.\-hpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtree__generator_1_1TreeFromKF_ae60dd133d5ea0e946bd8ce8118e289cd_ae60dd133d5ea0e946bd8ce8118e289cd}{\index{tree\-\_\-generator\-::\-Tree\-From\-K\-F@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}!add\-Children@{add\-Children}}
+\index{add\-Children@{add\-Children}!tree_generator::TreeFromKF@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}}
+\subsubsection[{add\-Children}]{\setlength{\rightskip}{0pt plus 5cm}void tree\-\_\-generator\-::\-Tree\-From\-K\-F\-::add\-Children (
+\begin{DoxyParamCaption}
+\item[{const json \&}]{tree, }
+\item[{std\-::map$<$ std\-::string, json $>$ \&}]{children\-\_\-map}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classtree__generator_1_1TreeFromKF_ae60dd133d5ea0e946bd8ce8118e289cd_ae60dd133d5ea0e946bd8ce8118e289cd}
+
+
+Definition at line 151 of file Tree\-From\-K\-F.\-cpp.
+
+
+
+Referenced by create\-Tree().
+
+\hypertarget{classtree__generator_1_1TreeFromKF_ac056f11be0625689ab20954944443755_ac056f11be0625689ab20954944443755}{\index{tree\-\_\-generator\-::\-Tree\-From\-K\-F@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}!create\-Tree@{create\-Tree}}
+\index{create\-Tree@{create\-Tree}!tree_generator::TreeFromKF@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}}
+\subsubsection[{create\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}json tree\-\_\-generator\-::\-Tree\-From\-K\-F\-::create\-Tree (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ sarafun\-\_\-msgs\-::\-Keyframe\-Msg $>$ \&}]{keyframes\-\_\-list}
+\end{DoxyParamCaption}
+)}}\label{classtree__generator_1_1TreeFromKF_ac056f11be0625689ab20954944443755_ac056f11be0625689ab20954944443755}
+Creates a J\-S\-O\-N B\-T description from a sequence of keyframe labels.
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyframes\-\_\-list} & The list of received keyframe messages. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The J\-S\-O\-N node representing the J\-S\-O\-N B\-T description. 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file Tree\-From\-K\-F.\-cpp.
+
+
+
+References add\-Children(), tree\-\_\-generator\-::\-Sub\-Tree\-From\-K\-F\-::create\-Sub\-Tree(), indices\-\_\-, tree\-\_\-generator\-::\-Sub\-Tree\-From\-K\-F\-::load\-Label(), and subtree\-\_\-parser\-\_\-.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/de0/classtree__generator_1_1TreeFromKF_ac056f11be0625689ab20954944443755_ac056f11be0625689ab20954944443755_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Field Documentation}
+\hypertarget{classtree__generator_1_1TreeFromKF_aff6e96ef862180eebf69252f5a54c69c_aff6e96ef862180eebf69252f5a54c69c}{\index{tree\-\_\-generator\-::\-Tree\-From\-K\-F@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}!indices\-\_\-@{indices\-\_\-}}
+\index{indices\-\_\-@{indices\-\_\-}!tree_generator::TreeFromKF@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}}
+\subsubsection[{indices\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$int$>$ tree\-\_\-generator\-::\-Tree\-From\-K\-F\-::indices\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classtree__generator_1_1TreeFromKF_aff6e96ef862180eebf69252f5a54c69c_aff6e96ef862180eebf69252f5a54c69c}
+
+
+Definition at line 84 of file Tree\-From\-K\-F.\-hpp.
+
+
+
+Referenced by create\-Tree(), and Tree\-From\-K\-F().
+
+\hypertarget{classtree__generator_1_1TreeFromKF_a87133c4e05cd7ef3570a7bb65cc4d4d4_a87133c4e05cd7ef3570a7bb65cc4d4d4}{\index{tree\-\_\-generator\-::\-Tree\-From\-K\-F@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}!subtree\-\_\-parser\-\_\-@{subtree\-\_\-parser\-\_\-}}
+\index{subtree\-\_\-parser\-\_\-@{subtree\-\_\-parser\-\_\-}!tree_generator::TreeFromKF@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}}
+\subsubsection[{subtree\-\_\-parser\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sub\-Tree\-From\-K\-F} tree\-\_\-generator\-::\-Tree\-From\-K\-F\-::subtree\-\_\-parser\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classtree__generator_1_1TreeFromKF_a87133c4e05cd7ef3570a7bb65cc4d4d4_a87133c4e05cd7ef3570a7bb65cc4d4d4}
+
+
+Definition at line 87 of file Tree\-From\-K\-F.\-hpp.
+
+
+
+Referenced by create\-Tree().
+
+\hypertarget{classtree__generator_1_1TreeFromKF_afa058fe0e8ad1d8ee164bf2f896245ea_afa058fe0e8ad1d8ee164bf2f896245ea}{\index{tree\-\_\-generator\-::\-Tree\-From\-K\-F@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}!tree\-\_\-@{tree\-\_\-}}
+\index{tree\-\_\-@{tree\-\_\-}!tree_generator::TreeFromKF@{tree\-\_\-generator\-::\-Tree\-From\-K\-F}}
+\subsubsection[{tree\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}json tree\-\_\-generator\-::\-Tree\-From\-K\-F\-::tree\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classtree__generator_1_1TreeFromKF_afa058fe0e8ad1d8ee164bf2f896245ea_afa058fe0e8ad1d8ee164bf2f896245ea}
+
+
+Definition at line 86 of file Tree\-From\-K\-F.\-hpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Tree\-From\-K\-F.\-hpp\item 
+Tree\-From\-K\-F.\-cpp\end{DoxyCompactItemize}
