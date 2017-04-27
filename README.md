@@ -11,6 +11,8 @@ From the action definitions, the framework initialized BT actions as actionlib c
 Additionally, a generator package allows for trees to be generated through the aggregation of pre-defined subtrees, representing a high level task.
 Given a list of tasks to be executed, the package generates a tree description connecting the actions that implement each task.
 
+![framework](https://raw.githubusercontent.com/diogoalmeida/sarafun_bt/master/docs/images/sarafun_bt_framework_generic.png)
+
 Instalation
 -----
 
