@@ -1,16 +1,15 @@
 Behavior Trees for the SARAFun project [![Build Status](https://travis-ci.org/diogoalmeida/sarafun_bt.svg?branch=master)](https://travis-ci.org/diogoalmeida/sarafun_bt)
 =====
 
-This repository contains code that showcases a potential application of behavior trees.
-It provides:
-*  A ```sarafun_tree``` ROS package. It provides the required utilities for running a behavior tree in the context of the SARAFun EU project.
-*  Dummy packages ```sarafun_manipulation```, ```sarafun_generic_al_server``` and ```sarafun_assembly```, that implement [actionlib](http://wiki.ros.org/actionlib) servers for interacting with the behavior tree.
+This repository contains the software the implements the Behavior Trees framework used in the [SARAFun EU project](http://h2020sarafun.eu/).
+It relies on a modified version of the [ROS-Behavior-Tree](https://github.com/miccol/ROS-Behavior-Tree) package by Michele Colledanchise, which adds support for using the action and condition templates as libraties (found [here](https://github.com/diogoalmeida/ROS-Behavior-Tree)).
 
-It depends on a modified version of the [ROS-Behavior-Tree](https://github.com/miccol/ROS-Behavior-Tree) package by Michele Colledanchise. The main changes are
-* Support for the creation of a Behavior Tree from an input file
-* Inclusion of the classes ```ActionTemplate``` and ```ConditionTemplate```, and their exposure as libraries.
+The framework wraps the ROS-Behavior-Tree package (dubbed 'the engine') in order to allow generating behavior trees from input files.
+It also decouples the action implementations from the tree structure, by assuming that all the system actions are implemented as [actionlib](http://wiki.ros.org/actionlib) servers.
+From the action definitions, the framework initialized BT actions as actionlib clients which, once tick'ed, will send a proper actionlib goal to the server implementing the action.
 
-The modified package is found [here](https://github.com/diogoalmeida/ROS-Behavior-Tree).
+Additionally, a generator package allows for trees to be generated through the aggregation of pre-defined subtrees, representing a high level task.
+Given a list of tasks to be executed, the package generates a tree description connecting the actions that implement each task.
 
 Instalation
 -----
@@ -28,7 +27,7 @@ and your system should now be correctly configured.
 The provided packages depend on [yaml-cpp](https://github.com/oftc/yaml-cpp.git).
 
 ### ROS packages
-If you do not have a created catkin workspace, create one by doing
+If you do not have a catkin workspace, create one by doing
 ```
 $ mkdir ~/catkin_ws
 $ mkdir ~/catkin_ws/src
@@ -41,7 +40,7 @@ $ wstool init
 $ wstool merge https://raw.githubusercontent.com/diogoalmeida/sarafun_bt/master/.rosinstall
 $ wstool update
 ```
-This will download the ```ROS-Behavior-Tree``` package, as well as the SARAFun packages required for running the demo. Compile the packages by doing ```$ catkin_make -DCMAKE_CXX_COMPILER=/usr/bin/g++-4.9 install``` at the root of your workspace. After compiling, do not forget to source the workspace:
+This will download the required packages for running the framework. Compile the packages by doing ```$ catkin_make -DCMAKE_CXX_COMPILER=/usr/bin/g++-4.9 install``` at the root of your workspace. After compiling, do not forget to source the workspace:
 ```
 $ source devel/setup.bash
 ```
