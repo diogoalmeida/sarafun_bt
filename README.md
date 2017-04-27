@@ -25,6 +25,7 @@ and your system should now be correctly configured.
 
 ### Dependencies
 The provided packages depend on [yaml-cpp](https://github.com/oftc/yaml-cpp.git).
+The framework currently depends on the `sarafun_msgs` package in order to use its tree generator. You can get a reduced version of the package [here](https://github.com/diogoalmeida/sarafun_msgs.git).
 
 ### ROS packages
 If you do not have a catkin workspace, create one by doing
@@ -66,17 +67,6 @@ To run this demo, type
 ```
 $ roslaunch sarafun_tree run_sarafun_bt_demo.launch demo1:=true
 ```
-*  The second demo showcases preemption and conditions. We modified the [online motion generator provided CERTH](https://github.com/auth-arl/sarafun_online_motion_generation) so that it implements an actionlib server. The modified code can be found [here](https://github.com/diogoalmeida/sarafun_online_motion_generation) and illustrates how an action should take into account that it can be preempted.
-To run this demo, type
-```
-$ roslaunch sarafun_tree run_sarafun_bt_demo.launch demo2:=true
-```
-
-To start execution, call the ```/sarafun/start_tree``` service.
-
-**NOTE**: The online motion generator requires the ```abb_irb14000_support``` package, which is not freely available. You can find the robot description in [this repository](https://github.com/rtkg/yumi).
-
-This will run a simple tree with 5 actions. Each action will command the robot to move to a different position. The two main subtrees execution depends on the output of the simple condition in the first one. This will be true for the first x ticks on the tree (defined in the launch file under ```/IsSimple/count_limit```. When the condition becomes false, the running action will be preempted, and the second subtree is executed, where the first action under the selector asks the robot to achieve an unreachable goal, and is thus preempted after the timeout period has expired.
 
 Creating a different tree
 ----
