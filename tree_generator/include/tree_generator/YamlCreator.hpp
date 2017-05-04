@@ -19,6 +19,8 @@ namespace tree_generator{
     /**
       Adds a field with a given value to a given label.
       If the label does not exist in the base node, it will be created.
+      If the label does exist, and has a pre-existing value, this will be extended
+      to a list of values.
 
       @param label The keyframe label
       @param field The parameter field name

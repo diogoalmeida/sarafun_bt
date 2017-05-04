@@ -14,7 +14,7 @@ namespace tree_generator{
       label_node = base_node_["sarafun"][label];
     }
 
-    label_node[field] = value;
+    label_node[field].push_back(value);
     base_node_["sarafun"][label] = label_node;
   }
 

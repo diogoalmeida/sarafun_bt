@@ -122,7 +122,7 @@ namespace tree_generator {
     std::vector<std::string> children_id_list;
     std::map<std::string, json> children;
     std::vector<json> children_list;
-    std::string id;
+    std::string id, old_root, new_root;
 
     tree["root"] = "root_sequence"; // Assuming that the top-most node is always a sequence
 
@@ -134,6 +134,15 @@ namespace tree_generator {
     {
       subtree_parser_.loadLabel(keyframes_list[i].label); // TODO: I am assuming an ordered list. Will this always be the case?
       json subtree = subtree_parser_.createSubTree(indices_);
+      // HACK: Add the idx to the subtree root to make it unique. Ideally I would check for uniqueness independently of the idx
+      std::cout << subtree << std::endl;
+      old_root = subtree["root"];
+      new_root = subtree["root"].get<std::string>() + std::to_string(keyframes_list[i].idx);
+      subtree["nodes"][new_root] = subtree["nodes"][old_root];
+      subtree["root"] = new_root;
+      subtree["nodes"].erase(old_root);
+      // END HACK
+      std::cout << subtree << std::endl;
       id = subtree["root"];
       children_id_list.push_back(id);
       addChildren(subtree, children);

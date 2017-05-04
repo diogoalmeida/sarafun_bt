@@ -1,5 +1,9 @@
 sarafun:
-  initial:
-    idx: 2
-  retract:
-    idx: 4
+  move:
+    idx:
+      - 10
+      - 3
+  align:
+    idx:
+      - 2
+      - 1
