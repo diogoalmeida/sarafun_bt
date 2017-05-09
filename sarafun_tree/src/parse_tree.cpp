@@ -79,6 +79,10 @@ BT::TreeNode *Parser::parseTree(json node) {
     is_leaf = true;
     std::string name = node["name"];
     bt_node = new BT::ROSCondition(name);
+  } else if (type == std::string("Loader")) {
+    is_leaf = true;
+    std::string name = node["name"];
+    bt_node = new BT::ROSLoaderNode(name);
   } else {
     std::string error_message("BT input file includes an unknown node type: ");
     error_message = error_message + type;

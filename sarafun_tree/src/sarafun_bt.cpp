@@ -16,9 +16,9 @@ bool running = false;
 int TickPeriod_milliseconds = 0;
 
 /*
-  Initializes the tree runner
+  Initializes the tree runner.
 */
-bool initializeTree(std::string tree_description_path)
+bool initializeTree(const std::string &tree_description_path)
 {
   if (!running)
   {
