@@ -5,7 +5,7 @@ namespace bt_parser {
 Parser::Parser(std::string filepath) { file_.open(filepath); }
 Parser::~Parser() { file_.close(); }
 
-void Parser::verifyNode(json node) {
+void Parser::verifyNode(const json &node) {
   if (!node.count("name")) {
     std::string id = node["id"];
     std::string error_message("The BT JSON file nodes must all have the 'name' "
@@ -53,7 +53,7 @@ BT::TreeNode *Parser::parseTree() {
   return nullptr;
 }
 
-BT::TreeNode *Parser::parseTree(json node) {
+BT::TreeNode *Parser::parseTree(const json &node) {
   verifyNode(node);
 
   std::string type = node["type"];
@@ -83,6 +83,7 @@ BT::TreeNode *Parser::parseTree(json node) {
     is_leaf = true;
     std::string name = node["name"];
     bt_node = new BT::ROSLoaderNode(name);
+    storeParameters(dynamic_cast<BT::ROSLoaderNode*>(bt_node), node); // get the parameters to be loaded when this node is tick'ed
   } else {
     std::string error_message("BT input file includes an unknown node type: ");
     error_message = error_message + type;
@@ -99,5 +100,10 @@ BT::TreeNode *Parser::parseTree(json node) {
   }
 
   return bt_node;
+}
+
+void Parser::storeParameters(BT::ROSLoaderNode *bt_node, const json &node){
+  // Figure out how to cycle through the possible parameters, and fill them
+  // in.
 }
 }
