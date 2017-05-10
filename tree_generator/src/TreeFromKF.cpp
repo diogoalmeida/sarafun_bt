@@ -102,6 +102,9 @@ namespace tree_generator {
     } else if (type == "Condition") {
       indices[CONDITION]++;
       node["id"] = id + std::to_string(indices[CONDITION]);
+    } else if (type == "Loader") {
+      indices[LOADER]++;
+      node["id"] = id + std::to_string(indices[LOADER]);
     } else {
       std::string error_message("Tried to modify id of an unknown node type: ");
       error_message = error_message + type;
@@ -113,7 +116,7 @@ namespace tree_generator {
 
   TreeFromKF::TreeFromKF()
   {
-    indices_.resize(6);
+    indices_.resize(NUM_TYPES);
   }
 
   json TreeFromKF::createTree(const std::vector<sarafun_msgs::KeyframeMsg> &keyframes_list)
@@ -134,6 +137,7 @@ namespace tree_generator {
     {
       subtree_parser_.loadLabel(keyframes_list[i].label); // TODO: I am assuming an ordered list. Will this always be the case?
       json subtree = subtree_parser_.createSubTree(indices_);
+
       // HACK: Add the idx to the subtree root to make it unique. Ideally I would check for uniqueness independently of the idx
       std::cout << subtree << std::endl;
       old_root = subtree["root"];
@@ -142,10 +146,28 @@ namespace tree_generator {
       subtree["root"] = new_root;
       subtree["nodes"].erase(old_root);
       // END HACK
-      std::cout << subtree << std::endl;
-      id = subtree["root"];
+
+      // HACK: Add a loader for just the idx parameters. In the future, this can be extended to a generic storage of arbitrary parameters
+      json loader_node, loader_tree, merged_tree;
+      std::string param_address = std::string("/sarafun/") + keyframes_list[i].label + std::string("/idx");
+
+      loader_node["id"] = "loader";
+      loader_node["type"] = "Loader";
+      loader_node["name"] = "Loader";
+      loader_node["parameters"][param_address] = keyframes_list[i].idx;
+      loader_node = subtree_parser_.modifyId(loader_node, indices_);
+      id = loader_node["id"];
+      loader_tree["nodes"][id] = loader_node;
+      loader_tree["root"] = id;
+
+
+      merged_tree = mergeTrees(loader_tree, subtree);
+      // END HACK
+
+      id = merged_tree["root"];
       children_id_list.push_back(id);
-      addChildren(subtree, children);
+      addChildren(merged_tree, children);
+      std::cout << std::endl;
     }
 
     root_sequence["children"] = children_id_list;
@@ -155,6 +177,38 @@ namespace tree_generator {
     std::cout << tree << std::endl;
 
     return tree;
+  }
+
+  json TreeFromKF::mergeTrees(const json &tree_a, const json &tree_b)
+  {
+    json sequence, out;
+    std::vector<std::string> id_list;
+    std::string id;
+
+    id_list.push_back(tree_a["root"]);
+    id_list.push_back(tree_b["root"]);
+
+    sequence["id"] = "sequence";
+    sequence["type"] = "SequenceStar";
+    sequence["name"] = "SequenceStar";
+    sequence["children"] = id_list;
+    sequence = subtree_parser_.modifyId(sequence, indices_); // TODO: Make modify ID an library function.
+
+    for (json::const_iterator it = tree_a["nodes"].begin(); it != tree_a["nodes"].end(); ++it)
+    {
+      out["nodes"][it.key()] = it.value();
+    }
+
+    for (json::const_iterator it = tree_b["nodes"].begin(); it != tree_b["nodes"].end(); ++it)
+    {
+      out["nodes"][it.key()] = it.value();
+    }
+
+    id = sequence["id"];
+    out["nodes"][id] = sequence;
+    out["root"] = id;
+
+    return out;
   }
 
   void TreeFromKF::addChildren(const json &tree, std::map<std::string, json> &children_map)
