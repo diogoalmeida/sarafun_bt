@@ -103,7 +103,38 @@ BT::TreeNode *Parser::parseTree(const json &node) {
 }
 
 void Parser::storeParameters(BT::ROSLoaderNode *bt_node, const json &node){
-  // Figure out how to cycle through the possible parameters, and fill them
-  // in.
+  json params = node["parameters"];
+  std::string domain, string_value;
+  int int_value;
+  double double_value;
+
+  for (json::iterator it = params.begin(); it != params.end(); ++it)
+  {
+    domain = it.key();
+
+    if(it.value().is_string())
+    {
+      string_value = it.value();
+      bt_node->addParameter(domain, string_value);
+    }
+    else if (it.value().is_number())
+    {
+      if (it.value().is_number_integer())
+      {
+        int_value = it.value();
+        bt_node->addParameter(domain, int_value);
+      }
+      else
+      {
+        double_value = it.value();
+        bt_node->addParameter(domain, double_value);
+      }
+    }
+    else
+    {
+      std::string error_message("Load node has unsupported parameter type: "); // TODO: Add human-readable type
+      throw std::logic_error(error_message);
+    }
+  }
 }
 }

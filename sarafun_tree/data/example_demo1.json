@@ -1,11 +1,24 @@
 {
   "root": "sequence1",
   "nodes": {
+    "loader1": {
+      "id": "loader1",
+      "type": "Loader",
+      "name": "Loader",
+      "parameters": {
+        "/example_domain/string/a": "this is an example",
+        "/example_domain/string/b": "this is another example",
+        "/example_domain/int/a": 2,
+        "/example_domain/int/b": 1,
+        "/example_domain/double/gravity": 9.8
+      }
+    },
     "sequence1": {
       "id": "sequence1",
       "type": "SequenceStar",
       "name": "SequenceStar",
       "children": [
+        "loader1",
         "grab_action",
         "grab_action2",
         "approach_objects_action",
