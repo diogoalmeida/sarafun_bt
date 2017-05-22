@@ -10,7 +10,8 @@
 using json = nlohmann::json;
 namespace tree_generator {
 
-enum node_type {SEQ=0, SEL, SEQSTAR, SELSTAR, ACTION, CONDITION};
+const int NUM_TYPES = 7;
+enum node_type {SEQ=0, SEL, SEQSTAR, SELSTAR, ACTION, CONDITION, LOADER};
 
 /**
   This class constructs one pre-defined BT subtree,
@@ -44,22 +45,22 @@ public:
   */
   json createSubTree(std::vector<int> &indices);
 
+  /**
+  Make sure that the given json tree has nodes with proper indices.
+
+  @param node The JSON node with the tree description.
+  @param indices The vector of indices.
+  @return The modified json NODE.
+  @throw logic_error
+  **/
+  json modifyId(json node, std::vector<int> &indices);
+
 private:
   ros::NodeHandle nh_;
   json subtree_;
   std::ifstream file_;
   bool has_label_;
   std::string current_id_;
-
-  /**
-    Make sure that the created json subtree has nodes with proper indices.
-
-    @param node The JSON node with the subtree description.
-    @param indices The vector of indices.
-    @return The modified json NODE.
-    @throw logic_error
-  **/
-  json modifyId(json node, std::vector<int> &indices);
 };
 
 /**
@@ -87,6 +88,15 @@ private:
   SubTreeFromKF subtree_parser_;
 
   void addChildren(const json &tree, std::map<std::string, json> &children_map);
+
+  /**
+    Merges two trees under a sequence node.
+
+    @param tree_a The tree to be executed first.
+    @param tree_b The tree to be executed second.
+    @return The JSON node with the two trees united under a sequence node.
+  **/
+  json mergeTrees(const json &tree_a, const json &tree_b);
 };
 
 /**

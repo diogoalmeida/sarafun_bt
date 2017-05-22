@@ -42,7 +42,7 @@ private:
     @return A pointer to the subtree root.
     @throw logic_error
   */
-  BT::TreeNode *parseTree(json node);
+  BT::TreeNode *parseTree(const json &node);
 
   /**
     Verifies the sanity of the given JSON node describing a BT subtree.
@@ -50,7 +50,16 @@ private:
     @param node A json node object with a BT subtree.
     @throw logic_error
   **/
-  void verifyNode(json node);
+  void verifyNode(const json &node);
+
+  /**
+    Stores the parameters contained in the json node description into the
+    ROSLoaderNode.
+
+    @param bt_node Pointer to the initialized ROSLoaderNode.
+    @param node The JSON node object.
+  **/
+  void storeParameters(BT::ROSLoaderNode *bt_node, const json &node);
 };
 }
 #endif

@@ -58,6 +58,8 @@ int main(int argc, char **argv) {
   std::string path =
       ros::package::getPath("sarafun_tree") + "/data/" + filename;
 
+  filename = path; // HACK
+
   ros::ServiceServer bt_start_service = n.advertiseService("/sarafun/start_tree", startTreeCallback);
   ros::ServiceServer bt_stop_service = n.advertiseService("/sarafun/stop_tree", stopTreeCallback);
   ros::ServiceServer bt_restart_service = n.advertiseService("/sarafun/restart_tree", restartTreeCallback);
