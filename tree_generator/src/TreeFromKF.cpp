@@ -135,7 +135,9 @@ namespace tree_generator {
 
     for (int i = 0; i < keyframes_list.size(); i++) // cycle through the keyframes and initialize the pre-defined subtrees
     {
-      subtree_parser_.loadLabel(keyframes_list[i].label); // TODO: I am assuming an ordered list. Will this always be the case?
+      std::string label = keyframes_list[i].label;
+      tree_generator::replaceWithUnderscore(label);
+      subtree_parser_.loadLabel(label); // TODO: I am assuming an ordered list. Will this always be the case?
       json subtree = subtree_parser_.createSubTree(indices_);
 
       // HACK: Add the idx to the subtree root to make it unique. Ideally I would check for uniqueness independently of the idx
@@ -149,7 +151,7 @@ namespace tree_generator {
 
       // HACK: Add a loader for just the idx parameters. In the future, this can be extended to a generic storage of arbitrary parameters
       json loader_node, loader_tree, merged_tree;
-      std::string param_address = std::string("/sarafun/") + keyframes_list[i].label + std::string("/idx");
+      std::string param_address = std::string("/sarafun/") + label + std::string("/idx");
 
       loader_node["id"] = "loader";
       loader_node["type"] = "Loader";
