@@ -7,11 +7,13 @@ find_package(catkin REQUIRED COMPONENTS
   sarafun_manipulation
   sarafun_assembly
   roscpp
+  roslib
   std_msgs
   std_srvs
   actionlib_msgs
   actionlib
   message_generation
+  sarafun_msgs
 )
 
 add_service_files(
@@ -43,7 +45,7 @@ target_link_libraries(sarafun_bt_demo tree_runner ${catkin_LIBRARIES})
 
 add_executable(sarafun_bt src/sarafun_bt.cpp)
 target_link_libraries(sarafun_bt tree_runner ${catkin_LIBRARIES})
-add_dependencies(sarafun_bt ${catkin_EXPORTED_TARGETS})
+add_dependencies(sarafun_bt ${catkin_EXPORTED_TARGETS} sarafun_tree_generate_messages_cpp)
 
 ## Demo nodes
 
