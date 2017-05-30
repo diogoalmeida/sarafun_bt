@@ -20,5 +20,7 @@
   <depend>sarafun_assembly</depend>
   <depend>behavior_tree_leaves</depend>
   <depend>behavior_tree_core</depend>
+  <depend>sarafun_msgs</depend>
+  <depend>roslib</depend>
 
 </package>
