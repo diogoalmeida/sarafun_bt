@@ -61,8 +61,8 @@ target_link_libraries(FoldingAssemblyAction ${catkin_LIBRARIES})
 add_executable(InsertionWithDeformationAction src/demo_bt_nodes/InsertionWithDeformationAction.cpp)
 target_link_libraries(InsertionWithDeformationAction ${catkin_LIBRARIES})
 
-add_executable(PlaceAction src/demo_bt_nodes/PlaceAction.cpp)
-target_link_libraries(PlaceAction ${catkin_LIBRARIES})
+add_executable(PlaceActionDemo src/demo_bt_nodes/PlaceAction.cpp)
+target_link_libraries(PlaceActionDemo ${catkin_LIBRARIES})
 
 add_executable(IsSimple src/demo_bt_nodes/IsSimple.cpp)
 target_link_libraries(IsSimple ${catkin_LIBRARIES})
