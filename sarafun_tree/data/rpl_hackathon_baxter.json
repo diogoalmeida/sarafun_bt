@@ -1,0 +1,206 @@
+{
+  "root": "sequence1",
+  "nodes": {
+    "sequence1": {
+      "id": "sequence1",
+      "type": "Sequence",
+      "name": "Sequence",
+      "children": [
+        "selector1",
+        "loader4",
+        "selector6",
+        "loader5",
+        "place"
+      ]
+    },
+    "selector1": {
+      "id": "selector1",
+      "type": "Selector",
+      "name": "Selector",
+      "children": [
+        "sequence2",
+        "sequence3"
+      ]
+    },
+    "sequence2": {
+      "id": "sequence2",
+      "type": "Sequence",
+      "name": "Sequence",
+      "children": [
+        "is_tray_available",
+        "is_bulle_ready"
+      ]
+    },
+    "is_tray_available": {
+      "id": "is_tray_available",
+      "type": "Condition",
+      "name": "is_tray_available"
+    },
+    "is_bulle_ready": {
+        "id": "is_bulle_ready",
+        "type": "Condition",
+        "name": "is_bulle_ready"
+    },
+    "sequence3": {
+        "id": "sequence3",
+        "type": "Sequence",
+        "name": "Sequence",
+        "children": [
+          "is_possible_to_make_bulle",
+          "selector2",
+          "loader2",
+          "selector3",
+          "loader3",
+          "place"
+        ]
+    },
+    "is_possible_to_make_bulle": {
+      "id": "is_possible_to_make_bulle",
+      "type": "Condition",
+      "name": "is_tray_available"
+    },
+    "selector2": {
+      "id": "selector2",
+      "type": "Selector",
+      "name": "Selector",
+      "children": [
+        "is_plate_on_stage",
+        "sequence4"
+      ]
+    },
+    "is_plate_on_stage": {
+      "id": "is_plate_on_stage",
+      "type": "Condition",
+      "name": "is_plate_on_stage"
+    },
+    "sequence4": {
+      "id": "sequence4",
+      "type": "Sequence",
+      "children": [
+        "loader1",
+        "selector4",
+        "place_in_stage"
+      ]
+    },
+    "loader1": {
+      "id": "loader1",
+      "type": "Loader",
+      "name": "Loader",
+      "parameters": {
+        "/baxter_bt/grasp_condition/argument": "plate",
+        "/baxter_bt/see_condition/argument": "plate",
+        "/baxter_bt/pick_action/argument": "plate"
+      }
+    },
+    "selector4": {
+      "id": "selector4",
+      "type": "Selector",
+      "name": "Selector",
+      "children": [
+        "is_grasping",
+        "sequence5"
+      ]
+    },
+    "is_grasping": {
+      "id": "is_grasping",
+      "type": "Condition",
+      "name": "is_grasping",
+    },
+    "sequence5": {
+      "id": "sequence5",
+      "type": "Sequence",
+      "name": "Sequence",
+      "children": [
+        "can_see",
+        "pick"
+      ]
+    },
+    "can_see": {
+      "id": "can_see",
+      "type": "Condition",
+      "name": "can_see"
+    },
+    "pick": {
+      "id": "pick",
+      "type": "Action",
+      "name": "pick"
+    },
+    "place": {
+      "id": "place",
+      "type": "Action",
+      "name": "place"
+    },
+    "loader2": {
+      "id": "loader2",
+      "type": "Loader",
+      "name": "Loader",
+      "parameters": {
+        "/baxter_bt/grasp_condition/argument": "candy",
+        "/baxter_bt/see_condition/argument": "candy",
+        "/baxter_bt/pick_action/argument": "candy"
+        }
+    },
+    "selector3": {
+      "id": "selector3",
+      "type": "Selector",
+      "name": "selector3",
+      "children": [
+        "can_grasp",
+        "sequence6"
+      ]
+    },
+    "sequence6": {
+      "id": "sequence6",
+      "type": "Condition",
+      "name": "sequence6",
+      "children": [
+        "can_see",
+        "pick"
+      ]
+    },
+    "loader3": {
+      "id": "loader3",
+      "type": "Loader",
+      "name": "Loader",
+      "parameters": {
+        "/baxter_bt/place_action/argument": "plate"
+        }
+    },
+    "loader4": {
+      "id": "loader4",
+      "type": "Loader",
+      "name": "Loader",
+      "parameters": {
+        "/baxter_bt/grasp_condition/argument": "bulle",
+        "/baxter_bt/see_condition/argument": "bulle",
+        "/baxter_bt/pick_action/argument": "bulle"
+        }
+    },
+    "selector6": {
+      "id": "selector6",
+      "type": "Condition",
+      "name": "selector6",
+      "children": [
+        "can_grasp",
+        "sequence7"
+      ]
+    },
+    "sequence7": {
+      "id": "sequence7",
+      "type": "Sequence",
+      "name": "Sequence",
+      "children": [
+        "can_see",
+        "pick"
+      ]
+    },
+    "loader5": {
+      "id": "loader5",
+      "type": "Loader",
+      "name": "Loader",
+      "parameters": {
+        "/baxter_bt/place_action/argument": "tray"
+      }
+    }
+  }
+}
