@@ -1,166 +1,200 @@
 {
-  "root": "sequence1",
-  "nodes": {
-    "sequence1": {
-      "id": "sequence1",
-      "type": "Sequence",
-      "name": "Sequence",
-      "children": [
-        "selector1",
-        "selector4",
-        "selector6"
-      ]
-    },
-    "selector1": {
-      "id": "selector1",
-      "type": "Selector",
-      "name": "Selector",
-      "children": [
-        "has_bulle",
-        "sequence2"
-      ]
-    },
-    "sequence2": {
-      "id": "sequence2",
-      "type": "Sequence",
-      "name": "Sequence",
-      "children": [
-        "selector2",
-        "selector3"
-      ]
-    },
-    "selector3": {
-        "id": "selector3",
-        "type": "Selector",
-        "name": "Selector",
-        "children": [
-          "is_tray_in_place",
-          "place_tray"
-        ]
-    },
-    "selector4": {
-      "id": "selector4",
-      "type": "Selector",
-      "name": "Selector",
-      "children": [
-        "is_close_to_human",
-        "sequence3"
-      ]
-    },
-    "is_close_to_human": {
-      "id": "is_close_to_human",
+	"root": "sequence1",
+	"nodes": {
+		"sequence1": {
+			"id": "sequence1",
+			"type": "Sequence",
+			"name": "Sequence",
+			"children": [
+				"selector1",
+				"selector4",
+				"selector6"
+			]
+		},
+		"selector1": {
+			"id": "selector1",
+			"type": "Selector",
+			"name": "Selector",
+			"children": [
+				"has_bulle",
+				"sequence2"
+			]
+		},
+    "has_bulle": {
+      "id": "has_bulle",
       "type": "Condition",
-      "name": "is_close_to_human",
+      "name": "has_bulle"
     },
-    "sequence3": {
-      "id": "sequence3",
-      "type": "Sequence",
-      "name": "Sequence",
-      "children": [
-        "selector5",
-        "approach_human"
-      ]
-    },
-    "selector5": {
-      "id": "selector5",
+		"sequence2": {
+			"id": "sequence2",
+			"type": "Sequence",
+			"name": "Sequence",
+			"children": [
+				"selector2",
+				"selector3"
+			]
+		},
+		"selector2": {
+      "id": "selector2",
       "type": "Selector",
       "name": "Selector",
       "children": [
-        "see_human",
-        "wander"
+        "is_close_to_counter",
+        "goto_counter"
       ]
-    },
-    "see_human": {
-      "id": "see_human",
+		},
+    "is_close_to_counter": {
+      "id": "is_close_to_counter",
       "type": "Condition",
-      "name": "see_human"
+      "name": "is_close_to_counter"
     },
-    "wander": {
-      "id": "wander",
-      "type": "Action",
-      "name": "wander"
-    },
-    "approach_human": {
-      "id": "approach_human",
-      "type": "Action",
-      "name": "approach_human"
-    },
-    "selector6": {
-      "id": "selector6",
-      "type": "Selector",
-      "name": "Selector",
-      "children": [
-        "is_done_with_bulle",
-        "sequence4"
-      ]
-    },
-    "is_done_with_bulle": {
-      "id": "is_done_with_bulle",
+    "goto_counter": {
+      "id": "goto_counter",
       "type": "Condition",
-      "name": "is_done_with_bulle"
+      "name": "goto_counter"
     },
-    "sequence4": {
-      "id": "sequence4",
-      "type": "Sequence",
-      "name": "Sequence",
-      "children": [
-        "selector7",
-        "selector9",
-        "retract_tray",
-        "turn_around"
-      ]
-    },
-    "selector7": {
-      "id": "selector7",
-      "type": "Selector",
-      "name": "Selector",
-      "children": [
-        "is_bulle_timeout",
-        "selector8"
-      ]
-    },
-    "is_bulle_timeout": {
-      "id": "is_bulle_timeout",
+		"selector3": {
+			"id": "selector3",
+			"type": "Selector",
+			"name": "Selector",
+			"children": [
+				"is_tray_in_place",
+				"place_tray"
+			]
+		},
+    "is_tray_in_place": {
+      "id": "is_tray_in_place",
       "type": "Condition",
-      "name": "is_bulle_timeout"
+      "name": "is_tray_in_place"
     },
-    "selector8": {
-      "id": "selector8",
-      "type": "Selector",
-      "name": "Selector",
-      "children": [
-        "is_approach_tray",
-        "approach_tray"
-      ]
-    },
-    "selector9": {
-      "id": "selector9",
-      "type": "Selector",
-      "name": "Selector",
-      "children": [
-        "is_approach_tray",
-        "turn_around"
-      ]
-    },
-    "is_approach_tray": {
-      "id": "is_approach_tray",
-      "type": "Condition",
-      "name": "is_approach_tray"
-    },
-    "approach_tray": {
-      "id": "approach_tray",
-      "type": "Action",
-      "name": "approach_tray"
-    },
-    "turn_around": {
-      "id": "turn_around",
-      "type": "Action",
-      "name": "turn_around"
-    },
-    "retract_tray": {
-      "id": "retract_tray",
-      "type": "Action",
-      "name": "retract_tray"
-    }
-  }
+		"selector4": {
+			"id": "selector4",
+			"type": "Selector",
+			"name": "Selector",
+			"children": [
+				"is_close_to_human",
+				"sequence3"
+			]
+		},
+		"is_close_to_human": {
+			"id": "is_close_to_human",
+			"type": "Condition",
+			"name": "is_close_to_human"
+		},
+		"sequence3": {
+			"id": "sequence3",
+			"type": "Sequence",
+			"name": "Sequence",
+			"children": [
+				"selector5",
+				"approach_human"
+			]
+		},
+		"selector5": {
+			"id": "selector5",
+			"type": "Selector",
+			"name": "Selector",
+			"children": [
+				"see_human",
+				"wander"
+			]
+		},
+		"see_human": {
+			"id": "see_human",
+			"type": "Condition",
+			"name": "see_human"
+		},
+		"wander": {
+			"id": "wander",
+			"type": "Action",
+			"name": "wander"
+		},
+		"approach_human": {
+			"id": "approach_human",
+			"type": "Action",
+			"name": "approach_human"
+		},
+		"place_tray": {
+			"id": "place_tray",
+			"type": "Action",
+			"name": "place_tray"
+		},
+		"selector6": {
+			"id": "selector6",
+			"type": "Selector",
+			"name": "Selector",
+			"children": [
+				"is_done_with_bulle",
+				"sequence4"
+			]
+		},
+		"is_done_with_bulle": {
+			"id": "is_done_with_bulle",
+			"type": "Condition",
+			"name": "is_done_with_bulle"
+		},
+		"sequence4": {
+			"id": "sequence4",
+			"type": "Sequence",
+			"name": "Sequence",
+			"children": [
+				"selector7",
+				"selector9",
+				"retract_tray",
+				"turn_around"
+			]
+		},
+		"selector7": {
+			"id": "selector7",
+			"type": "Selector",
+			"name": "Selector",
+			"children": [
+				"is_bulle_timeout",
+				"selector8"
+			]
+		},
+		"is_bulle_timeout": {
+			"id": "is_bulle_timeout",
+			"type": "Condition",
+			"name": "is_bulle_timeout"
+		},
+		"selector8": {
+			"id": "selector8",
+			"type": "Selector",
+			"name": "Selector",
+			"children": [
+				"is_approach_tray",
+				"approach_tray"
+			]
+		},
+		"selector9": {
+			"id": "selector9",
+			"type": "Selector",
+			"name": "Selector",
+			"children": [
+				"is_approach_tray",
+				"turn_around"
+			]
+		},
+		"is_approach_tray": {
+			"id": "is_approach_tray",
+			"type": "Condition",
+			"name": "is_approach_tray"
+		},
+		"approach_tray": {
+			"id": "approach_tray",
+			"type": "Action",
+			"name": "approach_tray"
+		},
+		"turn_around": {
+			"id": "turn_around",
+			"type": "Action",
+			"name": "turn_around"
+		},
+		"retract_tray": {
+			"id": "retract_tray",
+			"type": "Action",
+			"name": "retract_tray"
+		}
+	}
 }
