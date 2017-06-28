@@ -4,6 +4,7 @@
 #include <ros/ros.h>
 #include <behavior_tree_leaves/ActionTemplate.h>
 #include <actionlib/client/simple_action_client.h>
+#include <boost/thread.hpp>
 
 namespace sarafun {
 /**
@@ -81,6 +82,7 @@ private:
   ActionGoal goal_;
   std::string action_name_;
   ros::Time start_time_; // Current execution start time
+  boost::mutex action_mutex_;
 };
 
 // Template classes "must" be implemented in the header files... -->
@@ -97,6 +99,7 @@ ExecuteAction<ActionClass, ActionGoal>::ExecuteAction(
 
 template <class ActionClass, class ActionGoal>
 ExecuteAction<ActionClass, ActionGoal>::~ExecuteAction() {
+  action_client_->cancelAllGoals(); // To be safe
   delete action_client_;
 }
 
@@ -118,16 +121,23 @@ bool ExecuteAction<ActionClass, ActionGoal>::isSystemActive() {
 
 template <class ActionClass, class ActionGoal>
 void ExecuteAction<ActionClass, ActionGoal>::preemptionRoutine() {
+  boost::lock_guard<boost::mutex> guard(action_mutex_);
+  if (action_client_ != 0)
+  {
+  ROS_WARN("Preempting node %s", action_name_.c_str());
   action_client_->cancelAllGoals();
-  delete action_client_;
-  action_client_ = 0;
   ROS_WARN("The node %s was preempted", action_name_.c_str());
+  }
+  else
+  {
+    ROS_ERROR("Got preemption, but already destroyed action client in %s", action_name_.c_str());
+  }
 }
 
 template <class ActionClass, class ActionGoal>
 int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
-
-  if (action_client_ == 0) // fresh call!
+  boost::lock_guard<boost::mutex> guard(action_mutex_);
+  if (action_client_ == 0 && isSystemActive()) // fresh call!
   {
     action_client_ = new actionlib::SimpleActionClient<ActionClass>(action_name_, true);
     ROS_INFO("Action %s is waiting for the corresponding actionlib server!", action_name_.c_str());
@@ -135,6 +145,7 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
     if (!active_server) {
       ROS_ERROR("Actionlib server failed to start for action %s!",
       action_name_.c_str());
+      action_client_->cancelAllGoals(); // To be safe
       delete action_client_;
       action_client_ = 0;
       return -1; // Failure
@@ -192,6 +203,9 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
       return -1;
     }
   }
+  
+  // ROS_INFO("Action %s RETURNING", action_name_.c_str());
+  return 0;
 }
 
 template <class ActionClass, class ActionGoal>

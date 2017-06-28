@@ -50,7 +50,7 @@
     },
     "goto_counter": {
       "id": "goto_counter",
-      "type": "Condition",
+      "type": "Action",
       "name": "goto_counter"
     },
 		"selector3": {
