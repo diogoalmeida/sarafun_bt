@@ -3,8 +3,8 @@
 	"nodes": {
 		"sequence1": {
 			"id": "sequence1",
-			"type": "Sequence",
-			"name": "Sequence",
+			"type": "SequenceStar",
+			"name": "SequenceStar",
 			"children": [
 				"selector1",
 				"loader4",
@@ -15,8 +15,8 @@
 		},
 		"selector1": {
 			"id": "selector1",
-			"type": "Selector",
-			"name": "Selector",
+			"type": "SelectorStar",
+			"name": "SelectorStar",
 			"children": [
 				"sequence2",
 				"sequence3"
@@ -24,8 +24,8 @@
 		},
 		"sequence2": {
 			"id": "sequence2",
-			"type": "Sequence",
-			"name": "Sequence",
+			"type": "SequenceStar",
+			"name": "SequenceStar",
 			"children": [
 				"is_tray_available",
 				"is_bulle_ready"
@@ -43,8 +43,8 @@
 		},
 		"sequence3": {
 			"id": "sequence3",
-			"type": "Sequence",
-			"name": "Sequence",
+			"type": "SequenceStar",
+			"name": "SequenceStar",
 			"children": [
 				"is_possible_to_make_bulle",
 				"selector2",
@@ -61,8 +61,8 @@
 		},
 		"selector2": {
 			"id": "selector2",
-			"type": "Selector",
-			"name": "Selector",
+			"type": "SelectorStar",
+			"name": "SelectorStar",
 			"children": [
 				"is_plate_on_stage",
 				"sequence4"
@@ -75,8 +75,8 @@
 		},
 		"sequence4": {
 			"id": "sequence4",
-			"type": "Sequence",
-      "name": "Sequence",
+			"type": "SequenceStar",
+      "name": "SequenceStar",
 			"children": [
 				"loader1",
 				"selector4",
@@ -96,8 +96,8 @@
 		},
 		"selector4": {
 			"id": "selector4",
-			"type": "Selector",
-			"name": "Selector",
+			"type": "SelectorStar",
+			"name": "SelectorStar",
 			"children": [
 				"is_grasping",
 				"sequence5"
@@ -110,8 +110,8 @@
 		},
 		"sequence5": {
 			"id": "sequence5",
-			"type": "Sequence",
-			"name": "Sequence",
+			"type": "SequenceStar",
+			"name": "SequenceStar",
 			"children": [
 				"can_see",
 				"pick"
@@ -144,8 +144,8 @@
 		},
 		"selector3": {
 			"id": "selector3",
-			"type": "Selector",
-			"name": "Selector",
+			"type": "SelectorStar",
+			"name": "SelectorStar",
 			"children": [
 				"is_grasping",
 				"sequence6"
@@ -153,8 +153,8 @@
 		},
 		"sequence6": {
 			"id": "sequence6",
-			"type": "Sequence",
-			"name": "Sequence",
+			"type": "SequenceStar",
+			"name": "SequenceStar",
 			"children": [
 				"can_see",
 				"pick"
@@ -180,8 +180,8 @@
 		},
 		"selector6": {
 			"id": "selector6",
-			"type": "Selector",
-			"name": "Selector",
+			"type": "SelectorStar",
+			"name": "SelectorStar",
 			"children": [
 				"is_grasping",
 				"sequence7"
@@ -189,8 +189,8 @@
 		},
 		"sequence7": {
 			"id": "sequence7",
-			"type": "Sequence",
-			"name": "Sequence",
+			"type": "SequenceStar",
+			"name": "SequenceStar",
 			"children": [
 				"can_see",
 				"pick"
