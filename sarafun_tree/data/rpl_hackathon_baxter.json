@@ -145,7 +145,7 @@
 		"selector3": {
 			"id": "selector3",
 			"type": "Selector",
-			"name": "selector3",
+			"name": "Selector",
 			"children": [
 				"can_grasp",
 				"sequence6"
@@ -153,8 +153,8 @@
 		},
 		"sequence6": {
 			"id": "sequence6",
-			"type": "Condition",
-			"name": "sequence6",
+			"type": "Sequence",
+			"name": "Sequence",
 			"children": [
 				"can_see",
 				"pick"
@@ -180,8 +180,8 @@
 		},
 		"selector6": {
 			"id": "selector6",
-			"type": "Condition",
-			"name": "selector6",
+			"type": "Selector",
+			"name": "Selector",
 			"children": [
 				"can_grasp",
 				"sequence7"

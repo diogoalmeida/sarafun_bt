@@ -60,6 +60,8 @@ BT::TreeNode *Parser::parseTree(const json &node) {
   std::string id = node["id"];
   current_id_ = id;
 
+  std::cout << "PARSING " << id << std::endl;
+
   bool is_leaf = false;
   BT::TreeNode *bt_node;
 
