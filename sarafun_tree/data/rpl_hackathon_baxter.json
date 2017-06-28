@@ -89,8 +89,8 @@
 			"type": "Loader",
 			"name": "Loader",
 			"parameters": {
-				"/baxter_bt/grasp_condition/argument": "plate",
-				"/baxter_bt/see_condition/argument": "plate",
+				"/baxter_bt/grasp_condition/argument": "/baxter/perception/grasp_cup",
+				"/baxter_bt/see_condition/argument": "/baxter/perception/see_empty_cup",
 				"/baxter_bt/pick_action/argument": "plate"
 			}
 		},
@@ -137,8 +137,8 @@
 			"type": "Loader",
 			"name": "Loader",
 			"parameters": {
-				"/baxter_bt/grasp_condition/argument": "candy",
-				"/baxter_bt/see_condition/argument": "candy",
+				"/baxter_bt/grasp_condition/argument": "/baxter/perception/grasp_candy",
+				"/baxter_bt/see_condition/argument": "/baxter/perception/see_candy",
 				"/baxter_bt/pick_action/argument": "candy"
 			}
 		},
@@ -173,8 +173,8 @@
 			"type": "Loader",
 			"name": "Loader",
 			"parameters": {
-				"/baxter_bt/grasp_condition/argument": "bulle",
-				"/baxter_bt/see_condition/argument": "bulle",
+				"/baxter_bt/grasp_condition/argument": "/baxter/perception/grasp_bulle",
+				"/baxter_bt/see_condition/argument": "/baxter/perception/see_cup_with_bulle",
 				"/baxter_bt/pick_action/argument": "bulle"
 			}
 		},
