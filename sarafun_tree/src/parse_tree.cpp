@@ -24,6 +24,14 @@ void Parser::verifyNode(const json &node) {
 
     throw std::logic_error(error_message);
   }
+  if(node["type"] == "Parallel" && !node.count("SuccessNum"))
+  {
+    std::string name = node["name"];
+    std::string error_message("The BT JSON Parallel nodes must define the 'SuccessNum' member."
+                               "Offending node has name: ");
+    error_message = error_message + name;
+    throw std::logic_error(error_message);
+  }
 }
 
 BT::TreeNode *Parser::parseTree() {
@@ -81,6 +89,11 @@ BT::TreeNode *Parser::parseTree(const json &node) {
     is_leaf = true;
     std::string name = node["name"];
     bt_node = new BT::ROSCondition(name);
+  } else if (type == std::string("Parallel")) {
+    bt_node = new BT::ParallelNode(id);
+    BT::ParallelNode *parallel_node = dynamic_cast<BT::ParallelNode*>(bt_node);
+    std::string N = node["SuccessNum"];
+    parallel_node->SetThreshold(std::stoi(N)); // will throw if N is invalid
   } else if (type == std::string("Loader")) {
     is_leaf = true;
     std::string name = node["name"];

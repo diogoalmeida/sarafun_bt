@@ -105,6 +105,9 @@ namespace tree_generator {
     } else if (type == "Loader") {
       indices[LOADER]++;
       node["id"] = id + std::to_string(indices[LOADER]);
+    } else if (type == "Parallel") {
+      indices[PARALLEL]++;
+      node["id"] = id + std::to_string(indices[PARALLEL]);
     } else {
       std::string error_message("Tried to modify id of an unknown node type: ");
       error_message = error_message + type;

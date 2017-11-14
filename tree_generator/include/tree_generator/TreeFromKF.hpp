@@ -10,8 +10,8 @@
 using json = nlohmann::json;
 namespace tree_generator {
 
-const int NUM_TYPES = 7;
-enum node_type {SEQ=0, SEL, SEQSTAR, SELSTAR, ACTION, CONDITION, LOADER};
+const int NUM_TYPES = 8;
+enum node_type {SEQ=0, SEL, SEQSTAR, SELSTAR, ACTION, CONDITION, LOADER, PARALLEL};
 
 /**
   This class constructs one pre-defined BT subtree,
