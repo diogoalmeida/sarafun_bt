@@ -109,7 +109,7 @@ ExecuteAction<ActionClass, ActionGoal>::ExecuteAction(
     ROS_ERROR("%s could not connect to %s", bt_name.c_str(), actionlib_name.c_str());
     nh_.shutdown();
   } 
-  first_call_ = false;
+  first_call_ = true;
 }
 
 template <class ActionClass, class ActionGoal>
@@ -163,7 +163,7 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
       return -1; // Failure
     }
     start_time_ = ros::Time::now();
-
+	std::cout <<"Action started:"<<start_time_.toSec()<<std::endl;
     bool has_parameters = fillGoal(goal_);
 
     if (!has_parameters) {
