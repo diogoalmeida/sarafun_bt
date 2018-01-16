@@ -76,9 +76,9 @@ protected:
       @return True if the tree is active, false otherwise.
   **/
   bool isSystemActive();
-  
+
   /**
-    Procedure that cancels the current action goal and resets the execute action state. 
+    Procedure that cancels the current action goal and resets the execute action state.
   **/
   void cancelActionGoal();
 
@@ -108,8 +108,10 @@ ExecuteAction<ActionClass, ActionGoal>::ExecuteAction(
   {
     ROS_ERROR("%s could not connect to %s", bt_name.c_str(), actionlib_name.c_str());
     nh_.shutdown();
-  } 
-  first_call_ = false;
+  }
+
+  ROS_INFO("Action %s connected to corresponding actionlib server!", action_name_.c_str());
+  first_call_ = true;
 }
 
 template <class ActionClass, class ActionGoal>
@@ -159,7 +161,7 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
       ROS_ERROR("Actionlib server failed to start for action %s!",
       action_name_.c_str());
       cancelActionGoal();
-      
+
       return -1; // Failure
     }
     start_time_ = ros::Time::now();
@@ -212,7 +214,7 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
       return -1;
     }
   }
-  
+
   // ROS_INFO("Action %s RETURNING", action_name_.c_str());
   return 0;
 }
@@ -224,7 +226,7 @@ void ExecuteAction<ActionClass, ActionGoal>::cancelActionGoal()
   if (goal_state != actionlib::SimpleClientGoalState::ACTIVE)
   {
     action_client_->cancelGoal(); // To be safe
-    first_call_ = true;  
+    first_call_ = true;
   }
 }
 

@@ -3,7 +3,7 @@
   <arg name="demo2" default="false"/>
 
   <!-- Launch the tree client -->
-  <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo" output="screen"/>
+  <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo" output="screen" launch-prefix="xterm -e gdb --args"/>
 
   <!-- General parameters -->
   <param name="/sarafun/bt/tick_period" type="int" value="500"/> <!-- Tick period in milisseconds -->
@@ -27,7 +27,7 @@
 		  <node name="ApproachObjectsAction" pkg="sarafun_tree" type="ApproachObjectsAction" output="screen"/>
 		  <node name="FoldingAssemblyAction" pkg="sarafun_tree" type="FoldingAssemblyAction" output="screen"/>
 		  <node name="InsertionWithDeformationAction" pkg="sarafun_tree" type="InsertionWithDeformationAction" output="screen"/>
-		  <node name="PlaceAction" pkg="sarafun_tree" type="PlaceAction" output="screen"/>
+		  <node name="PlaceAction" pkg="sarafun_tree" type="PlaceActionDemo" output="screen"/>
 
 		  <!-- Dummy actionlib servers for demo purposes -->
 		  <node name="ApproachDummy" pkg="sarafun_manipulation" type="ApproachDummy" output="screen"/>

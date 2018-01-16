@@ -23,6 +23,8 @@ add_service_files(
 
 link_directories(${catkin_LIBRARY_DIRS})
 set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
+set(CMAKE_BUILD_TYPE Debug)
+add_definitions(-g -O0)
 
 generate_messages(DEPENDENCIES std_msgs)
 

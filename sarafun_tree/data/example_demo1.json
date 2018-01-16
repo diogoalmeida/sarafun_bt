@@ -27,9 +27,10 @@
       ]
     },
     "selector1": {
-      "id": "selector1",
-      "type": "SelectorStar",
-      "name": "SelectorStar",
+      "id": "parallel1",
+      "type": "Parallel",
+      "name": "Parallel",
+      "SuccessNum": "1",
       "children": [
         "folding_assembly_action",
         "insertion_with_deformation_action"

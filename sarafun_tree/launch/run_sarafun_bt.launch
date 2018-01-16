@@ -1,13 +1,11 @@
 <launch>
-  <!-- Launch the tree client -->
-  <node name="tree" pkg="sarafun_tree" type="sarafun_bt" output="screen"/>
-
   <!-- General parameters -->
   <param name="/sarafun/bt/tick_period" type="int" value="500"/> <!-- Tick period in milisseconds -->
   <param name="/sarafun/bt/running" type="bool" value="true"/> <!-- Immediately start the behavior tree -->
   <rosparam command="load" file="$(find sarafun_tree)/config/sarafun_action_nodes_config.yaml"/>
 
   <group if="$(arg debug)" >
+    <node name="tree" pkg="sarafun_tree" type="sarafun_bt" output="screen" launch-prefix="xterm -e gdb --args"/>
 	  <!-- Dummy actionlib servers for debug purposes -->
 	  <node name="AlignDummy" pkg="sarafun_bt_nodes_test" type="AlignDummy" output="screen"/>
 	  <node name="AssembledDummy" pkg="sarafun_bt_nodes_test" type="AssembledDummy" output="screen"/>
@@ -17,6 +15,9 @@
     <node name="MoveDummy" pkg="sarafun_bt_nodes_test" type="MoveDummy" output="screen"/>
     <node name="PickupDummy" pkg="sarafun_bt_nodes_test" type="PickupDummy" output="screen"/>
 	  <node name="RetractDummy" pkg="sarafun_bt_nodes_test" type="RetractDummy" output="screen"/>
+  </group>
+  <group unless="$(arg debug)" >
+    <node name="tree" pkg="sarafun_tree" type="sarafun_bt" output="screen"/>
   </group>
 
   <!-- Launch the Behavior tree action nodes -->
