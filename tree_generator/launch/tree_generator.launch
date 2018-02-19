@@ -1,6 +1,17 @@
 <launch>
-  <node name="tree_generator" pkg="tree_generator" type="tree_generator" output="screen">
-    <rosparam command="load" file="$(find tree_generator)/data/config.yaml"/>
-    <rosparam command="load" file="$(find tree_generator)/data/subtrees/subtrees.yaml"/>
-  </node>
+  <arg name="debug" default="false"/>
+
+  <group unless="$(arg debug)">
+    <node name="tree_generator" pkg="tree_generator" type="tree_generator" output="screen">
+      <rosparam command="load" file="$(find tree_generator)/data/config.yaml"/>
+      <rosparam command="load" file="$(find tree_generator)/data/subtrees/subtrees.yaml"/>
+    </node>
+  </group>
+
+  <group if="$(arg debug)">
+    <node name="tree_generator" pkg="tree_generator" type="tree_generator" output="screen" launch-prefix="xterm -e gdb --args">
+      <rosparam command="load" file="$(find tree_generator)/data/config.yaml"/>
+      <rosparam command="load" file="$(find tree_generator)/data/subtrees/subtrees.yaml"/>
+    </node>
+  </group>
 </launch>

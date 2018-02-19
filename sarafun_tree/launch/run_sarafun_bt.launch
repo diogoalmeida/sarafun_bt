@@ -1,5 +1,6 @@
 <launch>
   <!-- General parameters -->
+  <arg name="debug" default="false"/>
   <param name="/sarafun/bt/tick_period" type="int" value="500"/> <!-- Tick period in milisseconds -->
   <param name="/sarafun/bt/running" type="bool" value="true"/> <!-- Immediately start the behavior tree -->
   <rosparam command="load" file="$(find sarafun_tree)/config/sarafun_action_nodes_config.yaml"/>
@@ -16,6 +17,7 @@
     <node name="PickupDummy" pkg="sarafun_bt_nodes_test" type="PickupDummy" output="screen"/>
 	  <node name="RetractDummy" pkg="sarafun_bt_nodes_test" type="RetractDummy" output="screen"/>
   </group>
+
   <group unless="$(arg debug)" >
     <node name="tree" pkg="sarafun_tree" type="sarafun_bt" output="screen"/>
   </group>

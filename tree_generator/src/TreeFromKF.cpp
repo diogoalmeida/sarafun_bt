@@ -146,6 +146,15 @@ namespace tree_generator {
       // HACK: Add the idx to the subtree root to make it unique. Ideally I would check for uniqueness independently of the idx
       std::cout << subtree << std::endl;
       old_root = subtree["root"];
+
+      // check for root existance
+      if (subtree["nodes"][old_root] == NULL)
+      {
+        std::stringstream ss;
+        ss << "Parsing subtree " << label << ", which declares <" << old_root << "> as root, but has no node named "<< old_root << std::endl;
+        throw std::logic_error(ss.str());
+      }
+
       new_root = subtree["root"].get<std::string>() + std::to_string(keyframes_list[i].idx);
       subtree["nodes"][new_root] = subtree["nodes"][old_root];
       subtree["root"] = new_root;
