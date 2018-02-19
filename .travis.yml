@@ -87,6 +87,7 @@ before_install:
 # Create a catkin workspace with the package under integration.
 install:
   - cd ~/soth
+  - git checkout 07d319e8c35a0d8e92d5141022dadb3eb31ede24
   - mkdir ~/soth/_build
   - cd ~/soth/_build
   - cmake ..
