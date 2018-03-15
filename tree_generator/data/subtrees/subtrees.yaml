@@ -3,7 +3,7 @@ initial:
   file: initial.json
 
 grasp:
-  file: grasp.json
+  file: grasp_parallel.json
 
 pick_up:
   file: pick.json
@@ -26,3 +26,8 @@ contact:
 move:
   file: move.json
 
+insert:
+  file: insert.json
+  
+deform:
+  file: deform.json  

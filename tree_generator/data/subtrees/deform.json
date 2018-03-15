@@ -1,0 +1,10 @@
+{
+  "root": "deform",
+  "nodes":{
+    "deform": {
+        "id": "deform",
+        "type": "Action",
+        "name": "deform_action"
+    }
+  }
+}

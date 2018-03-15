@@ -1,0 +1,59 @@
+{
+  "root": "parallel",
+  "nodes": {
+    "parallel": {
+      "id": "parallel",
+      "type": "Parallel",
+      "name": "Parallel",
+      "SuccessNum": "2",
+      "children": [
+        "grasp_surface_sequence",
+        "grasp_rod_sequence"
+      ]
+    },
+    "grasp_surface_sequence": {
+      "id": "sequence",
+      "type": "SequenceStar",
+      "name": "SequenceStar",
+      "children": [
+        "grasp_surface_loader",
+        "grasp_surface"
+      ]
+    },
+    "grasp_surface_loader": {
+      "id": "loader",
+      "type": "Loader",
+      "name": "Loader",
+      "parameters": {
+        "/grasp_action_1/object_id": "surface_part"
+      }
+    },
+    "grasp_surface": {
+        "id": "grasp",
+        "type": "Action",
+        "name": "grasp_action_1"
+    },
+    "grasp_rod_sequence": {
+      "id": "sequence",
+      "type": "SequenceStar",
+      "name": "SequenceStar",
+      "children": [
+        "grasp_rod_loader",
+        "grasp_rod"
+      ]
+    },
+    "grasp_rod_loader": {
+      "id": "loader",
+      "type": "Loader",
+      "name": "Loader",
+      "parameters": {
+        "/grasp_action_2/object_id": "rod_part"
+      }
+    },
+    "grasp_rod": {
+        "id": "grasp",
+        "type": "Action",
+        "name": "grasp_action_2"
+    }
+  }
+}
