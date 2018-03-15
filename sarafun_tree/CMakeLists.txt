@@ -94,3 +94,9 @@ target_link_libraries(PickupAction ${catkin_LIBRARIES})
 
 add_executable(RetractAction src/sarafun_action_nodes/RetractAction.cpp)
 target_link_libraries(RetractAction ${catkin_LIBRARIES})
+
+add_executable(InsertAction src/sarafun_action_nodes/InsertAction.cpp)
+target_link_libraries(InsertAction ${catkin_LIBRARIES})
+
+add_executable(DeformAction src/sarafun_action_nodes/DeformAction.cpp)
+target_link_libraries(DeformAction ${catkin_LIBRARIES})
