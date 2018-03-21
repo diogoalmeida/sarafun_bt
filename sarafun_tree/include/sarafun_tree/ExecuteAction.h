@@ -153,6 +153,7 @@ void ExecuteAction<ActionClass, ActionGoal>::preemptionRoutine() {
 template <class ActionClass, class ActionGoal>
 int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
   boost::lock_guard<boost::mutex> guard(action_mutex_);
+//   ROS_ERROR_STREAM("Action: "<< action_name_<<" first call: "<<first_call_);
   if (first_call_ && isSystemActive()) // fresh call!
   {
     ROS_INFO("Action %s is waiting for the corresponding actionlib server!", action_name_.c_str());
@@ -202,8 +203,12 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
     ROS_INFO("Action finished: %s", state.toString().c_str());
 
     if (state == actionlib::SimpleClientGoalState::SUCCEEDED) {
+      first_call_ = true;
       return 1;
-    } else {
+    } else if (state == actionlib::SimpleClientGoalState::ABORTED) {
+      first_call_ = true;
+      return -1;
+    }else{
       return -1;
     }
   } else {
@@ -223,11 +228,12 @@ template <class ActionClass, class ActionGoal>
 void ExecuteAction<ActionClass, ActionGoal>::cancelActionGoal()
 {
   actionlib::SimpleClientGoalState goal_state = action_client_->getState();
-  if (goal_state != actionlib::SimpleClientGoalState::ACTIVE)
-  {
+//   if (goal_state == actionlib::SimpleClientGoalState::ACTIVE)
+//   {
+	  ROS_WARN("Calling cancelGoal");
     action_client_->cancelGoal(); // To be safe
     first_call_ = true;
-  }
+//   }
 }
 
 template <class ActionClass, class ActionGoal>
