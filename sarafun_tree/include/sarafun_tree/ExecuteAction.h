@@ -108,9 +108,9 @@ ExecuteAction<ActionClass, ActionGoal>::ExecuteAction(
   {
     ROS_ERROR("%s could not connect to %s", bt_name.c_str(), actionlib_name.c_str());
     nh_.shutdown();
+  }
 
   ROS_INFO("Action %s connected to corresponding actionlib server!", action_name_.c_str());
-  } 
   first_call_ = true;
 }
 
@@ -127,6 +127,8 @@ bool ExecuteAction<ActionClass, ActionGoal>::isSystemActive() {
 
     if (running) {
       return true;
+    } else {
+      cancelActionGoal();
     }
   } else {
     ROS_WARN("The parameter /sarafun/bt/running must be set"
@@ -153,7 +155,6 @@ void ExecuteAction<ActionClass, ActionGoal>::preemptionRoutine() {
 template <class ActionClass, class ActionGoal>
 int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
   boost::lock_guard<boost::mutex> guard(action_mutex_);
-//   ROS_ERROR_STREAM("Action: "<< action_name_<<" first call: "<<first_call_);
   if (first_call_ && isSystemActive()) // fresh call!
   {
     ROS_INFO("Action %s is waiting for the corresponding actionlib server!", action_name_.c_str());
@@ -166,7 +167,7 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
       return -1; // Failure
     }
     start_time_ = ros::Time::now();
-	std::cout <<"Action started:"<<start_time_.toSec()<<std::endl;
+	  ROS_INFO_STREAM("Action " << action_name_ << " started: " << start_time_.toSec());
     bool has_parameters = fillGoal(goal_);
 
     if (!has_parameters) {
@@ -203,12 +204,8 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
     ROS_INFO("Action finished: %s", state.toString().c_str());
 
     if (state == actionlib::SimpleClientGoalState::SUCCEEDED) {
-      first_call_ = true;
       return 1;
-    } else if (state == actionlib::SimpleClientGoalState::ABORTED) {
-      first_call_ = true;
-      return -1;
-    }else{
+    } else {
       return -1;
     }
   } else {
@@ -228,12 +225,12 @@ template <class ActionClass, class ActionGoal>
 void ExecuteAction<ActionClass, ActionGoal>::cancelActionGoal()
 {
   actionlib::SimpleClientGoalState goal_state = action_client_->getState();
-//   if (goal_state == actionlib::SimpleClientGoalState::ACTIVE)
-//   {
-	  ROS_WARN("Calling cancelGoal");
-    action_client_->cancelGoal(); // To be safe
-    first_call_ = true;
-//   }
+  ROS_DEBUG("Calling cancelGoal");
+  if (!goal_state.isDone())
+  {
+    action_client_->cancelGoal();
+  }
+  first_call_ = true;
 }
 
 template <class ActionClass, class ActionGoal>
