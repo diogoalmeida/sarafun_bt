@@ -108,10 +108,13 @@ ExecuteAction<ActionClass, ActionGoal>::ExecuteAction(
   {
     ROS_ERROR("%s could not connect to %s", bt_name.c_str(), actionlib_name.c_str());
     nh_.shutdown();
+    ros::shutdown();
   }
-
-  ROS_INFO("Action %s connected to corresponding actionlib server!", action_name_.c_str());
-  first_call_ = true;
+  else
+  {
+    ROS_INFO("Action %s connected to corresponding actionlib server!", action_name_.c_str());
+    first_call_ = true;
+  }
 }
 
 template <class ActionClass, class ActionGoal>
@@ -217,7 +220,7 @@ int ExecuteAction<ActionClass, ActionGoal>::executionRoutine() {
     }
   }
 
-  // ROS_INFO("Action %s RETURNING", action_name_.c_str());
+  ROS_DEBUG("Action %s RETURNING", action_name_.c_str());
   return 0;
 }
 
