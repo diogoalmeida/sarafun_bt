@@ -1,9 +1,16 @@
 <launch>
   <arg name="demo1" default="true"/>
   <arg name="demo2" default="false"/>
+  <arg name="debug" default="false"/>
 
   <!-- Launch the tree client -->
-  <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo" output="screen" launch-prefix="xterm -e gdb --args"/>
+  <group if="$(arg debug)">
+    <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo" output="screen" launch-prefix="xterm -e gdb --args"/>
+  </group>
+
+  <group unless="$(arg debug)">
+    <node name="tree" pkg="sarafun_tree" type="sarafun_bt_demo" output="screen"/>
+  </group>
 
   <!-- General parameters -->
   <param name="/sarafun/bt/tick_period" type="int" value="500"/> <!-- Tick period in milisseconds -->
